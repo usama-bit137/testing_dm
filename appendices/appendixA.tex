@@ -1,0 +1,106 @@
+\chapter{Fifth forces in alternative theories of gravity}\label{appendixConformalDynamics}
+\section{Dynamics in conformal metrics}
+Consider a metric in the Jordan Frame,
+\begin{equation}
+g_{\mu\nu} = A(\varphi)^2\tilde{g} _{\mu\nu}
+\end{equation}
+in a scalar-tensor theory $(\tilde{g}_{\mu\nu},\varphi)$. $A(\varphi)$ is usually give by,
+\begin{equation}
+    A(\varphi) = 1 + \frac{\varphi^2}{2M^2} + \mathcal{O}\left(\frac{\varphi^4}{M^4}\right),
+\end{equation}
+which is an effective field theory \citep{darkdomains}. The geodesics of this theory are those of the Jordan frame metric. A massive particle will move on some affinely-parametrised geodesic, 
+\begin{equation}
+    \frac{d^2x^{\mu}}{d\tau^2} + \Gamma^{\mu}_{\ \rho\sigma}\frac{dx^{\rho}}{d\tau}\frac{dx^{\sigma}}{d\tau} = 0,
+\end{equation}
+where $\Gamma^{\mu}_{\ \rho\sigma}$ defines a Levi-Civita connection of $g_{\mu\nu}$, where $\frac{dx^{\mu}}{d\tau}$ are tangent vectors of the geodesics in the Jordan Frame. It is important to note that the analogous equation for the Einstein frame metric, $\tilde{g}_{\mu\nu}$, deviates from the geodesics
+\begin{equation}
+        a_E^{\mu} = \frac{d^2x^{\mu}}{d\tau^2} + \tilde{\Gamma}^{\mu}_{\ \rho\sigma}\frac{dx^{\rho}}{d\tau}\frac{dx^{\sigma}}{d\tau} \neq 0.
+\end{equation}
+where $a_E^{\mu}$ is an acceleration of a massive particle in the Einstein frame. This is because the tangent vectors are generated from the geodesics in the Jordan frame and so are not necessarily geodesics in the Einstein frame. Our goal is to calculate the $\Gamma$-coefficients of Jordan Frame in terms of $\tilde{g}_{\mu\nu}$ given the above considerations.
+
+\section{Conformal transformations on Connections}
+We begin by substituting the Jordan frame metric into the standard definition of the Christoffel Symbols.
+\begin{equation}
+    \Gamma^{\mu}_{\ \rho\sigma} = \frac{1}{2}A^{-2}\tilde{g}^{\mu\nu}\left[(A^2\tilde{g}_{\rho\nu}),_{\sigma} + (A^2\tilde{g}_{\nu\sigma}),_{\rho}-(A^2\tilde{g}_{\rho\sigma}),_{\nu}\right]
+\end{equation}
+Expanding this out and noticing that $\tilde{\Gamma}\sim \tilde{g}^{-1}\partial \tilde{g}$, we can write,
+\begin{equation}
+    \Gamma^{\mu}_{\ \rho\sigma} = \tilde{\Gamma}^{\mu}_{\ \rho\sigma} + A^{-1}\left[\delta^{\mu}_{\rho}(\partial_{\sigma}A) + \delta^{\mu}_{\sigma}(\partial_{\rho}A) - \tilde{g}_{\rho\sigma}\tilde{g}^{\mu\nu}(\partial_{\nu}A)\right].
+\end{equation}
+Since the second term is the difference between two connections, we can identify it as $(2,1)$ tensor, $C^{\mu}_{\ \rho\sigma}$. As $A(\varphi)$ is only explicitly a function of $\varphi$, the chain rule can be used to convert this expression to the following, expression for $C^{\mu}_{\ \rho\sigma}$,
+\begin{eqnarray}
+    C^{\mu}_{\ \rho\sigma} &=& A^{-1}\frac{\partial A}{\partial\varphi}\left[\delta^{\mu}_{\rho}(\partial_{\sigma}\varphi) + \delta^{\mu}_{\sigma}(\partial_{\rho}\varphi) - \tilde{g}_{\rho\sigma}\tilde{g}^{\mu\nu}(\partial_{\nu}\varphi)\right]\nonumber\\
+    &=& \frac{\partial (\ln A(\varphi))}{\partial\varphi}\left[\delta^{\mu}_{\rho}(\partial_{\sigma}\varphi) + \delta^{\mu}_{\sigma}(\partial_{\rho}\varphi) - \tilde{g}_{\rho\sigma}\tilde{g}^{\mu\nu}(\partial_{\nu}\varphi)\right]
+\end{eqnarray}
+This is a tensor because we can be expressed completely covariantly,
+\begin{equation}
+C^{\mu}_{\ \rho\sigma} = A^{-1}\frac{\partial A}{\partial\varphi}\left[\delta^{\mu}_{\rho}(\nabla_{\sigma}\varphi) + \delta^{\mu}_{\sigma}(\nabla_{\rho}\varphi) - \tilde{g}_{\rho\sigma}\tilde{g}^{\mu\nu}(\nabla_{\nu}\varphi)\right],
+\end{equation}
+because $\nabla_{\mu}\varphi = \partial_{\mu}\varphi$.
+
+This can be proven in terms of general coordinate transformations: 
+
+\begin{tcolorbox}
+The difference between two Levi-Civita connections $C^{\mu}_{\ \rho \sigma} = \Gamma^{\mu}_{\ \rho \sigma} - \tilde{\Gamma}^{\mu}_{\ \rho \sigma}$ is a tensor under general coordinate transformations. 
+
+$ $
+
+\textbf{Proof:}
+Consider a matrix coordinate transformation $x$ and $x'$, $$ M: x^{\mu} \rightarrow x^{\mu'}. $$ A general Levi-Civita connection will transform as follows,
+\begin{equation}
+    \Gamma^{\mu}_{\ \rho \sigma}\rightarrow \Gamma^{\mu'}_{\ \rho' \sigma'} = \frac{1}{2}g^{\mu'\nu'}\left(g_{\rho'\nu', \sigma'} + g_{\nu'\sigma',\rho'}-g_{\rho'\sigma', \nu'}\right)
+\end{equation}
+The component terms of the above connection only differ in index placement, a particular term will transform as follows:
+\begin{eqnarray*}
+    \partial_{\mu}g_{\rho\sigma} \rightarrow  \partial_{\mu'}g_{\rho'\sigma'} &=& \frac{\partial x^{\mu'}}{\partial x^{\mu}}\frac{\partial }{\partial x^{\mu}}\left(\frac{\partial x^{\rho}}{\partial x^{\rho'}}\frac{\partial x^{\nu}}{\partial x^{\nu'}}g_{\rho\nu}\right)\\
+    &=& \frac{\partial x^{\mu'}}{\partial x^{\mu}}\frac{\partial x^{\nu}}{\partial x^{\nu'}}\frac{\partial }{\partial x^{\mu}}\left(\frac{\partial x^{\rho}}{\partial x^{\rho'}}\right)g_{\rho\nu} +
+    %----------------------
+    \frac{\partial x^{\mu'}}{\partial x^{\mu}}\frac{\partial x^{\rho}}{\partial x^{\rho'}}\frac{\partial }{\partial x^{\mu}}\left(\frac{\partial x^{\nu}}{\partial x^{\nu'}}\right)g_{\rho\nu}  \\
+    & & \ \ \ \ + \  \frac{\partial x^{\mu'}}{\partial x^{\mu}}\frac{\partial x^{\rho}}{\partial x^{\rho'}}\frac{\partial x^{\nu}}{\partial x^{\nu'}}\partial_{\mu}g_{\rho\nu} 
+\end{eqnarray*}
+\end{tcolorbox}
+The geodesic equation is now,
+\begin{equation}
+    \frac{d^2x^{\mu}}{d\tau^2} + \tilde{\Gamma}^{\mu}_{\ \rho\sigma}\frac{dx^{\rho}}{d\tau}\frac{dx^{\sigma}}{d\tau} + C^{\mu}_{\ \rho\sigma}\frac{dx^{\rho}}{d\tau}\frac{dx^{\sigma}}{d\tau} =0
+\end{equation}
+For which we identify the first two terms as $a_{E}^{\mu}$,
+\begin{equation}
+    a_{E}^{\mu} = -C^{\mu}_{\ \rho\sigma}\frac{dx^{\rho}}{d\tau}\frac{dx^{\sigma}}{d\tau} = F^{\mu}
+\end{equation}
+where the equality is the covariant force vector for a unit-mass particle. Identifying $u^{\mu} = \frac{dx^{\mu}}{d\tau}$ we get the following force on this test particle is given by,
+\begin{eqnarray}
+    F^{\mu} &=& A^{-1}\frac{\partial A}{\partial\varphi}\left[\delta^{\mu}_{\rho}(\nabla_{\sigma}\varphi) + \delta^{\mu}_{\sigma}(\nabla_{\rho}\varphi) - \tilde{g}_{\rho\sigma}\tilde{g}^{\mu\nu}(\nabla_{\nu}\varphi)\right]u^{\rho}u^{\sigma} \\
+    &=& A^{-1}\frac{\partial A}{\partial\varphi}\left[2u^{\mu}(u^{\alpha}\nabla_{\alpha}\varphi) - \tilde{g}^{\mu\nu}(\nabla_{\nu}\varphi)u^{\alpha}u_{\alpha}\right]
+\end{eqnarray}
+\section{Considering forces in Local Inertial Frames}
+Consider the expression for the force on the particle in a local inertial frame. This amounts to appropriate substitutions to use this relations, $\tilde{g}_{\mu\nu} \rightarrow \eta_{\mu\nu}$ and $\nabla_{\lambda}\rightarrow\partial_{\lambda}$,
+\begin{equation}
+    F^{\mu} =  -\frac{\partial (\ln A(\varphi))}{\partial\varphi}\left[2u^{\mu}(u^{\alpha}\partial_{\alpha}\varphi) - \eta^{\mu\nu}(\partial_{\nu}\varphi)u^{\sigma}u_{\sigma}\right].
+\end{equation}
+where $u_{\alpha}= \eta_{\alpha\beta}u^{\beta}$ now. Since $u^{\mu}$ is a time-like vector, in the mostly-plus Lorentzian signature, $u^{\mu}u_{\mu} < 0$ we can write the force equation in the inertial frame of the test particle using a suitable Lorentz transformation such that $u^{\mu} = (1, \vec{0})$, 
+\begin{equation}
+    F^{\mu} = \frac{\partial (\ln A(\varphi))}{\partial\varphi}\left[2u^{\mu}(u^{\alpha}\partial_{\alpha}\varphi) + \eta^{\mu\nu}(\partial_{\nu}\varphi)\right].
+\end{equation}
+Choosing now to separate these into equations, for spacelike and timelike components now gives us,
+\begin{eqnarray}
+    \mathbf{F}_5 &=& -\frac{\partial (\ln A)}{\partial \varphi}\vec{\nabla}\varphi =-\vec{\nabla}\left(\ln A\right)\\
+    P &=& \frac{\partial (\ln A)}{\partial \varphi}\dot{\varphi}
+\end{eqnarray}
+where $P$ is the power generated by the test particle accelerated by $\mathbf{F}_5$, which could be of interest. This is a derivation of the fifth force, $\mathbf{F}_5$ generated in the Einstein Frame.   
+
+\section{Calculating the Fifth Force}
+We see that we can calculate the non-relativistic force on the test particle, all that needs to be assigned is the form of $A(\varphi)$. In this particular theory we use, 
+\begin{equation}
+    A(\varphi) = 1 + \frac{\varphi^2}{2M^2}
+\end{equation}
+with higher order terms ignored. We see that $\ln(A) = \ln(1 + \varphi^2/2M^2)$, where for $\frac{\varphi}{M}\ll 1$, we can expand in powers of $\frac{\varphi}{M}$
+\begin{equation}
+    \ln A(\varphi)\approx \frac{\varphi^2}{2M^2}+...
+\end{equation}
+which derives a new fifth force,
+\begin{equation}
+    \mathbf{F}_5 \approx - \frac{\varphi\vec{\nabla}\varphi}{M^2}.
+\end{equation}
+
+\bibliographystyle{numbers}
+\bibliography{appendices/bibliographies/bibAppendixA}

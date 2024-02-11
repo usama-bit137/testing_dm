@@ -1,0 +1,30 @@
+\chapter{Conformal Transformations}\label{appendixConformalTrans}
+A conformal transformation is a transformation between metric spaces which We choose the conformal metric, $\tilde{g}_{\mu\nu}$, 
+\begin{equation}\label{appe-A-conformal}
+    \tilde{g}_{\mu\nu} = 16\pi\tilde{G}f(\varphi)g_{\mu\nu}
+\end{equation}
+where $\tilde{G}$ is the Gravitational constant in the conformal frame. The connection coefficients in this new frame ($\tilde{\Gamma}^{\mu}_{\ \rho\sigma}$) are, 
+\begin{equation}
+    \tilde{\Gamma}^{\rho}_{\ \mu\nu} = \frac{1}{2}\tilde{g}^{\rho\sigma}\left(\tilde{g}_{\mu\sigma, \nu} + \tilde{g}_{\nu\sigma, \mu} - \tilde{g}_{\mu\nu, \sigma}  \right)
+\end{equation}
+Substituting the conformal metric (\ref{appe-A-conformal}) in terms of the usual metric give, 
+\begin{eqnarray}
+    \tilde{\Gamma}^{\rho}_{\ \mu\nu} &=& \frac{1}{2}f(\varphi)^{-1}g^{\rho\sigma}\left(\partial_{\nu}(fg_{\mu\sigma}) + \partial_{\mu}(fg_{\nu\sigma})- \partial_{\sigma}(fg_{\mu\nu}) \right)\\
+    &=& \Gamma^{\rho}_{\ \mu\nu} + \frac{1}{2}f(\varphi)^{-1}g^{\rho\sigma}\left((\partial_{\nu}f)g_{\mu\sigma} + (\partial_{\mu}f)g_{\nu\sigma} -(\partial_{\sigma}f)g_{\mu\nu} \right)\\
+    &=& \Gamma^{\rho}_{\ \mu\nu} + \frac{1}{2}f(\varphi)^{-1}\left((\partial_{\nu}f)\delta^{\rho}_{\mu} + (\partial_{\mu}f)\delta^{\rho}_{\nu} -g^{\rho\sigma}g_{\mu\nu}(\partial_{\sigma}f)\right)
+\end{eqnarray}
+Using the chain rule, $\partial_{\mu}f(\varphi) = (\partial f/\partial \varphi)\partial_{\mu}\varphi$, we can write, 
+\begin{equation}
+    \tilde{\Gamma}^{\rho}_{\ \mu\nu} = \Gamma^{\rho}_{\ \mu\nu} + \frac{1}{2}\frac{\partial \ln[f(\varphi)]}{\partial \varphi}\left[(\partial_{\nu}\varphi)\delta^{\rho}_{\mu} + (\partial_{\mu}\varphi)\delta^{\rho}_{\nu} -g^{\rho\sigma}g_{\mu\nu}(\partial_{\sigma}\varphi)\right]
+\end{equation}
+This connection defines a new covariant derivative on a vector field, $A = A^{\mu}(x)\partial_{\mu}$, 
+\begin{eqnarray*}
+\tilde{\nabla}_{\mu}A^{\rho} &=& \partial_{\mu}A^{\rho} + \tilde{\Gamma}^{\rho}_{\ \mu\nu}A^{\nu},\\
+&=& \partial_{\mu}A^{\rho} + \Gamma^{\rho}_{\ \mu\nu}A^{\nu} + \frac{1}{2}\frac{\partial \ln[f(\varphi)]}{\partial \varphi}\left[(A^{\nu}\partial_{\nu}\varphi)\delta^{\rho}_{\mu} + (\partial_{\mu}\varphi)A^{\rho} -g^{\rho\sigma}A_{\mu}(\partial_{\sigma}\varphi)\right]
+\end{eqnarray*}
+and on a covector field, $\omega = \omega_{\mu} (x)dx^{\mu}$, 
+\begin{eqnarray*}
+    \tilde{\nabla}_{\mu}\omega_{\nu} &=& \partial_{\mu}\omega_{\nu} - \tilde{\Gamma}^{\rho}_{\ \mu\nu}\omega_{\rho},\\
+    &=& \partial_{\mu}\omega_{\nu} - \Gamma^{\rho}_{\ \mu\nu}\omega_{\rho} - \frac{1}{2}\frac{\partial \ln[f(\varphi)]}{\partial \varphi}\left[(\partial_{\nu}\varphi)\omega_{\mu} + (\partial_{\mu}\varphi)\omega_{\nu} -g_{\mu\nu}(\partial_{\sigma}\varphi)\omega^{\sigma}\right]
+\end{eqnarray*}
+which generalises to higher-order tensors.
