@@ -16,13 +16,13 @@ A popular set of theories is known as \textbf{scalar-tensor theories} since they
 where,
 \begin{eqnarray}\label{st-actions}
     S_{fR} &=& \int d^4x\sqrt{-g}f(\varphi)R,\\
-    S_{\varphi} &=& \int d^4x\sqrt{-g}\left[-\frac{1}{2}h(\varphi)g^{\mu\nu}\partial_{\mu}\varphi\partial_{\nu}\varphi - U(\varphi)\right],
+    S_{\varphi} &=& \int d^4x\sqrt{-g}\left[-\frac{1}{2}\mathfrak{h}(\varphi)g^{\mu\nu}\partial_{\mu}\varphi\partial_{\nu}\varphi - U(\varphi)\right],
 \end{eqnarray}
 and 
 \begin{equation}\label{matter-action}
     S_M = \int d^4x\sqrt{-g} \hat{\mathcal{L}}_M(g_{\mu\nu}, \psi_i).
 \end{equation}
-The functions $f(\varphi)$, $h(\varphi)$ and $U(\varphi)$ define the theory we are interested in and the matter Lagrangian $\hat{\mathcal{L}}_M$ is a function of the metric and the matter fields $\psi_i$ but not of $\varphi$. By the usual variations of the inverse metric $g^{\mu\nu} \rightarrow g^{\mu\nu}  + \delta g^{\mu\nu} $, we can obtain the Field Equations of this system. Variations with respect to the inverse metric can be used to obtain the variations with respect to the metric using the following conversion,
+The functions $f(\varphi)$, $\mathfrak{h}(\varphi)$ and $U(\varphi)$ define the theory we are interested in and the matter Lagrangian $\hat{\mathcal{L}}_M$ is a function of the metric and the matter fields $\psi_i$ but not of $\varphi$. By the usual variations of the inverse metric $g^{\mu\nu} \rightarrow g^{\mu\nu}  + \delta g^{\mu\nu} $, we can obtain the Field Equations of this system. Variations with respect to the inverse metric can be used to obtain the variations with respect to the metric using the following conversion,
 
 \begin{eqnarray}
     \delta(g^{\mu\sigma}g_{\nu\sigma}) &=& \delta g^{\mu\sigma}g_{\nu\sigma} + g^{\mu\sigma}\delta g_{\nu\sigma}= 0 \nonumber\\
@@ -44,9 +44,9 @@ We see that $\delta S_2$ is in the form that we require, however, $\delta S_1$ a
     R^{\rho}_{\ \mu \lambda \nu} = \partial_{\lambda}\Gamma^{\rho}_{\ \nu \mu} + \Gamma^{\rho}_{\ \lambda \sigma} \Gamma^{\sigma}_{\ \nu\mu} - \partial_{\nu}\Gamma^{\rho}_{\ \lambda \mu} - \Gamma^{\rho}_{\ \nu \sigma} \Gamma^{\sigma}_{\ \lambda\mu}
 \end{equation}
 Following steps...
-The variations of the metric lead a gnarly integral, 
+The variations of the metric lead to a gnarly integral, 
 \begin{equation}
-    \delta S_{fR} = \int\sqrt{-g}f(\varphi)\left[\left(R_{\mu\nu}- \frac{1}{2} Rg_{\mu\nu}\right)\delta g^{\mu\nu} + \nabla_{\sigma}\nabla^{\sigma}(g_{\mu\nu}\delta g^{\mu\nu}) - \nabla_{\mu}\nabla_{\nu}(\delta g^{\mu\nu})\right]
+    \delta S_{fR} = \int d^4x\sqrt{-g}f(\varphi)\left[\left(R_{\mu\nu}- \frac{1}{2} Rg_{\mu\nu}\right)\delta g^{\mu\nu} + \nabla_{\sigma}\nabla^{\sigma}(g_{\mu\nu}\delta g^{\mu\nu}) - \nabla_{\mu}\nabla_{\nu}(\delta g^{\mu\nu})\right]
 \end{equation}
 For the usual Einstein-Hilbert action, $f(\varphi)$ is a constant which means the last two terms are total derivatives, which we can integrate by parts. This will furnish the action with terms involving derivatives of $f(\varphi)$,
 \begin{equation}
@@ -62,13 +62,13 @@ T^{(I)}_{\mu\nu} = -\frac{2}{\sqrt{-g}}\frac{\delta S_{I}}{\delta g^{\mu\nu}},
 \end{equation}
 where the index $I$ denotes the matter or scalar parts of the actions. In particular, 
 \begin{equation}
-    T_{\mu\nu}^{(\varphi)} = h(\varphi)\nabla_{\mu}\varphi\nabla_{\nu}\varphi - g_{\mu\nu}\left[\frac{1}{2}h(\varphi)g^{\rho\sigma}\nabla_{\rho}\varphi\nabla_{\sigma}\varphi + U(\varphi)\right]
+    T_{\mu\nu}^{(\varphi)} = \mathfrak{h}(\varphi)\nabla_{\mu}\varphi\nabla_{\nu}\varphi - g_{\mu\nu}\left[\frac{1}{2}\mathfrak{h}(\varphi)g^{\rho\sigma}\nabla_{\rho}\varphi\nabla_{\sigma}\varphi + U(\varphi)\right]
 \end{equation}
 Looking closely at (\ref{modified-efes}) and (\ref{efes}), we can identify $f(\varphi) = 1/16\pi G$, in the Einstein-Hilbert case. This identification gives us the usual GR and so is nothing new. However, this identifies a gravity-like theory, but with a strength that varies with the value of the scalar $\varphi$ at different spacetime positions. This places a bound on how large the scalar field amplitude can be on cosmological scale and the scale of the Solar System (because it would be obviously observable... and we can't observe it). We can determine the equations of motion for $\varphi$, 
 \begin{equation}
-    h(\varphi)\Box\varphi + \frac{1}{2}h'(\varphi)g^{\mu\nu}(\nabla_{\mu}\varphi)(\nabla_{\nu}\varphi) - U'(\varphi) + f'(\varphi)R = 0
+    \mathfrak{h}(\varphi)\Box\varphi + \frac{1}{2}\mathfrak{h}'(\varphi)g^{\mu\nu}(\nabla_{\mu}\varphi)(\nabla_{\nu}\varphi) - U'(\varphi) + f'(\varphi)R = 0
 \end{equation}
-where the prime $'$ denotes differentiation with respect to $\varphi$. If $h(\varphi) = 1$ the conventional scalar field equations are obtained, 
+where the prime $'$ denotes differentiation with respect to $\varphi$. If $\mathfrak{h}(\varphi) = 1$ the conventional scalar field equations are obtained, 
 \begin{equation}
     \Box\varphi + f'(\varphi)R= U'(\varphi)
 \end{equation}
@@ -77,18 +77,18 @@ but with this curious Ricci scalar coupling. From the previous discussion, we ca
 \begin{equation}
     U(\varphi) \ \approx\  \frac{1}{2}m_{\varphi}^2\varphi^2 + ...
 \end{equation}
-where we identify $m_{\varphi}^2 = U''(0)>0$ and $m_{\varphi}^2\gg 1$. Or we could choose $f$ and $h$ so that large changes in $\varphi$ give rise to relatively small changes in the effective changes in $G$. 
+where we identify $m_{\varphi}^2 = U''(0)>0$ and $m_{\varphi}^2\gg 1$. Or we could choose $f$ and $\mathfrak{h}$ so that large changes in $\varphi$ give rise to relatively small changes in the effective changes in $G$. 
 
 \section{Brans-Dicke Theory}
 A famous example of a scalar-tensor theory is \textbf{Brans-Dicke theory}, and corresponds to the following choices,
 \begin{eqnarray}
-    f(\varphi) = \frac{\varphi}{16\pi},\ \ \ \ h(\varphi) = \frac{\xi}{8\pi\varphi},\ \ \ \ U(\varphi) = 0, 
+    f(\varphi) = \frac{\varphi}{16\pi},\ \ \ \ \mathfrak{h}(\varphi) = \frac{\lambda}{8\pi\varphi},\ \ \ \ U(\varphi) = 0, 
 \end{eqnarray}
 where $\xi$ is a coupling constant. The scalar-tensor action is written as, 
 \begin{equation}
-    S_{BD} = \int d^4x\sqrt{-g}\left[\frac{\varphi}{16\pi}R -\frac{\xi}{16\pi}g^{\mu\nu}\frac{(\partial_{\mu}\varphi)(\partial_{\nu}\varphi)}{\varphi}\right].
+    S_{\text{BD}} = \int d^4x\frac{\sqrt{-g}}{16\pi}\left[R\varphi -\lambda g^{\mu\nu}\frac{(\partial_{\mu}\varphi)(\partial_{\nu}\varphi)}{\varphi}\right].
 \end{equation}
-Brans-Dicke theory chooses a massless scalar. But in the limit $\xi\rightarrow \infty$ the field becomes non-dynamical and ordinary GR is recovered. Current tests in the solar system imply $\xi>500$, of if there is such a scalar field it must couple only weakly to $R$. 
+Brans-Dicke theory chooses a massless scalar. But in the limit $\lambda\rightarrow \infty$ the field becomes non-dynamical and ordinary GR is recovered. Current tests in the solar system imply $\lambda>500$, of if there is such a scalar field it must couple only weakly to $R$. 
 
 \subsection{Using Conformal Transformations}
 One way to deal with scalar-tensor theories is to perform a conformal transformation to make the connection to gravity more apparent. We choose the conformal metric, $\tilde{g}_{\mu\nu}$, 
@@ -108,20 +108,30 @@ where $C^{\rho}_{\ \mu \nu}$ is the difference between connections and so is a t
 \begin{equation}
     \tilde{\Gamma}^{\rho}_{\ \mu\nu} = \Gamma^{\rho}_{\ \mu\nu} + \frac{1}{2}\frac{\partial \ln[f(\varphi)]}{\partial \varphi}\left[(\partial_{\nu}\varphi)\delta^{\rho}_{\mu} + (\partial_{\mu}\varphi)\delta^{\rho}_{\nu} -g^{\rho\sigma}g_{\mu\nu}(\partial_{\sigma}\varphi)\right]
 \end{equation}
-This connection defines a new covariant derivative on a vector field, $A = A^{\mu}(x)\partial_{\mu}$, 
+This connection defines a new covariant derivative on a vector field, $V = V^{\mu}(x)\partial_{\mu}$, 
 \begin{eqnarray*}
-\tilde{\nabla}_{\mu}A^{\rho} &=& \partial_{\mu}A^{\rho} + \tilde{\Gamma}^{\rho}_{\ \mu\nu}A^{\nu},\\
-&=& \partial_{\mu}A^{\rho} + \Gamma^{\rho}_{\ \mu\nu}A^{\nu} + \frac{1}{2}\frac{\partial \ln[f(\varphi)]}{\partial \varphi}\left[(A^{\nu}\partial_{\nu}\varphi)\delta^{\rho}_{\mu} + (\partial_{\mu}\varphi)A^{\rho} -g^{\rho\sigma}A_{\mu}(\partial_{\sigma}\varphi)\right]
+\tilde{\nabla}_{\mu}V^{\rho} &=& \partial_{\mu}V^{\rho} + \tilde{\Gamma}^{\rho}_{\ \mu\nu}V^{\nu},\\
+&=& \partial_{\mu}V^{\rho} + \Gamma^{\rho}_{\ \mu\nu}V^{\nu} + \frac{1}{2}\frac{\partial \ln[f(\varphi)]}{\partial \varphi}\left[(V^{\nu}\partial_{\nu}\varphi)\delta^{\rho}_{\mu} + (\partial_{\mu}\varphi)V^{\rho} -g^{\rho\sigma}(\partial_{\sigma}\varphi)V_{\mu}\right]
 \end{eqnarray*}
 and on a covector field, $\omega = \omega_{\mu} (x)dx^{\mu}$, 
 \begin{eqnarray*}
     \tilde{\nabla}_{\mu}\omega_{\nu} &=& \partial_{\mu}\omega_{\nu} - \tilde{\Gamma}^{\rho}_{\ \mu\nu}\omega_{\rho},\\
     &=& \partial_{\mu}\omega_{\nu} - \Gamma^{\rho}_{\ \mu\nu}\omega_{\rho} - \frac{1}{2}\frac{\partial \ln[f(\varphi)]}{\partial \varphi}\left[(\partial_{\nu}\varphi)\omega_{\mu} + (\partial_{\mu}\varphi)\omega_{\nu} -g_{\mu\nu}(\partial_{\sigma}\varphi)\omega^{\sigma}\right]
 \end{eqnarray*}
-which generalises to higher-order tensors. Continuing with the general calculations of the Riemann and Ricci tensors, we obtain the following action in terms of the conformal Ricci Scalar,
+which generalises to higher-order tensors in the usual manner. Continuing with the general calculations of the Riemann and Ricci tensors, we obtain the following action in terms of the conformal Ricci Scalar,
 \begin{equation}
     S_{fR}= \int d^4x\ \frac{\sqrt{-g}}{16\pi\tilde{G}}\left[\tilde{R} + \frac{3}{2}\tilde{g}^{\rho\sigma}f^{-2}\left(\frac{df}{d\varphi}\right)^2(\tilde{\nabla}_{\rho}\varphi)(\tilde{\nabla}_{\sigma}\varphi)\right]
 \end{equation}
 where we have integrated by parts and discarded surface terms. In the conformal frame, therefore, the curvature scalar appears by itself, which looks a lot like GR. For this reason, this frame is called the \textbf{Einstein frame}, since the Einstein equations for the conformal metric $\tilde{g}_{\mu\nu}$ take on their conventional form. The original frame with metric $g_{\mu\nu}$ is called the \textbf{Jordan frame}. 
+
+If we make the choice,
+\begin{equation}
+    f(\varphi) = e^{\varphi/\sqrt{3}}, \ \ \mathfrak{h}(\varphi) = U(\varphi) = 0 
+\end{equation}
+which is a specific choice of $f(\varphi)$ and turns off the $S_{\varphi}$ contribution from the pure scalar. With these choices, in the Einstein frame, we see a conventional kinetic term for the scalar field,
+\begin{equation}
+    S = \int d^{4}x \sqrt{-\tilde{g}}(16\pi\tilde{G})^{-1}\left[\tilde{R} - \frac{1}{2}\tilde{\nabla}_{\rho}\varphi\tilde{\nabla}^{\rho}\varphi\right] + S_{M}.
+\end{equation}
+Even without an explicit kinetic term in the Jordan frame, we see a kinetic term generated in the Einstein frame. 
 \bibliographystyle{numeric}
 \bibliography{chapters/bibliographies/2-alternativeTheories}
