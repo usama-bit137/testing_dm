@@ -1,2 +1,20 @@
 \chapter{Introduction}
-Something clever
+\section{Prerequisites and Basic Formulae}
+\subsection{Mathematical Notation}
+\begin{itemize}
+    \item $\equiv$ - definition. We will use a lot of example calculations, this symbols means that this is the definition of the thing. 
+    \item
+\end{itemize}
+
+\subsection{General Relativity}
+\begin{itemize}
+    \item $\eta_{\mu\nu}$ - denotes the Minkowski metric. It has the form $\text{diag}(-1, 1, 1, 1)$ in the \textit{mostly-minus} signature, which we use.
+    
+    \item $g_{\mu\nu}$ - denotes the metric of a Lorentian spacetime.
+    \item $\partial_{\mu} = \frac{\partial}{\partial x^{\mu}}$ - denotes a directional derivative. Often we will use shorthand such as $V^{\mu}$
+    \item Christoffel Connection ($\Gamma^{\alpha}_{\ \mu\nu}$) are a system of numbers which are constructed from the derivatives of the metric,
+    \begin{equation}
+    \Gamma^{\alpha}_{\ \mu\nu}\equiv\frac{1}{2}g^{\alpha\beta}\left(\partial_{\mu}g_{\nu\beta}+\partial_{\nu}g_{\mu\beta} - \partial_{\beta}g_{\mu\nu}\right).
+    \end{equation}
+    The Christoffel Connection allows us to construct a \textit{covariant derivative}, as well as other covariant properties of manifolds. 
+\end{itemize}
