@@ -1,7 +1,6 @@
 \documentclass[12pt]{report}
 \usepackage{graphicx}
 \usepackage[margin= 1.2in]{geometry}
-\usepackage{graphicx}
 \usepackage{setspace}
 \onehalfspacing
 \usepackage{nameref}
@@ -22,9 +21,6 @@
 \usepackage[thinlines]{easytable}
 \usepackage{epigraph}
 \usepackage{float}
-\usepackage{graphicx}
-\usepackage[compat=1.0.0]{tikz-feynman}
-\usepackage[utf8]{inputenc}
 \usepackage{natbib}
 \usepackage{mathrsfs,amsmath}
 \usepackage{wrapfig}
@@ -35,6 +31,7 @@
 \usepackage{extarrows}
 \usepackage{fancyhdr}
 \usepackage{amssymb}
+\usepackage{esint}
 \usepackage[sectionbib]{chapterbib}
 \pagestyle{fancy}
 \fancyhf{}
@@ -45,7 +42,7 @@
 \renewcommand{\footrulewidth}{0.4pt}
 \title{Sections and Chapters}
 \usepackage[most]{tcolorbox}
-
+\usepackage{ytableau}
 \let\emptyset\varnothing
 \renewcommand{\d}[1]{\ensuremath{\operatorname{d}\!{#1}}}
 \def\dbar{{\mathchar'26\mkern-12mu d}}
@@ -78,7 +75,9 @@
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{defin}{Definition}[section]
 \newtheorem{example}{Example}[section]
-   
+\newcommand{\equivcls}[1]{%
+  #1/\!{\sim}%
+}
 \title{Testing for Dark Matter}
 \author{Usama Aqeel}
 \date{February 2024}
@@ -89,8 +88,10 @@
 \newpage
 \include{chapters/1-Introduction}
 \newpage 
+\include{chapters/3-perturbationTheory}
 \include{chapters/2-alternativeTheories}
 \begin{appendices}
+\include{appendices/appendixRepTheoryofGravity}
 \include{appendices/appendixConformal}
 \include{appendices/appendixA}
 \end{appendices}
