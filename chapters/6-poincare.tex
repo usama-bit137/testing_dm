@@ -1,0 +1,579 @@
+\chapter{Particle Physics and Symmetries}
+\section{The Poincar\'e Group}
+We have argues that in a quantum mechanical theory with Hilbert space $\mathcal{H}$ that physical symmetries correspond to unitary representations of a group $G$ on $\mathcal{H}$ (unless the symmetry involves times-reversal). Since symmetries play a vital role in particle physics we will try and identify:
+\begin{itemize}
+    \item which groups $G$ are relevant to particle physics.
+    \item what representations appear.
+\end{itemize}
+There are three types of symmeties:
+\begin{itemize}
+    \item \textit{spacetime symmetries}: Poincar\'e group
+    \item \textit{gauge symmetries} describe interactions
+    \begin{itemize}
+        \item EM
+        \item strong force
+        \item weak force
+    \end{itemize}
+    \item global symmetries
+    \begin{itemize}
+        \item exact: lepton number, baryon number, \dots
+        \item approximate: isospin, quark model, \dots
+    \end{itemize}
+\end{itemize}
+
+\subsection{Representations of the Poincar\'e group}
+The Poincar\'e is a matrix group 
+\begin{equation}
+    ISO(3,1) = \left\{\begin{pmatrix}
+        \Lambda & a \\
+        0 & 1
+    \end{pmatrix}\in GL(5,\mathbb{R}): \Lambda \in O(3,1)\right\}
+\end{equation}
+acting $v = \begin{pmatrix}
+    x\\
+    1
+\end{pmatrix}$
+\begin{equation}
+    x^{\mu}\mapsto \Lambda^{\mu}_{\ \nu}x^{\nu} + a^{\mu}
+\end{equation}
+
+Then Lorentz group is the subgroup with $a=0$. The Lorentz group has two subgroups
+\begin{itemize}
+    \item \textit{orthochronous}: $O^{+}(3,1)$,
+    \begin{equation}
+    \begin{split}
+        \text{\textit{future timelike}}&\longrightarrow \text{\textit{future timelike (no time reversal)}}\\
+        \Lambda^{0}_{\ 0}&\geq 1
+    \end{split}
+    \end{equation}
+    \item proper: $SO(3,1)$: $\det\Lambda = 1$ (no reflections)
+\end{itemize}
+
+It is natural to consider the intersection of these Lorentz subgroups: 
+\begin{equation}
+    \begin{split}
+        SO^+(3,1): SO(3,1)\cap O^{+}(3,1) \text{ \textit{ proper and orthochronous} Lorentz group}\\
+        ISO^+(3,1): \text{ \textit{ proper and orthochronous} Poincar\'e group}
+    \end{split}
+\end{equation}
+The other \textit{bits} of the Poincar\'e group can be reached with
+\begin{itemize}
+    \item time reversal $\Lambda = \text{diag}(-1,1,1,1)$
+    \item parity: $\Lambda = \text{diag}(1,-1,-1,-1)$
+\end{itemize}
+or the combinations of the above.
+
+A theorem by Wigner classified the unitary representations of $ISO^+(3,1)$ with \textit{non-negative energies} and definite \textit{mass}. We can roughly prove this focusing on the essence of the proof, rather than the mathematical details. Note that $ISO^+(3,1)$ is \textit{non-compact} (boosts and translations are not bounded) and so: 
+\begin{itemize}
+    \item unitary representations are $\infty$-dimensional $S(\Lambda,a)$
+\end{itemize}
+(The Lorentz group is also non-compact thus has no finite dimensional unitary representations).
+
+Wigner starts with the \textit{translation subgroup}: 
+\begin{equation}
+    x^{\mu}\mapsto x^{\mu}
+\end{equation}
+$G = \mathbb{R}^4$ which is four copies of Abelian group. We know that the Abelian irreps are one-dimensional. For $G = \mathbb{R}$ under addition, irrep is labelled by the \textit{charge}, 
+\begin{equation}
+    \rho_{q} = e^{-iqa}
+\end{equation}
+where $q\in\mathbb{R}$ which is no faithful. For $G = \mathbb{R}^4$ we have four charges, 
+
+\begin{equation}
+    \rho_{p_n} = e^{-ip\cdot a}
+\end{equation}
+where $p\cdot a = p_{\mu}a^{\mu}$ and $p^{\mu} = (E, \vec{p})$. In terms of the Hilbert space, 
+
+\begin{itemize}
+    \item Hilbert space: each irrep is one-dimensional, $\ket{p^{\mu}}$ and labels the basis, 
+\begin{equation}
+    \mathcal{H}_{p^{\mu}} = \{\lambda\ket{p^{\mu}}:\lambda\in \mathbb{C}\}
+\end{equation}
+\item unitary rep: 
+\begin{equation}
+    S(1,a)\ket{p^{\mu}} = e^{-ip\cdot a}\ket{p^{\mu}}
+\end{equation}
+\end{itemize}
+and \textit{non-negative} energy means $E>0$. \textit{Momentum} of the state $p^{\mu}$ just labels \textit{translation irrep}.
+
+Next we consider the Lorentz group part. For this rep, we require
+\begin{equation}
+    S(\Lambda, 0)S(1,a)S(\Lambda, 0)^{-1} = S(\Lambda\Lambda^{-1}, \Lambda a) = S(0, \Lambda a)
+\end{equation}
+Then we can form a \textit{unitary rep} of the Poincar\'e group by
+
+\begin{equation}
+    \begin{split}
+        S(\Lambda, 0)&S(1,a)S(\Lambda, 0)^{-1}\ket{\Lambda p} \\
+        &= S(\Lambda, 0)S(1, a)\ket{p} = e^{-ip\cdot a}S(\Lambda,0)\ket{p}\\
+        &=e^{ip\cdot a}\ket{\Lambda p}\\
+        &=S(1,\Lambda a)\ket{\Lambda p} = e^{-i\Lambda p\cdot \Lambda a}\ket{\Lambda p}
+    \end{split}
+\end{equation}
+Actually we don't have to take all states: only the ones with fixed $p^2$
+
+\begin{equation}
+    \mathcal{H} = \bigoplus_{p^{\mu}: \ p^2 = m^2}\mathcal{H}_p
+\end{equation}
+where in general, 
+\begin{equation}
+    S(\Lambda, a)\ket{p} = S(1, a)S(\Lambda, 0)\ket{p} = e^{-i\Lambda p\cdot a}\ket{\Lambda p}
+\end{equation}
+In the simplest case: $p^{\mu} =0$ 
+\begin{equation}
+    \mathcal{H} = \{\lambda\ket{0}: \lambda\in\mathbb{C}\}
+\end{equation}
+$S(\Lambda, a)\ket{0} = \ket{0}$ which transforms under the trivial representation, this is the \textit{ground state} of QFT. But for $m^2\geq 0$
+\begin{equation}
+\begin{split}
+    \mathcal{H} = \left\{\ket{\psi} &= \int\frac{d^3p}{(2\pi)^3}\frac{1}{2E_{\vec{p}}}\psi(\vec{p})\ket{p}: p^2=m^2\right\} \\
+    &= \text{one-particle Hilbert space of QFT (scalar)}
+\end{split}
+\end{equation}
+Now note that we have, 
+\begin{equation}
+    \mathcal{H} = \{\text{positive energy solutions of the Klein-Gordon equation}\}
+\end{equation}
+So, one way to view the $\infty$-dimensional irrep of the Poincar\'e group: \textbf{field representation}.
+This construction only gives spin-$0$ rep. To see the other spins, consider 
+\begin{enumerate}
+    \item $p^2 = m^2 > 0$
+    \item $p^2=0$
+\end{enumerate}
+We are able to perform boosts in case 1 so we move to the intertial frame of our particle, $p^{\mu} = (E,0,0,0)$. One can define 
+
+\begin{equation}
+    H \subset SO^+(3,1) = \left\{\Lambda^{\mu}_{\ \nu}p^{\nu} = p^{\mu}\right\}
+\end{equation}
+this is the \textit{little group} or the \textit{stabalizer}. It is the set of group elements that leave the momentum of the particle unchanged.
+In this case $H = SO(3)$ which is the group of rotations in $\mathbb{R}^3$. Thus for the scalar rep: $S(\Lambda,0)\ket{p} = \ket{p}$ if $\Lambda\in SO(3)$. This means we are free to consider an $SO(3)$ irrep for each $\ket{p}$; or more generally $SU(2)$ (we showed that odd-dimensional irreps of $SU(2)$ are irreps of $SO(3)$).
+
+\begin{equation}
+    \mathcal{H}_{p,s} = \mathcal{H}_p\otimes\mathcal{H}_s
+\end{equation}
+where $\mathcal{H}_s = SU(2)$ irrep space of dimension $2s+1$ (we use the fact that since $SU(2)$ is compact its complex irreps are equivalent to unitary reps). Recall that $SU(2)$ irreps are labelled by dimension $2s+1$
+
+\begin{itemize}
+    \item $s = 0$: singlet
+    \item $s = \frac{1}{2}$: doublet $v^{i} \ : \  \ket{\frac{1}{2}} =\begin{pmatrix}1\\0\end{pmatrix}$ and $\ket{-\frac{1}{2}}\begin{pmatrix}0\\1\end{pmatrix}$
+    \item $s = 1$: triplet $v^{(ijk)} \ : \  \ket{1} =\begin{pmatrix}1 & 0\\0& 0\end{pmatrix}, \ \ \ \ket{0} = \begin{pmatrix}0 & 1\\1& 0\end{pmatrix}$ and $ \ket{-1} =\begin{pmatrix}0 & 0\\0& 1\end{pmatrix}$
+    \item and so on.
+\end{itemize}
+Then for the irreps of Poincar\'e: 
+\begin{equation}
+    m^2 > 0, \text{ spins }\ \ \ \mathcal{H} = \bigoplus_{p^{\mu}: \ p^2 = m^2}\mathcal{H}_{p^{\mu},s}
+\end{equation}
+
+We really need to give,
+\begin{equation}
+    S(\Lambda, a)\ket{p^{\mu}, m} = ?
+\end{equation}
+Choose a \textit{standard boost}
+\begin{equation}
+    p^{\mu} = L^{\mu}_{\ \nu}(p)p_{0}^{\ \nu}
+\end{equation}
+where $p_{0}^{\ \nu} = (m,0,0,0)$. This is not unique. Given a general $\Lambda$ then, 
+\begin{equation}
+    L(\Lambda p)^{-1}\Lambda\cdot L(p)\in H(p_0)
+\end{equation}
+where $H(p_0)$ is the little group for $p_0$. We define 
+\begin{equation}
+    S(\Lambda, a)\ket{p^{\mu}, m} = e^{-i\Lambda p\cdot  a}\rho_s(W(\Lambda,p))^{m'}_{\ \ \ m}\ket{\Lambda,m'}
+\end{equation}
+where $\rho_s(W(\Lambda,p))^{m'}_{\ \ \ m}$ is the spin-$s$ rep. Next we embed the spin-$s$ rep into the \textit{non-unitary} $SO^{+}(3,1)$ rep. However, in each case 
+\begin{itemize}
+    \item \textit{spin-s} Hilbert space $\simeq{}$ \textit{solutions of wave-equation}
+    \begin{equation}
+    \begin{matrix}
+    s=0 & \textit{Klein-Gordon equation } & (\Box + m^2)\psi(x)\\
+    s=1/2 & \textit{Dirac equation} & (i\slashed{\partial}-m)\psi(x)\\
+    s=1 & \textit{ Proca equation } & \partial^{\mu}(\partial_{\mu}A_{\nu} - \partial_{\nu}A_{\mu}) + m^2A_{\nu}=0\\
+    \vdots & \vdots & \vdots
+    \end{matrix}
+    \end{equation}
+\end{itemize}
+Take the \textit{Proca equation}:
+\begin{equation}
+    \partial^{\mu}(\partial_{\mu}A_{\nu} - \partial_{\nu}A_{\mu}) + m^2A_{\nu}=0
+\end{equation}
+the solution $A_{\mu} = \varepsilon_{\mu}e^{-ip\cdot x}$ with $p^2 = m^2$ and $p^{\mu}\varepsilon_{\mu}=0$. The condition on the polarization vector shows 
+\begin{equation}
+    p^{\mu} = \begin{pmatrix}
+        E,& 0,& 0, & 0
+    \end{pmatrix} \text{ and } \varepsilon_{\mu} = \begin{pmatrix}
+        0,& \varepsilon_x,& \varepsilon_y,&\varepsilon_z
+    \end{pmatrix}
+\end{equation}
+
+Next we need to consider $m^2=0$. We can have,
+\begin{equation}
+    p^{\mu} = \begin{pmatrix}
+        E & E& 0 &0
+    \end{pmatrix}^{\mu}
+\end{equation}
+then the little group has the explicit form,
+\begin{equation}
+    \Lambda^{\mu}_{\ \ \nu} = \begin{pmatrix}
+       1 + \frac{1}{2}(a^2+b^2) & -\frac{1}{2}(a^2+b^2)  &a&b \\
+        \frac{1}{2}(a^2+b^2) & 1-\frac{1}{2}(a^2+b^2)  & a & b \\
+       a\cos\theta + b\sin\theta & -(a\cos\theta + b\sin\theta)  & 1 & 0 \\
+       -a\sin\theta + b\cos\theta  & a\sin\theta -b\cos\theta & 0 & 1
+    \end{pmatrix}
+\end{equation}
+This can be split up in an interesting way, 
+\begin{equation}
+    \begin{split}
+        \begin{pmatrix}
+       1 &   &  & \\
+         & 1 &  &  \\
+         &   & \cos\theta & \sin\theta \\
+         &   & -\sin\theta & \cos\theta
+    \end{pmatrix}
+    \begin{pmatrix}1 + \frac{1}{2}(a^2+b^2) & -\frac{1}{2}(a^2+b^2)  & a & b\\
+        \frac{1}{2}(a^2+b^2) & 1-\frac{1}{2}(a^2+b^2)  & a & b \\
+       a& -a  & 1 & 0 \\
+       b & -b& 0 & 1
+    \end{pmatrix}
+    \end{split}
+\end{equation}
+What is this? Take a vector defined by
+\begin{equation}
+    v^{\mu} = \begin{pmatrix}
+        1 + \frac{1}{2}(x^2+y^2)\\
+        \frac{1}{2}(x^2+y^2)\\
+        x\\
+        y
+    \end{pmatrix}
+\end{equation}
+then acting $\Lambda$ on $v$ (defining $r^2 = \frac{1}{2}(x^2 + y^2)$)
+\begin{equation}
+    \begin{split}
+    &\begin{pmatrix}
+       1 &   &  & \\
+         & 1 &  &  \\
+         &   & \cos\theta & \sin\theta \\
+         &   & -\sin\theta & \cos\theta
+    \end{pmatrix}
+    \begin{pmatrix}1 + \frac{1}{2}(a^2+b^2) & -\frac{1}{2}(a^2+b^2)  & a & b\\
+        \frac{1}{2}(a^2+b^2) & 1-\frac{1}{2}(a^2+b^2)  & a & b \\
+       a& -a  & 1 & 0 \\
+       b & -b& 0 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+        1 + r^2\\
+        r^2\\
+        x\\
+        y
+    \end{pmatrix}\\
+    &=\begin{pmatrix}1+\frac{1}{2}(x+a)^2 + \frac{1}{2}(y+b)^2\\
+     \frac{1}{2}(x+a)^2 + \frac{1}{2}(y+b)^2\\
+     (x+a)\cos\theta + (y+b)\sin\theta\\
+     -(x+a)\sin\theta + (y+b)\cos\theta
+    \end{pmatrix}
+    \end{split}
+\end{equation}
+which is just 
+\begin{equation}
+    \begin{pmatrix}
+        x\\y
+    \end{pmatrix} \mapsto \begin{pmatrix}
+        \cos\theta & \sin\theta\\
+        -\sin\theta& \cos\theta
+    \end{pmatrix}\begin{pmatrix}
+        x\\y
+    \end{pmatrix} = \begin{pmatrix}
+        a\\b
+    \end{pmatrix}
+\end{equation}
+Thus the little group is just $ISO(2)$ which is the group of symmetries on $\mathbb{R}^2$. The analysis is just as for $ISO^+(3)$: first consider \textbf{translations},
+\begin{itemize}
+    \item $\rho_{(k)} = e^{-i\vec{k}\cdot\vec{a}}$
+    \item The little group for $\begin{pmatrix}
+        k_1\\k_2
+    \end{pmatrix}$ is \textit{trivial} so finished.
+\end{itemize}
+Unless $k=0$,
+\begin{itemize}
+    \item $\rho_{(\alpha)} = e^{-i\alpha\theta}$
+\end{itemize}
+We start by considering translations, with $\vec{a} = (a,b)$ then irreps are $1$-dimensional labelled by choice $\vec{k} = (k_1,k_2)$
+\begin{itemize}
+    \item $\rho_k = e^{-i\vec{k}\cdot\vec{a}}$
+    \item Hilbert space $\mathcal{H}_k:$ $M(0,\vec{a})\ket{\vec{k}} = e^{-i\vec{k}\cdot\vec{a}}\ket{\vec{k}}$
+\end{itemize}
+
+For the full \textit{scalar} rep of $ISO(2)$: 
+\begin{itemize}
+    \item $\mathcal{H} = \bigoplus_{\vec{k}; \ k^2=t^2}\mathcal{H}_{\vec{k}}$
+    \item $M(\theta,\vec{a})\ket{\vec{a}} = e^{-iR(\theta)\vec{k}\cdot\vec{a}}\ket{R(\theta)\vec{k}}$
+\end{itemize}
+What about the \textit{little group}? Stabilizer of $\vec{k}$ is $\mathbb{I}$ (trivial little group). However if we take the trivial rep: $\vec{k}=0$, then the stabilizer of $\vec{k}=0$ is $SO(2)$. So we have a family of irreps (not faithful) 
+\begin{equation}
+    M_{\alpha}(\theta,\vec{a}) = e^{-i\alpha\theta}; \ \ \ \alpha\in\frac{1}{2}\mathbb{Z}
+\end{equation}
+we allow reps when $\rho_{\alpha}(2\pi, \vec{a}) = -\rho_{\alpha}(2\pi, \vec{a})$. So there are two possibilities: 
+\begin{enumerate}
+    \item continuous spin labelled by $t^2$,
+    \begin{equation}
+        \mathcal{H} = \bigoplus_{\vec{k};k^2=t^2}\mathcal{H}_{\vec{k}}\ \ \ \ M(\theta,\vec{a})\ket{\vec{a}} = e^{-iR(\theta)\vec{k}\cdot\vec{a}}\ket{R(\theta)\vec{k}}
+    \end{equation}
+    \item \textit{helicity} labelled by $\alpha\in \frac{1}{2}\mathbb{Z}$
+    \begin{equation}
+        \text{\textit{1-dimensional,} } \mathcal{H}_{\alpha}\ \ \ \ \rho_{\alpha}(\theta, \vec{0}) = e^{-i\alpha\theta} 
+    \end{equation}
+\end{enumerate}
+Physically, we do not see the continuous spin reps, so we define
+\begin{equation}
+    \mathcal{H}_{p,\alpha} = \mathcal{H}_p\otimes\mathcal{H}_\alpha
+\end{equation}
+Then the Poincar\'e irrep has, 
+\begin{itemize}
+    \item $m^2=0$, with helicity, $\alpha$
+    \item $\mathcal{H} = \oplus_{p^{\mu};p^2=0}\mathcal{H}_{p_{\alpha}}$
+    \item $S(\Lambda, a)\ket{p^{\mu}, \alpha} = e^{-i\Lambda p\cdot a}\rho_{\alpha}(W(\Lambda, p))\ket{\Lambda p, \alpha}$
+\end{itemize}
+Usually, one combines $\pm\alpha$ as $\pm 1$ helicity reps of spin $|\alpha|$. Again $\mathcal{H}$ can be viewed as the space of solutions of a \textit{massless equation}.
+
+\section{Quarks, leptons and $SU(3)\times SU(2)\times U(1)$}
+
+Let's now summaries the particles of the Standard Model and the \textit{gauge symmetries}. Recall that the \textit{matter} particles are all spin-$\frac{1}{2}$. We have 3 families of leptons with masses: 
+\begin{equation}
+    \begin{matrix}
+        e^-\ (0.5 MeV)&\mu^-\ (106 MeV)&\tau^-\ (1.8 GeV)\\
+        \nu_e\ (0.<10eV)&\nu_{\mu}\ (<0.16 MeV)&\nu_{\tau}\ (<18 MeV)& \text{ \textit{neutrinos}}\\
+    \end{matrix}
+\end{equation}
+
+and 3 families of quarks: 
+\begin{equation}
+    \begin{matrix}
+        u\ (\approx 0.4 GeV)& c\ (1.6 GeV) & t\ (175 GeV)\\
+        d \ (\approx 0.4 GeV)&s\ (0.5 GeV)&b \ (4.5 GeV)&
+    \end{matrix}
+\end{equation}
+We cannot observe quarks as free particles (\textit{confinement}) but only as bound stated (\textit{the hadrons}). The masses are \textit{effective} - the rough contribution of each quark to the bound state.
+
+In SM mass for quarks and lepton comes from \textit{spontaneous symmetry breaking} via the Higgs particle. So to describe symmetries let's start by considering very high energies (\textit{electroweak scale}) where all fermions are effectively massless. We see that 
+\begin{equation}
+    \begin{matrix}
+        m^2 = 0 & \text{spin-}\frac{1}{2} & \text{2 different helicity reps}\\
+        &\mathcal{H}_{-\frac{1}{2}} & \mathcal{H}_{+\frac{1}{2}}\\
+        & \textit{left-handed helicity}& \textit{right-handed helicity} 
+    \end{matrix}
+\end{equation}
+so we can decompose for each particle into two reps, 
+
+\begin{equation}
+\begin{matrix}
+    l^-\rightarrow l^-_{L},\ l^-_{R} & \text{and} & q\rightarrow q_{L},\ q_{R}
+\end{matrix}
+\end{equation}
+where $l^-$ represents \textit{leptons} and $q$ represents the \textit{quarks}. Focusing on the \textit{Electroweak symmtry} via Salam and Weinberg. 
+\begin{equation}
+    \begin{matrix}
+        \textit{electroweak}: & U(1)_{Y}\times SU(2)
+    \end{matrix}
+\end{equation}
+we know the irreps 
+\begin{equation}
+    \begin{matrix}
+        U(1)_{Y}: & \rho_{q} = e^{iq\theta}\\
+        SU(2): & \underline{1}, \underline{2}, \underline{3}, \dots
+    \end{matrix}
+\end{equation}
+So, how do the quarks and leptons form representations of $U(1)_{Y}\times SU(2)$?
+
+Let's start with $SU(2)$, we have only \textit{doublets} and \textit{singlets} but the two different helicities are treated differently: 
+\begin{itemize}
+    \item doublets: $\underline{2}$
+    \begin{equation}
+        \begin{matrix}
+            \begin{pmatrix}
+                \nu_{e,L}\\
+                e^{-}_{L}
+            \end{pmatrix}, &
+            \begin{pmatrix}
+                \nu_{\mu,L}\\
+                \mu^{-}_{L}
+            \end{pmatrix}, &
+            \begin{pmatrix}
+                \nu_{\tau,L}\\
+                \tau^{-}_{L}
+            \end{pmatrix}\\ \\
+            \begin{pmatrix}
+                u_L\\
+                d_L
+            \end{pmatrix}, &
+            \begin{pmatrix}
+                c_L\\
+                s_L
+            \end{pmatrix}, &
+            \begin{pmatrix}
+                t_L\\
+                b_L
+            \end{pmatrix}\\
+        \end{matrix}
+    \end{equation}
+    \item singlets: $\underline{1}$
+    \begin{equation}
+        \begin{matrix}
+            e^-_R & \mu^-_R& \tau^-_R\\
+            u_R, d_R& c_R, s_R & t_R, b_R
+        \end{matrix}
+    \end{equation}
+\end{itemize}
+
+The usual assumption is that $\nu_{e,R}$, $\nu_{\mu,R}$, $\nu_{\tau,R}$ which means that right-handed neutrinos don't get mass from the Higgs. Thus as fields we could write a \textit{doublet} of the Dirac fields or singlet
+
+\begin{equation}
+\begin{split}
+    &\begin{matrix}
+    l^i_L = \begin{pmatrix}
+        \psi_{\nu_e,L}\\
+        \psi_{e,L}
+    \end{pmatrix}, & l_R = \psi_{e,R}
+    \end{matrix}\\
+&\begin{matrix}
+    \mathcal{H} = &\mathcal{H}(m^2=0, \alpha=-\frac{1}{2})&\otimes&\mathcal{H}_{+\frac{1}{2}}\\
+     & \text{Poincar\'e irrep space}& &SU(2) \text{ doublet space}
+\end{matrix}
+    \end{split}
+\end{equation}
+Next we need $U(1)_Y$, writing  $\rho_Y = e^{3iqY}$, where the $3$ is the conventional \textit{weak hypercharge} $Y = \{0\pm, \pm 1/3, \pm2/3, \dots \}$. We have
+\begin{equation}
+    \begin{matrix}
+        \begin{pmatrix}
+            \nu_{e,L}\\
+            e^-_L
+        \end{pmatrix}
+        &
+        \begin{pmatrix}
+            \nu_{e,L}\\
+            e^-_L
+        \end{pmatrix} 
+        & 
+        \begin{pmatrix}
+            \nu_{e,L}\\
+            e^-_L
+        \end{pmatrix}        
+        &
+        \ \ \ Y = -1\\ \\
+        e^-_R
+        &
+        \mu^-_R
+        &
+        \tau^-_R
+        &
+        \ \ \ Y = -2\\ \\
+         \begin{pmatrix}
+            u_L\\
+            d_L
+        \end{pmatrix}
+        &
+        \begin{pmatrix}
+            c_L\\
+            s_L
+        \end{pmatrix} 
+        & 
+        \begin{pmatrix}
+            t_L\\
+            b_L
+        \end{pmatrix}        
+        &
+        \ \ \ Y = 1/3\\ \\
+        u_R
+        &
+        c_R
+        &
+        t_R
+        &
+        \ \ \ Y = -4/3\\ \\
+        d_R
+        &
+        s_R
+        &
+        b_R
+        &
+        \ \ \ Y = -2/3\\ \\
+    \end{matrix}
+\end{equation}
+For each particle we can define the \textit{conjugate} \textit{anti-particle} by taking the \textit{conjugate representation}. Remember $\overline{\underline{2}}\sim{}\underline{2}$ for $SU(2)$ and for helicity $L\longleftrightarrow R$ under conjugation, so 
+\begin{equation}
+    \begin{matrix}
+        e^+_{R} & \textit{is conjugate of }e^-_L & (+\longleftrightarrow - \textit{ for leptons})\\
+        \overline{u}_{R} &  \textit{is conjugate of }u_L & (u, \overline{u} \textit{ for neutrinos and quarks})\\
+    \end{matrix}
+\end{equation}
+So 
+\begin{equation}
+    \begin{matrix}
+        \begin{pmatrix}
+            \overline{e}^+_R\\
+            \overline{\nu}_{e,R}
+        \end{pmatrix}& \textit{doublet}& Y=+1& \textit{\dots for other left-handed leptons}\\ \\
+        \overline{e}^+_L & \textit{singlet} & Y = +2 & \textit{\dots for other right-handed leptons}\\ \\
+        \begin{pmatrix}
+            \overline{d}_R\\
+            \overline{u}_{R}
+        \end{pmatrix}& \textit{doublet}& Y=-1/3& \textit{\dots for other right-handed quarks}\\ \\
+        \begin{matrix}
+            \overline{d}_R\\
+            \overline{u}_{R}
+        \end{matrix}& \textit{singlets}& \begin{matrix}
+            Y=-4/3\\
+            Y = 2/3
+        \end{matrix}    
+        & \textit{\dots for other left-handed quarks}\\ \\
+    \end{matrix}
+\end{equation}
+Finally we also have,
+
+\begin{equation}
+\begin{matrix}
+    SU(3) & \textit{colour symmetry} & \textit{quantum chromodynamics}
+\end{matrix}
+\end{equation}
+We know that 
+\begin{itemize}
+    \item trivial representation $\underline{1}$
+    \item defining representation $\underline{3}$
+    \item conjugate of defining representation $\underline{\overline{3}}$.
+\end{itemize}
+we have 
+\begin{itemize}
+    \item all leptons are \textit{singlets}
+    \item all quarks are \textit{triplets}, $\underline{3}$ (antiquarks are $\underline{\overline{3}}$)
+\end{itemize}
+so we note that each quark comes in 3 different types
+\begin{equation}
+\begin{matrix}
+        u_R = \begin{pmatrix}
+        u_{R,1}\\
+        u_{R,2}\\
+        u_{R,3}
+    \end{pmatrix} & \begin{matrix}
+        \longleftarrow\\
+        \longleftarrow\\
+        \longleftarrow
+    \end{matrix} &
+    \begin{matrix}
+        \textit{red}\\
+        \textit{green}\\
+        \textit{blue}
+    \end{matrix}
+\end{matrix}    
+\end{equation}
+So for example $\begin{pmatrix}u_L\\d_L\end{pmatrix}$ has a representation space, 
+\begin{equation}
+\begin{matrix}
+    \mathcal{H} = & \mathcal{H}(m^2=0,\alpha=-1/2)&\otimes&\mathcal{H}_{1/2}&\otimes&\mathcal{H}_{4/3}&\otimes&\mathcal{H}_{\underline{3}}\\
+     & \uparrow& &\uparrow& &\uparrow& &\uparrow\\
+     & \textit{Poincar\'e}& &SU(2)& &U(1)& &SU(3)\\
+\end{matrix}
+\end{equation}
+\begin{equation}
+    \begin{matrix}
+        \psi= \psi^{ia}_{L} & i:\ \ SU(2) \textit{ doublet} & a: \ \ SU(3) \textit{ triplet}\\
+        \textit{field}
+    \end{matrix}
+\end{equation}

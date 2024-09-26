@@ -1,4 +1,4 @@
-\documentclass[12pt]{report}
+\documentclass[17pt]{report}
 \usepackage{graphicx}
 \usepackage[margin= 1.2in]{geometry}
 \usepackage{setspace}
@@ -10,9 +10,7 @@
             citecolor={blue},
             urlcolor={red}}
 \usepackage[dvipsnames]{xcolor}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
+\usepackage{amsmath,amssymb}
 \usepackage{blindtext}
 \usepackage{braket}
 \usepackage{caption}
@@ -30,8 +28,8 @@
 \usepackage{tocloft}
 \usepackage{extarrows}
 \usepackage{fancyhdr}
-\usepackage{amssymb}
 \usepackage{esint}
+\usepackage{breqn}
 \usepackage[sectionbib]{chapterbib}
 \pagestyle{fancy}
 \fancyhf{}
@@ -42,7 +40,14 @@
 \renewcommand{\footrulewidth}{0.4pt}
 \title{Sections and Chapters}
 \usepackage[most]{tcolorbox}
+
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
+\newcommand{\tikznode}[3][inner sep=0pt]{\tikz[remember
+picture,baseline=(#2.base)]{\node(#2)[#1]{$#3$};}}
 \usepackage{ytableau}
+\usepackage{slashed}
+
 \let\emptyset\varnothing
 \renewcommand{\d}[1]{\ensuremath{\operatorname{d}\!{#1}}}
 \def\dbar{{\mathchar'26\mkern-12mu d}}
@@ -57,28 +62,20 @@
 \numberwithin{figure}{subsection}
 \tcbset{colback=yellow!10!white, colframe=red!50!black, 
         highlight math style= {enhanced, %<-- needed for the ’remember’ options
-            colframe=red,colback=red!10!white,boxsep=0pt}
-        }
-        
-
+            colframe=red,colback=red!10!white,boxsep=0pt}}
 \renewcommand{\d}[1]{\ensuremath{\operatorname{d}\!{#1}}}
 \def\dbar{{\mathchar'26\mkern-12mu d}}
-
 \setcitestyle{square}
 \numberwithin{equation}{section}
 \numberwithin{figure}{section}
 \DeclareMathAlphabet{\mymathbb}{U}{BOONDOX-ds}{m}{n}
-
-\newcommand{\eqdef}{\xlongequal{T\rightarrow\infty}}
-
-\theoremstyle{plain}
-\newtheorem{thm}{Theorem}[section]
-\newtheorem{defin}{Definition}[section]
-\newtheorem{example}{Example}[section]
+\newcommand{\iffstar}{\iff{(*)}}
 \newcommand{\equivcls}[1]{%
   #1/\!{\sim}%
 }
-\title{Testing for Dark Matter}
+
+\usepackage{subfiles}
+\title{Quantum Searches for Fundamental Scalars}
 \author{Usama Aqeel}
 \date{February 2024}
 \begin{document}
@@ -86,13 +83,22 @@
 \newpage
 \tableofcontents
 \newpage
-\include{chapters/1-Introduction}
+\subfile{chapters/1-Introduction}
+\newpage
+\subfile{chapters/Primer on QFT}
 \newpage 
-\include{chapters/3-perturbationTheory}
-\include{chapters/2-alternativeTheories}
+\subfile{chapters/4-symmetries}
+
+\subfile{chapters/6-poincare}
+\subfile{chapters/5-ssb}
+
+\subfile{chapters/3-perturbationTheory}
+\subfile{chapters/2-alternativeTheories}
+
 \begin{appendices}
-\include{appendices/appendixRepTheoryofGravity}
-\include{appendices/appendixConformal}
-\include{appendices/appendixA}
+\subfile{appendices/techniques}
+
+\subfile{appendices/appendixConformal}
+\subfile{appendices/appendixA}
 \end{appendices}
 \end{document}

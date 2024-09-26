@@ -1,0 +1,75 @@
+\chapter{Quantum Field Theory}
+\section{Klein-Gordon Field}
+\subsection{K}
+Here we consider the simplest of the quantum field theories known as the Klein-Gordon scalar field. Consider the action of a scalar field in Minkowski spacetime
+
+\begin{equation}
+    S[\phi] = \int d^4x\left(\frac{1}{2}\partial_{\mu}\phi\partial^{\mu}\phi-\frac{1}{2}m^2\phi^2\right) = \int d^4x\mathcal{L}(\phi,\partial_{\mu}\phi)
+\end{equation}
+where $\phi=\phi(x)$ is a scalar function of spacetime coordinates, $x=(t,\vec{x})$. 
+
+\section{The Dirac Field}
+\subsection{Lorentz Invariance in Klein-Gordon}
+A Lorentz transformation on a vector is given by,
+\begin{equation}
+    x^{\mu} \rightarrow x^{'\mu} = \Lambda^{\mu}_{\ \nu}x^{\nu} 
+\end{equation}
+for some $\Lambda^{\mu}_{\ \nu}$. How does the Klein-Gordon field transform under this transformation? Think of $\phi(x)$ as measuring the local value of some quantity at $x = \Lambda x_0$. The corresponding transformation is 
+
+$$
+\phi(x) \rightarrow \phi'(x) = \phi(\Lambda^{-1}x),
+$$
+The transformed field, evaluated at the boosted point, gives the same value as the original field evaluated at the point before boosting. We see that this leaves Klein-Gordon invariant: 
+\begin{equation}
+    \partial_{\mu}\phi(x)\rightarrow \partial_{\mu}(\phi(\Lambda^{-1}x)) = (\Lambda^{-1})^{\nu}_{\ \mu}(\partial_{\nu}\phi)(\Lambda^{-1}x)
+\end{equation}
+
+Since the metric, $\eta^{\mu\nu}$ is Lorentz invariant,
+\begin{equation}
+    (\Lambda^{-1})^{\rho}_{\ \mu}(\Lambda^{-1})^{\sigma}_{\ \nu}\eta^{\mu\nu} = \eta^{\rho\sigma}.
+\end{equation}
+
+therefore, 
+\begin{equation}
+    \begin{split}
+        (\partial_{\mu}\phi(x))^2 &\rightarrow \eta^{\mu\nu}(\partial_{\mu}\phi'(x))(\partial_{\nu}\phi'(x))\\
+        &= \eta^{\mu\nu}(\Lambda^{-1})^{\rho}_{\ \mu}(\Lambda^{-1})^{\sigma}_{\ \nu}\partial_{\rho}\phi(\Lambda^{-1}x)\partial_{\sigma}\phi(\Lambda^{-1}x)\\
+        &=\eta^{\rho\sigma}\partial_{\rho}\phi(\Lambda^{-1}x)\partial_{\sigma}\phi(\Lambda^{-1}x)\\
+        &=(\partial_{\rho}\phi)^2(\Lambda^{-1}x)
+    \end{split}
+\end{equation}
+
+Thus the whole Lagrangian is left invariant $\mathcal{L}(x)\rightarrow \mathcal{L}(\Lambda^{-1}x)$. As we see, that Lagrangian is a Lorentz scalar field. The equation of motion $(\Box +m^2)\phi(x)=0$ is also Lorentz invariant. 
+
+$ $
+
+The transformation law for $\phi(x)$ is the simplest possible one. There are other examples of fields transforming in more complicated ways, such as vectors. For the vector potential, $A^{\mu}(x)$, a quantity distributed in space also carries an \textit{orientation}, which must be rotated or boosted. The orientation must be forward as the point of evaluation of the field is changed! 
+
+$ $
+
+\begin{itemize}
+    \item under 3-dimensional rotation $\rightarrow v^{i}(x)\rightarrow R_{ij}v^{j}(R^{-1}x)$,
+    \item under Lorentz transformation $\rightarrow v^{\mu}(x)\rightarrow \Lambda^{\mu}_{\ \nu}v^{\nu}(\Lambda^{-1}x)$
+\end{itemize}
+
+We can use tensor products to build tensors of arbitrary rank by simply adding more indices and more factors of $\Lambda$. Using such tensor fields we can write a variety of Lorentz invariant equations, e.g Maxwell theory, 
+
+\begin{equation}
+    \partial_{\mu}F^{\mu\nu}=0; \ \ \ \ \Box A_{\nu} - \partial_{\nu}\partial^{\mu}A_{\mu}=0
+\end{equation}
+ which follow from the Lagrangian, 
+ \begin{equation}
+     \mathcal{L} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}; \ \ \ \ F = \d{}A
+ \end{equation}
+
+How do we classify all of the possible tensor product representations of the Lorentz group, instead of guessing. If $\Phi_a$ is an $n\times n$-component multiplet, the Lorentz transformation law is given by an $n\times n$ matrix $M(\Lambda)$ is, 
+
+\begin{equation}
+    \Phi_a \rightarrow M_{ab}(\Lambda)\Phi_b(\Lambda^{-1}x)
+\end{equation}
+It can be shown that the most general linear transformation laws can be built from these linear transformations, so there is no advantage in considering transformations more general than this. We suppress the change in field. Writing instead, 
+
+\begin{equation}
+    \Phi \rightarrow M(\Lambda)\Phi
+\end{equation}
+What are the possible forms of 

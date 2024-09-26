@@ -1,63 +1,173 @@
 \chapter{Perturbation Theory in Gravity}
 \section{Linearized Gravity}
-We will consider gravity in the weak-field limit where the variations with time of the metric perturbations are small and we place no restrictions on particle speeds. By \textit{weak} we mean that the metric can be expanded as a linear sum of the Minkowski metric and a small perturbation,
-
+We will consider gravity in the weak-field limit where the variations with time of the metric perturbations are small and we place no restrictions on particle speeds. By \textit{weak} we mean that the metric can be expanded as a linear sum of the Minkowski metric and a small perturbation. Much like the spirit of perturbation analysis in Quantum Mechanics, we introduce the \textit{book-keeping parameter}, $\varepsilon$, which we will assume to be small. We will assume that we can expand our quantities of interest in the following form,
+\begin{equation}
+    Q =\ ^{(0)}Q + \varepsilon\ ^{(1)}Q 
+\end{equation}
+Assuming also a flat background spacetime, $^{(0)}Q$ will represent the contributions in the limit of special relativity and the first order contribution from gravitational perturbations to $Q$ is $^{(1)}Q$. At the end of all calculations, we will set $\varepsilon=1$. For example, the metric is written perturbatively as,
 \begin{equation}\label{linearized-metric}
-    g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu} \  \text{where} \  |h_{\mu\nu}|\ll 1, 
+    g_{\mu\nu} = \eta_{\mu\nu} + \varepsilon h_{\mu\nu}\text{  $:$  } \varepsilon \ll 1. 
 \end{equation}
-where $\eta_{\mu\nu}$ takes the canonical form in the \textit{mostly-plus} convention. The assumption that $h_{\mu\nu}$ is small allows us to ignore terms of $\mathcal{O}(h^2, h\partial h, h^{-1}\partial h...)$. The inverse metric is written, 
+Similarly, the inverse metric is given by, 
 \begin{equation}\label{linearized-inverse-metric}
-    g^{\mu\nu} = \eta^{\mu\nu} - h^{\mu\nu},
+    g^{\mu\nu} = \eta^{\mu\nu} - \varepsilon h^{\mu\nu}\text{  $:$  } \varepsilon \ll 1.
 \end{equation}
-which can be shown by multiplying (\ref{linearized-metric}) and (\ref{linearized-inverse-metric}), and ignoring $\mathcal{O}(h^2)$ terms, does indeed give a Kronecker delta. Furthermore, we use the $\eta^{\mu\nu}$ and $\eta_{\mu\nu}$ to raise and lower indices respectively. We can think of this whole limit as a linearized version of GR describing the theory of \textit{symmetric tensor field}, $h_{\mu\nu}$ propagating on a flat background spacetime. This theory is manifestly Lorentz invariant, 
-\begin{equation}
-    h_{\mu'\nu'} = \Lambda_{\mu'}^{\ \mu}\ \Lambda_{\nu'}^{\ \nu}\ h_{\mu\nu}.
+which can be shown by multiplying (\ref{linearized-metric}) and (\ref{linearized-inverse-metric}), and ignoring $\mathcal{O}(\varepsilon^2)$ terms, does indeed spits out a Kronecker Delta tensor. This leads to the conclusion that, we use the $\eta^{\mu\nu}$ and $\eta_{\mu\nu}$ to raise and lower indices respectively. Think of this whole limit as a linearized version of GR describing the theory of \textit{symmetric tensor field}, $h_{\mu\nu}$ propagating on a flat background spacetime. This theory is manifestly Lorentz invariant, 
+\begin{equation}\nonumber
+    h_{\mu'\nu'} = \Lambda_{\mu'}^{\ \  \mu}\ \Lambda_{\nu'}^{\ \ \nu}h_{\mu\nu}.
 \end{equation}
-To note, we could have chosen a curved background, however, it would introduce an additional level of complexity which we should just avoid for now. 
+\textbf{[Could it be Poincare invariant?]} where $\Lambda\in SO^{+}(1,3)$.
+To note, we could have chosen a curved background, however, this would introduce an additional level of complexity which we should just avoid for now. 
 
-We want the equations of motion for this perturbation, $h_{\mu\nu}$. We begin with the Christoffel symbols up to linear order in $h_{\mu\nu}$,
-\begin{eqnarray}
-    \Gamma^{\rho}_{\ \mu\nu}&\equiv&\frac{1}{2}g^{\rho\lambda}\left(g_{\mu\lambda,\nu} + g_{\nu\lambda, \mu} - g_{\mu\nu,\lambda}\right)\nonumber\\
-    &=& \frac{1}{2}\eta^{\rho\lambda}(\partial_{\nu}h_{\mu\lambda} + \partial_{\mu}h_{\nu\lambda} - \partial_{\lambda}h_{\mu\nu}).
-\end{eqnarray}
-Next, we calculate the Riemann tensor, and note that the $\Gamma^2$ terms can be ignored (because they contain terms terms quadratic in $(\partial h)^2$),
-\begin{eqnarray}
-    R_{\mu\nu\rho\sigma} &=& \eta_{\mu\lambda}\partial_{\rho}\Gamma^{\lambda}_{\ \nu\sigma} - \eta_{\mu\lambda}\partial_{\sigma}\Gamma^{\lambda}_{\ \nu\rho}\nonumber \\
-    &=& \frac{1}{2}\left(\partial_{\rho}\partial_{\nu}h_{\mu\sigma} + \partial_{\sigma}\partial_{\mu}h_{\nu\rho} - \partial_{\rho}\partial_{\mu}h_{\nu\sigma} - \partial_{\sigma}\partial_{\nu} h_{\mu\rho}\right).
-\end{eqnarray}
-This leads to the Ricci tensor, $R_{\mu\nu} = R^{\sigma}_{\ \mu\sigma\nu}$,
+We want the equations of motion for this perturbation, $h_{\mu\nu}$. We shall proceed with calculating the important quantities in General Relativity up to leading order contributions in $\varepsilon$. Begin with the Christoffel symbols up to linear order in $\varepsilon$,
 \begin{equation}
-    R_{\mu\nu} = \frac{1}{2}\left(\partial_{\nu}\partial^{\sigma}h_{\sigma\mu} + \partial_{\mu}\partial^{\sigma}h_{\sigma\nu} - \Box h_{\mu\nu} - \partial_{\mu}\partial_{\nu}h\right),
+\begin{split}
+    \Gamma^{\rho}_{\mu\nu}&= \ ^{(0)}\Gamma^{\rho}_{\mu\nu}+\varepsilon \ ^{(1)}\Gamma^{\rho}_{\mu\nu} \\
+    &= \frac{1}{2}\eta^{\rho\sigma}\left( h_{\mu\sigma,\nu} + h_{\nu\sigma,\mu} - h_{\mu\nu,\sigma}\right).
+\end{split}
 \end{equation}
-where the $h = \eta^{\mu\nu}h_{\mu\nu}$ is the trace of the perturbation metric and $\Box = - \partial_{t}^2 + \nabla^2$, is the D'Alembertian operator on the flat background spacetime. Finally, we obtain the Ricci scalar, $R$,
-\begin{eqnarray}
-    R &=& \frac{1}{2}\eta^{\mu\nu}\left(\partial_{\nu}\partial^{\sigma}h_{\sigma\mu} + \partial_{\mu}\partial^{\sigma}h_{\sigma\nu} - \Box h_{\mu\nu} - \partial_{\mu}\partial_{\nu}h\right)\nonumber\\
-    &=& \partial_{\mu}\partial_{\nu}h^{\mu\nu} - \Box h.
-\end{eqnarray}
-We jump back to the Physics and obtain the Einstein Tensor, $G_{\mu\nu}$,
-\begin{eqnarray}
-G_{\mu\nu} &\equiv& R_{\mu\nu} - \frac{1}{2}R g_{\mu\nu}\nonumber\\
-&=&\frac{1}{2}\left(\partial_{\nu}\partial^{\sigma}h_{\sigma\mu} + \partial_{\mu}\partial^{\sigma}h_{\sigma\nu} - \Box h_{\mu\nu} - \partial_{\mu}\partial_{\nu}h\right) - \frac{1}{2}\eta_{\mu\nu}\left(\partial_{\mu}\partial_{\nu}h^{\mu\nu} - \Box h\right)\nonumber\\
-&=&\partial^{\sigma}\partial_{(\mu}h_{\nu)\sigma} - \frac{1}{2}\left(\Box h_{\mu\nu} + \partial_{\mu}\partial_{\nu}h + \eta_{\mu\nu}\partial_{\rho}\partial_{\sigma}h^{\rho\sigma} +\eta_{\mu\nu}\Box h \right)
-\end{eqnarray}
+Naturally, we don't expect a zero-order contribution because flat spacetime has vanishing connection coefficients in inertial coordinates, $(t,\vec{x})$. Next, we calculate the Riemann tensor, and note that the $\Gamma^2$ terms can be ignored (because they contain terms quadratic in $\mathcal{O}(\varepsilon^2)$),
+\begin{equation}
+\begin{split}
+    R^{\rho}_{\ \mu \lambda \nu} &= \ ^{(0)}R^{\rho}_{\ \mu \lambda \nu} + \varepsilon \ ^{(1)}R^{\rho}_{\ \mu \lambda \nu}\\ 
+    &=\varepsilon \left(\partial_{\lambda}\ ^{(1)}\Gamma^{\rho}_{\ \nu \mu} - \partial_{\nu}\ ^{(1)}\Gamma^{\rho}_{\ \lambda \mu}\right) + \mathcal{O}(\varepsilon^2)\\
+    &= 2 \partial_{[\lambda}\Gamma^{\rho}_{\ \nu]\mu}\\
+    R_{\mu\nu\rho\sigma}&= \eta_{\mu\lambda}\partial_{\rho}\Gamma^{\lambda}_{\ \nu\sigma} - \eta_{\mu\lambda}\partial_{\sigma}\Gamma^{\lambda}_{\ \nu\rho} \\
+    &= \frac{1}{2}\left(\partial_{\rho}\partial_{\nu}h_{\mu\sigma} + \partial_{\sigma}\partial_{\mu}h_{\nu\rho} - \partial_{\rho}\partial_{\mu}h_{\nu\sigma} - \partial_{\sigma}\partial_{\nu} h_{\mu\rho}\right).
+\end{split}
+\end{equation}
+Again, $\mathcal{O}(\varepsilon)$ are the lowest-order of terms that appear in the expression. Next up is the Ricci tensor, 
+\begin{equation}
+\begin{split}
+    R_{\mu\nu} &= \ ^{(0)}R_{\mu\nu} + \varepsilon \ ^{(1)}R_{\mu\nu}\\ 
+    &= 2\partial_{[\alpha}\Gamma^{\alpha}_{\ \nu]\mu},\\
+    &=\frac{1}{2}\left(\partial_{\nu}\partial^{\sigma}h_{\sigma\mu} + \partial_{\mu}\partial^{\sigma}h_{\sigma\nu} - \Box h_{\mu\nu} - \partial_{\mu}\partial_{\nu}h\right),
+\end{split}
+\end{equation}
+where the $h = \eta^{\mu\nu}h_{\mu\nu}$ is the trace of the perturbation metric and $\Box = - \partial_{t}^2 + \nabla^2$, is the D'Alembertian operator on the flat background spacetime. The Ricci scalar, $R$, is
+\begin{equation}
+    \begin{split}
+    R &= R^{(0)} + \varepsilon R^{(1)}\\
+&=2\eta^{\mu\nu}\partial_{[\alpha}\Gamma^{\alpha}_{\ \nu]\mu}
+    \end{split}
+\end{equation}
+From all of these, we can derive the Einstein Tensor, 
+\begin{equation}
+\begin{split}
+    G_{\mu\nu} &\equiv R_{\mu\nu} - \frac{1}{2}R g_{\mu\nu}\\
+    &=G^{(0)}_{\mu\nu} + \varepsilon G^{(1)}_{\mu\nu}=2\partial_{[\alpha}\Gamma^{\alpha}_{\ \nu]\mu} - \eta_{\mu\nu}\eta^{\rho\sigma}\partial_{[\alpha}\Gamma^{\alpha}_{\ \sigma]\rho}.\\
+&=\frac{1}{2}\left(\partial_{\nu}\partial^{\sigma}h_{\sigma\mu} + \partial_{\mu}\partial^{\sigma}h_{\sigma\nu} - \Box h_{\mu\nu} - \partial_{\mu}\partial_{\nu}h\right) - \frac{1}{2}\eta_{\mu\nu}\left(\partial_{\rho}\partial_{\sigma}h^{\rho\sigma} - \Box h\right)\\
+&=\partial^{\sigma}\partial_{(\mu}h_{\nu)\sigma} - \frac{1}{2}\left(\Box h_{\mu\nu} + \partial_{\mu}\partial_{\nu}h + \eta_{\mu\nu}\partial_{\rho}\partial_{\sigma}h^{\rho\sigma} - \eta_{\mu\nu}\Box h \right) \\
+\end{split}
+\end{equation}
+This equation of motion can be derived from the following action, 
+\begin{equation}
+    S = \int d^4x\frac{1}{2}\left[(\partial_{\mu}h^{\mu\nu})(\partial_{\nu}h) - (\partial_{\mu}h^{\rho\sigma})(\partial_{\rho}h^{\mu}_{\ \sigma}) + \frac{1}{2}\eta^{\mu\nu}(\partial_{\mu}h^{\rho\sigma})(\partial_{\nu}h_{\rho\sigma}) - \frac{1}{2}\eta^{\mu\nu}(\partial_{\mu}h)(\partial_{\nu}h)\right]
+\end{equation}
+This is all interesting, but where does this action come from? Let's chuck in the Ricci scalar into the Einstein-Hilbert action and see what we get. The Einstein-Hilbert action is given by, 
+\begin{equation}
+    S_{\text{EH}} = \int d^4x \ \eta^{\mu\nu} \left[\partial_{\alpha}\Gamma^{\alpha}_{\ \nu\mu} - \partial_{\nu}\Gamma^{\alpha}_{\ \alpha\mu}\right]
+\end{equation}
+%what can we do with the Palatini formalism?
 
+In GR, the Einstein tensor is \textit{divergence-free}, $\nabla_{\mu}G^{\mu\nu}=0$, which hearkens back to $\partial_{\mu}F^{\mu\nu}$ from free Electromagnetism? But what would that even look like?
+
+\begin{equation}
+    \begin{split}
+         \partial_{\mu}G^{\mu\nu} &= \frac{1}{2}\left(\partial_{\sigma}\Box h^{\nu\sigma} + \partial_{\mu}\partial_{\sigma}\partial^{\nu}h^{\mu\sigma} - \partial_{\mu}\Box h^{\mu\nu} - \partial^{\nu}\Box h + \partial^{\nu}\partial_{\rho}\partial_{\sigma}h^{\rho\sigma} + \partial^{\nu}\Box h \right) \\
+         &= 0.
+    \end{split}
+\end{equation}
+
+\section{Classifying the irreducible representations of the proper orthochronous Lorentz Group}
+A $d$-dimensional representation of the Lorentz group, where $\Lambda$ is a Lorentz transformation, which means,  
+\begin{itemize}
+    \item  $\det(D(\Lambda))>0$ (\textit{proper}), $[D(\Lambda)]^{0}_{\ 0} > 0$ (\textit{orthochronous}),
+    \item $[D(\Lambda_1)][D(\Lambda_2)]=[D(\Lambda_1\Lambda_2)] = [D(\Lambda_3)]$, where $\Lambda_{k}\in SO^{+}(1,3)$.
+    \item $[D(\Lambda^{-1})] = [D(\Lambda)]^{-1}$
+    \item $[D(\Lambda)]^{T}\eta[D(\Lambda)]=\eta$
+\end{itemize}
+Choose a matrix representation, what happens to the $h_{\mu\nu}(x)$ tensor field under an infinitesimal Lorentz transformation?
+
+\begin{equation}
+    \begin{split}
+        [D(\Lambda)]^{\mu}_{\ \nu} = \left(e^{-i\theta_{\alpha\beta} \mathcal{M}^{\alpha\beta}}\right)^{\mu}_{\ \nu} 
+    \end{split}
+\end{equation}
+If we define the translation operator $\hat{P}_{\mu} = -i\partial_{\mu}$, we can write,
+\begin{equation}
+    \begin{split}
+        \Lambda^{\mu}_{\mu'}\Lambda^{\nu}_{\nu'} h_{\mu\nu}\left(\Lambda^{-1}x\right)&=h_{\mu'\nu'}(x) + \theta_{\alpha\beta}\left(\mathcal{M}^{\alpha\beta}\right)^{\rho}_{\sigma}x^{\sigma}\hat{P}_{\rho}h_{\mu'\nu'} - 2i\theta_{\alpha\beta}\left(\mathcal{M}^{\alpha\beta}\right)^{\mu}_{(\mu'}h_{\nu')\mu}
+    \end{split}
+\end{equation}
+
+There is a standard representation of the Lorentz generators give by, 
+\begin{equation}\label{lorentz-lie-algebra-standard}
+    \left(\mathcal{M}^{\alpha\beta}\right)^{\rho}_{\ \sigma} = i\eta^{\mu\rho}\left(\delta^{\alpha}_{\mu}\delta^{\beta}_{\sigma} -\delta^{\alpha}_{\sigma}\delta^{\beta}_{\mu}\right)
+\end{equation}
+Using this representation of the Lorentz algebra, we obtain a new representation of the Lorentz algebra for covariant symmetric $2$-tensors,  
+\begin{equation}
+    \left(\mathcal{J}^{\alpha\beta}\right)^{\rho\sigma}_{\ \ \ \mu\nu} = \left(x^{\alpha}p^{\beta} - x^{\beta}p^{\alpha}\right)\delta^{\rho}_{\ \mu}\delta^{\sigma}_{\ \nu} + \left(\mathcal{M}^{\alpha\beta}\right)^{\sigma}_{\ \nu}\delta^{\rho}_{\ \mu} + \left(\mathcal{M}^{\alpha\beta}\right)^{\rho}_{\ \mu}\delta^{\sigma}_{\ \nu}.
+\end{equation}
+Does this new representation obey the Lorentz Algebra? Yes, because the first part involving $x^{\alpha}$ and $p^{\beta}$ is the standard contribution to the Lorentz algebra from fields, and the second part involves the standard Lorentz algebra (\cite{lorentz-lie-algebra-standard}), since $\mathfrak{so}^+(3,1)$ is a vector space, then a vector sum of elements of $\mathfrak{so}^+(3,1)$ are also element of the Lorentz algebra, though this forms a higher-dimensional tensor product representation of the Lorentz algebra. $\mathcal{J}^{0i}$ are the three boosts, 
+\begin{equation}
+    \left(\mathcal{J}^{0i}\right)^{\rho\sigma}_{\ \ \mu\nu} = -i\left(t\frac{\partial}{\partial x^i}-x^i\frac{\partial}{\partial t}\right)\delta^{\rho}_{\ \mu}\delta^{\sigma}_{\ \nu} + \left(\mathcal{K}^i\right)^{\sigma}_{\ \nu}\delta^{\rho}_{\ \mu} + \left(\mathcal{K}^i\right)^{\rho}_{\ \mu}\delta^{\sigma}_{\ \nu}.
+\end{equation}
+and $\mathcal{J}^{ij}$ form representations of the rotation group, 
+\begin{equation}
+\begin{split}
+    \frac{1}{2}\epsilon_{ijk}\left(\mathcal{J}^{ij}\right)^{\rho\sigma}_{\ \ \ \mu\nu} &= \frac{1}{2}\epsilon_{ijk}\left(x^ip^j - x^jp^i\right)\delta^{\rho}_{\ \mu}\delta^{\sigma}_{\ \nu} + \left(\frac{1}{2}\epsilon_{ijk}\mathcal{M}^{ij}\right)^{\sigma}_{\ \nu}\delta^{\rho}_{\ \mu} + \left(\frac{1}{2}\epsilon_{ijk}\mathcal{M}^{ij}\right)^{\rho}_{\ \mu}\delta^{\sigma}_{\ \nu}\\
+    &= (\epsilon_{ijk}x^ip^j)\delta^{\rho}_{\ \mu}\delta^{\sigma}_{\ \nu} + \left(L^k\right)^{\sigma}_{\ \nu}\delta^{\rho}_{\ \mu} + \left(L^k\right)^{\rho}_{\ \mu}\delta^{\sigma}_{\ \nu} = \left(\mathcal{L}^k\right)^{\rho\sigma}_{\ \ \mu\nu}
+\end{split}
+\end{equation}
+Therefore, we can write, 
+\begin{equation}
+    \left(\mathcal{L}^i\right)^{\rho\sigma}_{\ \ \mu\nu} = (-i\mathbf{r}\times\vec{\nabla})^{k}\delta^{\rho}_{\ \mu}\delta^{\sigma}_{\ \nu} + \left(L^i\right)^{\sigma}_{\ \nu}\delta^{\rho}_{\ \mu} + \left(L^i\right)^{\rho}_{\ \mu}\delta^{\sigma}_{\ \nu}
+\end{equation}
+Let's focus on the intrinsic part of the rotation algebras: 
+\begin{equation}
+    \begin{split}
+        (\mathcal{K}^i)^{\rho\sigma}_{\ \ \mu\nu} &= (K^i)^{\rho}_{\ \nu}\delta^{\sigma}_{\ \mu}+(K^i)^{\sigma}_{\mu}\delta^{\rho}_{\ \nu}\\
+        (\mathcal{L}^i)^{\rho\sigma}_{\ \ \mu\nu} &= (L^i)^{\rho}_{\ \nu}\delta^{\sigma}_{\ \mu} + (L^i)^{\sigma}_{\ \mu}\delta^{\rho}_{\ \nu}
+    \end{split}
+\end{equation}
+Now, we will complexify the algebra in the following way, 
+\begin{equation}
+    \begin{split}
+        \mathcal{J}^i_{\pm}&=\frac{1}{2}\left(\mathcal{L}^i + i\mathcal{K}^i\right)\\
+         (\mathcal{J}^i_{\pm})^{\rho\sigma}_{\ \ \mu\nu}&=\frac{1}{2}\left((J^i_{\pm})^{\rho}_{\ \nu}\delta^{\sigma}_{\ \mu} + (J^i_{\pm})^{\sigma}_{\ \mu}\delta^{\rho}_{\ \nu}\right)
+    \end{split}
+\end{equation}
+where the $J_{\pm}$ obey the following commutation relations: 
+\begin{equation}
+\begin{split}
+    [J^i_{\pm},J^j_{\pm}] &= i\epsilon_{ijk}J^k_{\pm}\\
+    [J^i_{+}, J^j_{-}] &= 0
+\end{split}
+\end{equation}
+It's easy to see how the $(\mathcal{J}^i_{\pm})$ obey similar commutation relations. In this manner, we see the usual isomorphism, $\mathfrak{so}(3,1)_{\mathbb{C}}\simeq \mathfrak{su}(2)_{\mathbb{C}}\oplus \mathfrak{su}(2)_{\mathbb{C}}$. Alongside there is a non-trivial \textbf{Abelian} subalgebra. 
 \section{Dynamical Degrees of Freedom}
 With this linearised tensor we could immediately fix a gauge and solve the EFEs. However, we can accumulate some additional physics insights by first choosing a fixed inertial coordinate system in the Minkowski background spacetime and decomposing components of the metric perturbation according to their transformation properties under spatial rotations.
 
-\subsection{Degrees of freedom in EM}
-We break coordinate invariance for convenience, just as with $\vec{E}$ and $\vec{B}$ components of the 2-form Electromagnetic field strength tensor, $F_{\mu\nu} =(\text{d}A)_{\mu\nu} =\partial_{\mu} A_{\nu} - \partial_{\nu} A_{\mu}$, where we define a one-form potential $A_{\mu} = \left(\phi, \vec{A}\right)$, where $\phi$ is the \textit{electrostatic potential} and $\vec{A}$ is the \textit{magnetic vector potential}. Combinations of derivatives of components of $A_{\mu}$ produce our physical fields, 
-\begin{eqnarray}\label{EandMFields}
-    \vec{E} &\equiv& -\vec{\nabla}\phi - \frac{\partial \vec{A}}{\partial t}, \\
-    \vec{B} &\equiv& \vec{\nabla}\times\vec{A}.
-\end{eqnarray}
-A particle of charge $q$ moving through an electromagnetic field with velocity $\mathbf{v}$ obeys the Lorentz force law,
-\begin{equation}\label{lorentz-force-law}
-    \vec{F} = q\left(\vec{E}+ \vec{v}\times\vec{B}\right).
+\subsection{Brief aside: Degrees of freedom in EM}
+The idea of this line of inquiry is to make the analogy to electromagnetism more apparent. Now we will take a brief aside to the covariant formulation of electromagnetism in order to analogise subsequent steps in our analysis of metric degrees of freedom. 
+
+Of course, the discovery of electromagnetic fields was made in reverse of what we are trying to do with gravity. Traditionally, we start with the degrees of freedom $\vec{E}$ and $\vec{B}$ and construct the field strength tensor, $F_{\mu\nu}$. $F_{\mu\nu} =\partial_{\mu}A_{\nu} - \partial_{\nu}A_{\mu}$, where we define a one-form potential $A_{\mu} = \left(\phi, \vec{A}\right)$, where $\phi$ is the \textit{electrostatic potential} and $\vec{A}$ is the \textit{magnetic vector potential}. Combinations of derivatives of components of $A_{\mu}$ produce our physical fields, 
+\begin{equation}
+    \begin{split}
+    \vec{E} &\equiv -\vec{\nabla}\phi - \frac{\partial \vec{A}}{\partial t}, \\
+    \vec{B} &\equiv \vec{\nabla}\times\vec{A}.
+    \end{split}
+    \label{EandMFields}
 \end{equation}
-In a vacuum (source-free Maxwell) the dynamics of the theory are generated purely by the following action, 
-\begin{eqnarray}
-    S[A_{\mu}] &=& -\frac{1}{4}\int d^4 x \ F^{\mu\nu}F_{\mu\nu},
-\end{eqnarray}
+A particle of charge $q$ moving through an electromagnetic field with velocity $\vec{v}$ obeys the Lorentz force law,
+\begin{equation}\label{lorentz-force-law}
+    \frac{d\vec{p}}{d t} = q\left(\vec{E}+ \vec{v}\times\vec{B}\right).
+\end{equation}
+In a vacuum (source-free Maxwell) the dynamics of the theory are generated purely by the following Lagrangian, 
+\begin{equation}\nonumber
+    \mathcal{L} = -\frac{1}{4} F_{\mu\nu}F^{\mu\nu},
+\end{equation}
 which leads to the following equation of motion,
 \begin{equation}\label{em-eom}
 \partial_{\rho}F^{\rho\mu} = \Box A^{\mu} - \partial^{\mu}(\partial_{\rho}A^{\rho}) = 0.
@@ -66,9 +176,9 @@ But, we make note of the gauge freedom $A'_{\mu} = A_{\mu} + \partial_{\mu}\Lamb
 \subsubsection{Coulomb Gauge}
 The \textbf{Coulomb gauge} (also known as the transverse gauge) is a popular gauge fixing condition. Coulomb gauge states, 
 \begin{equation}
-    \nabla\cdot\vec{A} = 0
+    \vec{\nabla}\cdot\vec{A} = 0
 \end{equation}
-which forces the spatial degrees of freedom to have vanishing divergence. 
+which forces the spatial degrees of freedom to have vanishing 3-divergence. 
 It's definitely an interesting choice of gauge, however, the condition itself breaks Lorentz Invariance, so we could care less about it.
 
 \subsubsection{Lorenz Gauge}
@@ -78,25 +188,23 @@ On the other hand, the \textbf{Lorenz gauge} is a Lorentz invariant and the cond
 \end{equation}
 Watch what this does to the gauge freedom equation,
 \begin{equation}
-    \partial_{\mu}A'^{\mu} = \partial_{\mu}A^{\mu} + \Box\Lambda(x) = 0.
+    \partial_{\mu}A^{'\mu} = \partial_{\mu}A^{\mu} + \Box\Lambda(x) = 0.
 \end{equation}
 But also, we require that $\partial_{\mu}A^{\mu}=0$, therefore, we have an equation of motion for the $\Lambda(x)$ degree of freedom,
-\begin{equation}
-    \Box\Lambda(x) = 0.
+\begin{equation}\nonumber
+    \Box\Lambda(x) = 0,
 \end{equation}
-Which is the equation of motion for a massless spin-0 field. What about (\ref{em-eom})? We see that the second term contains a $\partial_{\rho}A^{\rho}$, which we have chosen to vanish, therefore, 
+which is an equation of motion for a massless spin-0 field, called the \textit{residual gauge field}. What about (\ref{em-eom})? We see that the second term contains a $\partial_{\rho}A^{\rho}$, which we have chosen to vanish, therefore, 
 \begin{equation}\label{em-eom-reduced}
-\Box A^{\mu} = 0.
+\Box A^{\mu} = 0.\nonumber
 \end{equation}
-This is an interesting equation, because it's four spin-0 fields propagating independently. We're almost there, however, we have two too many degrees of freedom. Electromagnetic radiation carries two transverse polarisation vectors. Luckily, the gauge condition can help us here. 
+This is an interesting equation, because it's four spin-0 fields propagating independently (this is exactly the behaviour of electromagnetic waves which obey the \textit{principle of superposition}). We're almost there, however, we have two too many degrees of freedom. Electromagnetic radiation carries two transverse polarisation vectors (vectors that are perpendicular to the direction of motion). Luckily, the gauge condition can help us here. 
 \subsubsection{Solving equations in Lorenz gauge}
 Consider the plane wave solution,
 \begin{equation}
     A^{\mu} = \epsilon^{\mu}e^{-ik\cdot x},
 \end{equation}
-then, from $\Box A^{\mu}$, we have $k^2=0$, a null wavevector. Further, from the Lorenz Gauge condition, we have $\partial_{\mu}A^{\mu} \rightarrow \epsilon\cdot k=0$, which means that the polarisation vector is normal to the propagation direction. From arguments of gauge choice, we have been able to accurately reason and describe the nature of electromagnetic radiation. 
-
-Now we choose a particular frame in which light is propagating along the $z$-direction. The natural choice from the $k^2=0$ condition for $k^{\mu}$ is, 
+then, from $\Box A^{\mu}$, we have $k^2=0$, a null wavevector. Further, from the Lorenz gauge, we have $\partial_{\mu}A^{\mu} \rightarrow \epsilon\cdot k=0$, which means that the polarisation vector is normal to the propagation direction. From arguments of gauge choice, we have been able to accurately describe the nature of electromagnetic radiation. Now we choose a particular frame in which light is propagating along the $z$-direction. The natural choice from the $k^2=0$ condition for $k^{\mu}$ is, 
 \begin{equation}
     k^{\mu} = (k \ 0 \ 0 \ k)^T.
 \end{equation}
@@ -104,93 +212,124 @@ The polarisation vector $\epsilon^{\mu}$ can be ascertained as,
 \begin{equation}
     \epsilon^{\mu} = (\alpha \ e^1 \ e^2 \ \alpha)^T
 \end{equation}
-Now, we from $\epsilon\cdot k = 0$
+and we see $\epsilon\cdot k = 0$. Thus we interpret $\alpha$ as the residual gauge mode, $\Lambda = e^{-ik\cdot x}$
+
+\begin{equation}
+    A^{\mu} = \partial^{\mu}\Lambda = \partial^{\mu}e^{-ik\cdot x} = =-ik^{\mu}e^{-ik\cdot x} = -ik\begin{pmatrix}
+        1\\
+        0\\
+        0\\
+        1
+    \end{pmatrix}e^{-ik\cdot x}
+\end{equation}
+where $\alpha = -ik$. So gauge choices result in constraints being places on the polarisation degrees of freedom. 
+
+In order to write the general classical solution we introduce the 4 orthonormal \textbf{real} polarisation vectors $\epsilon^{\mu}_{(\alpha)}(\vec{k})$ that provide a basis spannign Minkowski space. We choose these basis vectors  so that $\epsilon^{\mu}_{(0)}(\vec{k})$ is time-directed and $\vec{\epsilon}_{(3)}(\vec{k})\propto\vec{k}$ id longitudinal. By orthonormality in the Minkowski context, we mean, 
+\begin{equation}
+    \eta_{\alpha\beta} = \epsilon^{\mu}_{(\alpha)}(\vec{k})\epsilon_{\mu(\beta)}(\vec{k})
+\end{equation}
+and to be a complete basis we require, 
+
+\begin{equation}
+    \eta^{\mu\nu} = \sum_{\alpha}\frac{\epsilon^{\mu}_{(\alpha)}(\vec{k})\epsilon^{\nu}{(\alpha)}(\vec{k})}{\epsilon_{(\alpha)}(\vec{k})\cdot\epsilon_{(\alpha)}(\vec{k})}
+\end{equation}
+
+
+
 \section{Back to linearized gravity}
-Subsequent to beating this dead horse of an analogy, we move back to the case at hand of linearized gravity. The metric perturbations $h_{\mu\nu}$ is a symmetric tensor, as opposed to the antisymmetric $F_{\mu\nu}$. We can decompose this tensor into its constituent degrees of freedom. In particular, the $h_{00}$ component is a scalar, the $h_{0i}$ components form a vector in $\mathbb{R}^3$ and the spatial $h_{ij}$ components for a two index symmetric spatial tensor. The tensor is further reducible into \textit{trace} and \textit{traceless} parts. In mathematical form, we usually choose, 
-\begin{eqnarray}
-    h_{00} &=& -2\Phi\\
-    h_{0i} &=& w_{i}\\
-    h_{ij} &=& 2s_{ij} - 2\Psi\delta_{ij}
-\end{eqnarray}
-where $\Psi$ contains information about the trace of $h_{ij}$ and $s_{ij}$ is traceless. The trace of $h_{ij}$ is the contraction of $h_{ij}$ with the metric on $\mathbb{R}^3$, $\delta^{ij}$, 
-\begin{eqnarray}
+Subsequent to beating this dead horse of an analogy, we move back to the case at hand of linearized gravity. The metric perturbations $h_{\mu\nu}$ is a symmetric tensor, as opposed to the antisymmetric $F_{\mu\nu}$. We can decompose this tensor into its constituent degrees of freedom. In particular, the $h_{00}$ component is a scalar, the $h_{0i}$ components form a vector in $\mathbb{R}^3$ and the spatial $h_{ij}$ components form a two index symmetric spatial tensor. The tensor is further reducible into \textit{trace} and \textit{traceless} parts. In mathematical form, we usually choose, 
+\begin{equation}\label{metric-dof}
+    \begin{split}
+    h_{00} &= -2\Phi\\
+    h_{0i} &= w_{i}\\
+    h_{ij} &= 2\left(s_{ij} - \Psi\delta_{ij}\right)
+    \end{split}
+\end{equation}
+where $\Psi$ contains information about the trace of $h_{ij}$ and $s_{ij}$ is traceless. The trace of $h_{ij}$ is the contraction of $h_{ij}$ with the metric on $\mathbb{R}^3$ which is $\delta^{ij}$, 
+\begin{eqnarray*}
     \delta^{ij}h_{ij} &=& 2\delta^{ij}s_{ij} -2\Psi\delta^{ij}\delta_{ij}=  - 6 \Psi\nonumber\\
     \Psi &=& -\frac{1}{6}\delta^{ij}h_{ij}
-\end{eqnarray}
+\end{eqnarray*}
 which leads to the form of $s_{ij}$,
 \begin{equation}
     s_{ij} = \frac{1}{2}\left[h_{ij} - \frac{1}{3}\delta_{ij}\delta^{kl}h_{kl}\right].
 \end{equation}
 The full metric $\text{d}s^2 = g_{\mu\nu}\text{d}x^{\mu}\text{d}x^{\nu}$ is, 
-\begin{equation}
+\begin{equation*}
     \text{d}s^2 = -(1+2\Phi)\text{d}t^2 + w_{i}(\text{d}t\text{d}x^i + \text{d}x^i\text{d}t) + [(1-2\Psi)\delta_{ij} + 2s_{ij}]\text{d}x^i\text{d}x^j.
-\end{equation}
-As of yet, we have performed only convenient window-dressing, we still have to choose the gauge and solve equations. But not in vain. This choice shows will make apparent $s_{ij}$ containing information about \textit{gravitational radiation}. But we have fixed an inertial frame for convenience, to express $p^{\mu} = dx^{\mu}/d\lambda$ ($\lambda = \tau/m$ if the particle is massive). As usual, 
-\begin{equation}
+\end{equation*}
+As of yet, this is only convenient window-dressing. We have chosen a representation of $h_{\mu\nu}$. This choice will make apparent $s_{ij}$ containing information about \textit{gravitational radiation}. But we have fixed an inertial frame for convenience, to express $p^{\mu} = dx^{\mu}/d\lambda$ ($\lambda = \tau/m$ if the particle is massive). As usual, 
+\begin{equation}\nonumber
     p^0 = \frac{dt}{d\lambda} = E \ \ \text{and} \ \ p^i = Ev^i
 \end{equation}
 Consider the geodesic equation,
-\begin{equation}
+\begin{equation}\nonumber
     \frac{dp^{\mu}}{d\lambda} + \Gamma^{\mu}_{\ \rho\sigma}p^{\rho}p^{\sigma}=0.
 \end{equation}
 We can write this in the following form, 
-\begin{equation}
+\begin{equation}\nonumber
     \frac{dp^{\mu}}{dt} = -\Gamma^{\mu}_{\ \rho\sigma}\frac{p^{\rho}p^{\sigma}}{E}
 \end{equation}
 The $\mu=0$ term describes the rate of change in energy over time (power),
-\begin{equation}
+\begin{equation}\nonumber
     \frac{dE}{dt} = -E\left[\partial_0\Phi + 2(\partial_k\Phi)v^k  - \left(\partial_{(j}w_{k)} - \frac{1}{2}\partial_{0}h_{jk}\right)v^jv^k\right]
 \end{equation}
 
 The spatial component $\mu=i$ of the geodesic equation becomes,
-\begin{equation}
+\begin{equation}\nonumber
     \frac{dp^i}{dt} = -E\left[\partial_i\Phi + \partial_0 w_i + 2\left(\partial_{[i}w_{j]} + \partial_0h_{ij}\right)v^j+ \left(\partial_{(j}h_{k)i} - \frac{1}{2}\partial_{i}h_{jk}\right)v^jv^k\right].
 \end{equation}
-To interpret this physically, it is convenient to define the \textit{gravitoelectric} and \textit{gravitomagnetic} vector fields,
-\begin{eqnarray}
-    \vec{G} &=& -\nabla\Phi -\frac{\partial\vec{w}}{\partial t},\\
-    \vec{H} &=& \nabla\times \vec{w}
-\end{eqnarray}
-There is a direct parallel between these equations and (\ref{EandMFields}). The net force acting on a particle is given by,
+To interpret this physically, it is convenient to define the \textit{gravitoelectric} and \textit{gravitomagnetic} vector fields, respectively,
+\begin{equation}
+\begin{split}
+    \vec{G} &= -\nabla\Phi -\frac{\partial\vec{w}}{\partial t},\\
+    \vec{H} &= \nabla\times \vec{w}
+\end{split}
+\end{equation}
+These field definitions parallel the equations for the fields in electromagnetism (\ref{EandMFields}). The net force acting on a particle is given by,
 \begin{equation}
     \frac{dp^i}{d t} =  E\left(G^i + (v\times H)^i - 2(\partial_0h_{ij})v^j+ \left(\partial_{(j}h_{k)i} - \frac{1}{2}\partial_{i}h_{jk}\right)v^jv^k\right)
 \end{equation}
 This is analogous to the Lorentz Force Law (\ref{lorentz-force-law}) in EM. 
 We should also examine the evolution of the linearized Einstein Field Equations. The Riemann tensor components are,
-\begin{eqnarray}
+\begin{eqnarray*}
     R_{0j0l} &=& \partial_j\partial_l\Phi + \partial_0\partial_{(j}w_{l)} -\frac{1}{2}\partial_0\partial_0h_{jl}\\
     R_{0jkl} &=& \partial_{j}\partial_{[k}w_{l]} - \partial_0\partial_{[k}h_{l]j}\\
     R_{ijkl} &=& \partial_j\partial_{[k}h_{l]i} - \partial_i\partial_{[k}h_{l]j}.
-\end{eqnarray}
+\end{eqnarray*}
 The Ricci tensor components are,
-\begin{eqnarray}
+\begin{eqnarray*}
     R_{00} &=& \nabla^2\Phi + \partial_0\partial_kw^k + 3\partial_0^2\Psi\\
     R_{0j} &=& -\frac{1}{2}\nabla^2w_j + \frac{1}{2}\partial_j\partial_kw^k + 2\partial_{0}\partial_k\Psi + \partial_0\partial_ls_{j}^k\\
-    R_{ij} &=& -\partial_i\partial_j(\Phi - \Psi) - \partial_0\partial_{(i}w_{j)} + (\Box\Psi)\delta_{ij} + \Box s_{ij} + 2\partial_{k}\partial_{(i}s_{j)}^k
-\end{eqnarray}
+    R_{ij} &=& -\partial_i\partial_j(\Phi - \Psi) - \partial_0\partial_{(i}w_{j)} + (\Box\Psi)\delta_{ij} + \Box s_{ij} \\
+    &\ &\ \ \ \ \ + 2\partial_{k}\partial_{(i}s_{j)}^k
+\end{eqnarray*}
 Finally, we can calculate Einstein tensor,
-\begin{eqnarray}
-    G_{00} &=& 2\nabla^2\Psi + \partial_k\partial_ls^{kl}\\
-    G_{0j} &=& -\frac{1}{2}\nabla^2w_j + \frac{1}{2}\partial_j\partial_kw^k + 2\partial_0\partial_j\Psi +\partial_0\partial_ks_j^k \\
-    G_{ij} &=& (\delta_{ij}\nabla^2 - \partial_i\partial_j)(\Phi - \Psi) + \delta_{ij}\partial_0\partial_kw^k - \partial_0\partial_{(i}w_{j)}\dots\text{finish this off}.
-\end{eqnarray}
+\begin{equation}\label{einstein-tensor-pert-components}
+\begin{split}
+    G_{00} &= 2\nabla^2\Psi + \partial_k\partial_ls^{kl}\\
+    G_{0j} &= -\frac{1}{2}\nabla^2w_j + \frac{1}{2}\partial_j\partial_kw^k + 2\partial_0\partial_j\Psi +\partial_0\partial_ks_j^k \\
+    G_{ij} &= (\delta_{ij}\nabla^2 - \partial_i\partial_j)(\Phi - \Psi) + \delta_{ij}\partial_0\partial_kw^k - \partial_0\partial_{(i}w_{j)}\\
+    &\ \ \ \ \ \ \ \ \ \ + 2\delta_{ij}\partial_0^2\Psi - \Box s_{ij} + 2\partial_k\partial_{(i}s_{j)}^{\ k} -\delta_{ij}\partial_k\partial_ls^{kl}.
+\end{split}
+\end{equation}
 As the EFEs are give by $G_{\mu\nu} = 8\pi G T_{\mu\nu}$, we can write the Einstein tensor in terms of matter content, the $00$ equation is,
 
-\begin{equation}
+\begin{equation}\nonumber
     \nabla^2\Psi = 4\pi GT_{00} -\frac{1}{2}\partial_i\partial_js^{ij}
 \end{equation}
 which is an equation for which there are no time derivatives of $\Psi$, $T_{00}$ and $s_{ij}$ are sufficient to express $\Psi$ up to boundary condition. As it completely depends on other variables, $\Psi$ is not a propagating degree of freedom. Next, the $0i$ contributions,
-\begin{equation}
+\begin{equation}\nonumber
     \left(\delta_{jk}\nabla^2 - \partial_j\partial_k \right)w^k = -16\pi GT_{0j} + 4\partial_0\partial_j\Psi + 2\partial_0\partial_ks_{j}^{\ k}
 \end{equation}
 where there are also no time derivatives of $w^i$ which means the components of the three vector are also not physical degrees of freedom. 
 
 Finally, the $ij$ component equation gives, 
-\begin{eqnarray}
-    \left(\delta_{ij}\nabla^2 - \partial_i\partial_j \right)\Phi &=& 8\pi GT_{ij} + (\delta_{ij}\nabla^2 - \partial_i\partial_j - 2\delta_{ij}\partial_0^2)\Psi \nonumber\\
-    &\ & - \delta_{ij}\partial_0\partial_kw^k + \partial_0\partial_{(i}w_{j)} + \Box s_{ij} - 2\partial_k\partial_{(i}s_{j)}^{\ k}\nonumber\\
+\begin{eqnarray*}
+    \left(\delta_{ij}\nabla^2 - \partial_i\partial_j \right)\Phi &=& 8\pi GT_{ij} + (\delta_{ij}\nabla^2 - \partial_i\partial_j - 2\delta_{ij}\partial_0^2)\Psi \\
+    &\ & - \delta_{ij}\partial_0\partial_kw^k + \partial_0\partial_{(i}w_{j)} + \Box s_{ij} - 2\partial_k\partial_{(i}s_{j)}^{\ k}\\
     &\ & - \delta_{ij}\partial_k\partial_l s^{kl},
-\end{eqnarray}
+\end{eqnarray*}
 where once again, we have no time derivative of $\Phi$, therefore, it is not a propagating degree of freedom. Propagating tensor fields under quantisation give rise to particles of different spins. Despite the fact that some of the fields in this analysis were not physical degrees of freedom, in some alternative theories of gravity, it is possible for these \textbf{residual gauge modes} to become physical. In this case, $\Psi$ and $\Phi$ would have spin-0, $w^i$ would have spin-1 and $s_{ij}$ would have spin-2. The only physical degree of freedom in regular GR is the \textbf{strain tensor}, $s_{ij}$ transforms under a spin-2 representation.
 The gauge transformation on the perturbation is described as the following, 
 $$h_{\mu\nu}\rightarrow h_{\mu\nu} + \partial_{\mu}\xi_{\nu} + \partial_{\nu}\xi_{\mu}$$
@@ -209,33 +348,33 @@ Now we shall discuss some gauge choices.
 \subsection{Choices of gauge}
 \subsubsection{Transverse gauge (Coulomb-like gauge)}
 As in the Electromagnetism analogy, we choose a gauge which sets the divergence of the strain tensor to zero (analogous to the Coulomb gauge), 
-\begin{equation}
+\begin{equation}\nonumber
     \partial_is^{ij}=0.
 \end{equation}
 This can be imposed from (\ref{s-trans}) by choosing, 
-\begin{equation}
-    \nabla^2\xi^j + \frac{1}{3}\partial_j(\partial_i\xi^i) = -2\partial_is^{ij}
+\begin{equation}\nonumber
+    \nabla^2\xi^j + \frac{1}{3}\partial_j\partial_i\xi^i = -2\partial_is^{ij}
 \end{equation}
 But the value of $\xi^0$ is still undetermined, but we can impose a condition on it by choosing, 
-\begin{equation}
+\begin{equation}\nonumber
     \partial_iw^i = 0. 
 \end{equation}
 Similarly, we can use (\ref{w-trans}) to allow this,
-\begin{equation}
+\begin{equation}\nonumber
     \nabla^2\xi^0 = \partial_iw^i + \partial_0\partial_i\xi^i
 \end{equation}
 It is called the transverse gauge because, in momentum space, the \textit{polarisations} of these degrees of freedom are orthogonal to the propagation direction. If we expand $\partial_iw^i$ in terms of Fourier modes, we have
-\begin{equation}
-    \partial_iw^i=i\int\frac{d^3k}{(2\pi)^{\frac{3}{2}}}[k_i\omega^i(k)]e^{ikx}=0
+\begin{equation}\nonumber
+    \partial_iw^i=i\int\frac{d^3k}{(2\pi)^3}[k_i\gamma^i(k)]e^{ikx}=0
 \end{equation}
-which leads to the condition that $\vec{k}\cdot \vec{\omega}=0$, where $\vec{\omega}$ is the set of \textit{polarisation} degrees of freedom of $\vec{w}$. Similarly, $k_{i}\sigma^{ij}(k)=0$, where $\sigma^{ij}$ is the polarisation tensor for $s_{ij}$.
+which leads to the condition that $\vec{k}\cdot \vec{\gamma}=0$, where $\vec{\gamma}$ is the set of \textit{polarisation} degrees of freedom of $\vec{w}$. Similarly, $k_{i}\sigma^{ij}(k)=0$, where $\sigma^{ij}$ is the polarisation mode tensor for $s_{ij}$.
 
-Under this gauge choice, the Einsten Equations become, 
-\begin{eqnarray}
+Under this gauge choice, the Einstein Equations become, 
+\begin{eqnarray*}
     8\pi GT_{00} &=& 2\nabla^2\Psi \\ 
     8\pi GT_{0j} &=& \frac{1}{2}\left[4\partial_0\partial_j\Psi - \nabla^2w_j\right] \\
     8\pi GT_{ij} &=& \left[\delta_{ij}\nabla^2 - \partial_i\partial_j\right](\Phi-\Psi) - \partial_0\partial_{(i}w_{j)} + 2\delta_{ij}\partial_0^2\Psi - \Box s_{ij}.
-\end{eqnarray}
+\end{eqnarray*}
 which are considerably simpler than the equations before. 
 
 \subsubsection{Synchronous Gauge}
@@ -252,12 +391,12 @@ The metric in this synchronous gauge takes on a simple and attractive form,
     ds^2 = -dt^2 + (\delta_{ij} + h_{ij})dx^{i}dx^{j}\nonumber
 \end{equation}
 The Einstein Equations in the synchronous gauge are, 
-\begin{eqnarray}
+\begin{eqnarray*}
     8\pi GT_{00} &=& \partial_i\partial_js^{ij} + 2\nabla^2\Psi\\
     8\pi GT_{0j} &=& 2\partial_0\partial_j\Psi + \partial_0\partial_{k} s_{j}^{\ k}\\
-    8\pi GT_{ij} &=& 2\partial_k\partial_{(i}s_{j)}^{\ k} + \delta_{ij}\partial_{k}\partial_{l}s^{kl} - \Box s_{ij}  \nonumber\\
+    8\pi GT_{ij} &=& 2\partial_k\partial_{(i}s_{j)}^{\ k} + \delta_{ij}\partial_{k}\partial_{l}s^{kl} - \Box s_{ij}  \\
     & & \ \ +\left(2\delta_{ij}\partial_0^2+\partial_i\partial_j-\delta_{ij}\nabla^2\right)\Psi.
-\end{eqnarray}
+\end{eqnarray*}
 These are equations of the spatial parts of the metric perturbation $h_{ij}$.
 \section{Newtonian Fields and Photon Trajectories}
 We will extend the definition of the Newtonian limit. Relativistic particles respond to spatial components of the metric as well. We can model static gravitating sources by dust, a perfect fluid for which the pressure vanishes. Most of the matter in the universe is well approximated by dust, stars, planets, galaxies and dust. We work in the rest frame of the dust, where the energy-momentum tensor takes the form, $T_{\mu\nu} = \rho U_{\mu}U_{\nu}$. 
@@ -265,8 +404,8 @@ We will extend the definition of the Newtonian limit. Relativistic particles res
 Since the background is Minkowski space, it is straightforward to accomodate moving sources by performing a Lorentz transformation into their rest frame. We are unable to deal with multiple sources moving at large relativistic velocities. Turning to the Einstein equations in the transverse gauge and static sources (time derivatives vanishing), we have, 
 \begin{eqnarray}\label{trans-newt-eqn}
     \nabla^2\Psi &=& 4\pi G\rho\nonumber\\
-    \nabla^2w_j&=&0\\
-    \nabla^2s_{ij} - (\delta_{ij}\nabla^2 - \partial_i\partial_j)(\Phi-\Psi)&=&0\nonumber
+    \nabla^2w_j&=&0\nonumber\\
+    \nabla^2s_{ij} - (\delta_{ij}\nabla^2 - \partial_i\partial_j)(\Phi-\Psi)&=&0
 \end{eqnarray}
 Since we are looking for both non-singular and well-behaved solutions at infinity, only the fields that are sourced at the right-hand side of (\ref{trans-newt-eqn}) will be non-vanishing. For example, immediately by taking the trace of the third equation, we obtain, 
 \begin{equation}
@@ -280,4 +419,26 @@ which implies that $s_{ij}=0$ because there is no source. The perturbed metric i
 \begin{equation}
     ds^2 = -(1+2\Phi)dt^2 + (1-2\Phi)(dx^2 + dy^2+dz^2).
 \end{equation}
-Now we consider the path of a photon through this geometry. Essentially, we are solving the null geodesic equations for the \textit{perturbed metric}. 
+Now we consider the path of a photon through this geometry. Essentially, we are solving the null geodesic equations for the \textit{perturbed metric} which is denoted by $x^{\mu}(\lambda)$. The geodesics can be decomposed into the geodesic of the flat background plus a perturbation, 
+\begin{equation}
+    x^{\mu}(\lambda) = x^{(0)\mu} + \varepsilon x^{(1)\mu},
+\end{equation}
+where, $x^{(0)\mu}$ are the null geodesics on Minkowski space and again we employ the bookkeeping parameter $\varepsilon$ and expand all quantities up to first order in $\varepsilon$ followed by setting $\varepsilon$ to unity. We then evaluate all quantities along the background metric to solve for $x^{(1)\mu}$. For this, we need to assume $\Phi$ does not change a lot along background geodesics; this amounts to requiring that $x^{(1)i}\partial_{i}\Phi\ll\Phi$. If we consider only very short paths, the deviations will necessarily be small, and our approximation is still valid. But we can assemble larger paths out of small segments. As a result we derive true equations, but the paths we integrate will be the actual path $x^{\mu}$, rather than $x^{(0)\mu}(\lambda)$. As long as this is understood, out results will be valid for any trajectories in the perturbed spacetime. 
+
+For convenience, we denote the wave vector of the background path as $k^{\mu}$, and the derivative of the deviation vector as $l^\mu$,
+\begin{equation}
+    k^{\mu} = \frac{dx^{(0)\mu}}{d\lambda} \ \ \ l^{\mu} = \frac{dx^{(1)\mu}}{d\lambda}.
+\end{equation}
+The condition that a path is null,
+\begin{equation}
+    g_{\mu\nu}\frac{dx^{\mu}}{d\lambda}\frac{dx^{\nu}}{d\lambda} = 0,
+\end{equation}
+which must be solved order-by-order. At zeroth order, we have the wave vector dispersion, $\eta_{\mu\nu}k^{\mu}k^{\nu}=0$, or
+\begin{equation}
+    (k^{0})^2 =|\vec{k}| = k^2
+\end{equation}
+where $\vec{k}$ is the spatial wave vector. At first order, 
+\begin{eqnarray}
+    (\eta_{\mu\nu} + \varepsilon h_{\mu\nu})(k^{\mu} + \varepsilon l^{\mu})(k^{\nu} + \varepsilon l^{\nu})=0\nonumber\\
+    -kl^0 + 2\vec{k}\cdot\vec{l} = 2\Phi k^2
+\end{eqnarray} 

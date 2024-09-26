@@ -1,6 +1,6 @@
 \chapter{Alternative Theories of Gravity}
 \section{Scalar-Tensor Theories}
-\textbf{(Heavily borrowed from Carroll Chapter 4)} Despite the continual success of General Relativity in describing gravitational interactions, it is always possible that the next experiment we perform could show considerable deviations and reveal effects that we cannot describe using it. In principle, there is an infinite range of modifications that could be made to GR, however, there are a few that we direct special attention to. For later comparisons and a reminder the usual Einstein-Hilbert action in $(1+3)$-dimensional Lorentzian spacetime, $\mathcal{M}$ is,
+Despite the continual success of General Relativity in describing gravitational interactions, it is always possible that the next experiment we perform could show considerable deviations and reveal effects that we cannot describe using it. In principle, there is an infinite range of modifications that could be made to GR, however, there are a few that we direct special attention to. For later comparisons and a reminder the usual Einstein-Hilbert action in $(1+3)$-dimensional Lorentzian spacetime, $\mathcal{M}$ is,
 \begin{equation}
     S_{R} = \frac{1}{16\pi G}\int_{\mathcal{M}} d^4 x\sqrt{-g}R
 \end{equation}
@@ -34,11 +34,11 @@ Focusing on the gravitational contributions for the moment, from the Leibnitz pr
 \end{equation}
 
 where,
-\begin{eqnarray}
+\begin{eqnarray*}
     \delta S_1 = \int d^4 x \sqrt{-g} f(\varphi) g^{\mu\nu}\delta R_{\mu\nu}\\
     \delta S_2 = \int d^4 x \sqrt{-g} f(\varphi) R_{\mu\nu} \delta g^{\mu\nu}\\
     \delta S_3 = \int d^4 x \sqrt{-g} f(\varphi) R\delta\sqrt{-g}
-\end{eqnarray}
+\end{eqnarray*}
 We see that $\delta S_2$ is in the form that we require, however, $\delta S_1$ and $\delta S_3$ require some extra care. Starting with $\delta S_1$, we use the Riemann tensor, 
 \begin{equation}
     R^{\rho}_{\ \mu \lambda \nu} = \partial_{\lambda}\Gamma^{\rho}_{\ \nu \mu} + \Gamma^{\rho}_{\ \lambda \sigma} \Gamma^{\sigma}_{\ \nu\mu} - \partial_{\nu}\Gamma^{\rho}_{\ \lambda \mu} - \Gamma^{\rho}_{\ \nu \sigma} \Gamma^{\sigma}_{\ \lambda\mu}
@@ -52,7 +52,7 @@ For the usual Einstein-Hilbert action, $f(\varphi)$ is a constant which means th
 \begin{equation}
     \delta S_{fR} = \int d^4x\sqrt{-g}\left[G_{\mu\nu}f(\varphi) + g_{\mu\nu}\Box f(\varphi)  - \nabla_{\mu}\nabla_{\nu}f(\varphi)\right]\delta g^{\mu\nu}
 \end{equation}
-with the usual $G_{\mu\nu} = R_{\mu\nu}- \frac{1}{2} Rg_{\mu\nu}$. The Field equations are then given by, 
+with the usual $G_{\mu\nu} = R_{\mu\nu}- \frac{1}{2} Rg_{\mu\nu}$. The field equations are then given by, 
 \begin{equation}\label{modified-efes}
     G_{\mu\nu} = \frac{1}{f(\varphi)}\left(\frac{1}{2}T_{\mu\nu}^{(M)} + \frac{1}{2}T_{\mu\nu}^{(\varphi)} + \nabla_{\mu}\nabla_{\nu}f - g_{\mu\nu}\Box f\right)
 \end{equation}
@@ -72,7 +72,8 @@ where the prime $'$ denotes differentiation with respect to $\varphi$. If $\math
 \begin{equation}
     \Box\varphi + f'(\varphi)R= U'(\varphi)
 \end{equation}
-but with this curious Ricci scalar coupling. From the previous discussion, we can see that with little variations in $f(\varphi)$ this new term can be dropped to obtain the usual dynamics of $\varphi$. Another mechanism to lessen this effect is to choose a potential with a minimum and ensuring that $\varphi$ cannot deviate from this minimum without a sufficient energy input. In other words, a very large mass for $\varphi$. Take a potential with $U(0) = U'(0) = 0$, 
+but with this curious Ricci scalar coupling. From the previous discussion, we can see that with little variations in $f(\varphi)$ this new term can be dropped to obtain the usual dynamics of $\varphi$. Another mechanism to lessen this effect is to choose a potential
+with a minimum and ensuring that $\varphi$ cannot deviate from this minimum without a sufficient energy input. In other words, a very large mass for $\varphi$. Take a potential with $U(0) = U'(0) = 0$, 
 
 \begin{equation}
     U(\varphi) \ \approx\  \frac{1}{2}m_{\varphi}^2\varphi^2 + ...
@@ -118,7 +119,7 @@ and on a covector field, $\omega = \omega_{\mu} (x)dx^{\mu}$,
     \tilde{\nabla}_{\mu}\omega_{\nu} &=& \partial_{\mu}\omega_{\nu} - \tilde{\Gamma}^{\rho}_{\ \mu\nu}\omega_{\rho},\\
     &=& \partial_{\mu}\omega_{\nu} - \Gamma^{\rho}_{\ \mu\nu}\omega_{\rho} - \frac{1}{2}\frac{\partial \ln[f(\varphi)]}{\partial \varphi}\left[(\partial_{\nu}\varphi)\omega_{\mu} + (\partial_{\mu}\varphi)\omega_{\nu} -g_{\mu\nu}(\partial_{\sigma}\varphi)\omega^{\sigma}\right]
 \end{eqnarray*}
-which generalises to higher-order tensors in the usual manner. Continuing with the general calculations of the Riemann and Ricci tensors, we obtain the following action in terms of the conformal Ricci Scalar,
+which generalises to higher-order tensors in the usual manner Continuing with the general calculations of the Riemann and Ricci tensors, we obtain the following action in terms of the conformal Ricci Scalar,
 \begin{equation}
     S_{fR}= \int d^4x\ \frac{\sqrt{-g}}{16\pi\tilde{G}}\left[\tilde{R} + \frac{3}{2}\tilde{g}^{\rho\sigma}f^{-2}\left(\frac{df}{d\varphi}\right)^2(\tilde{\nabla}_{\rho}\varphi)(\tilde{\nabla}_{\sigma}\varphi)\right]
 \end{equation}
@@ -133,5 +134,70 @@ which is a specific choice of $f(\varphi)$ and turns off the $S_{\varphi}$ contr
     S = \int d^{4}x \sqrt{-\tilde{g}}(16\pi\tilde{G})^{-1}\left[\tilde{R} - \frac{1}{2}\tilde{\nabla}_{\rho}\varphi\tilde{\nabla}^{\rho}\varphi\right] + S_{M}.
 \end{equation}
 Even without an explicit kinetic term in the Jordan frame, we see a kinetic term generated in the Einstein frame. 
+\section{Linearised Scalar Tensor Theories}
+ But we need to prepare (\ref{modified-efes}) expressing the perturbative expansion of the metric in our analysis. For simplicity and generality, we will write $T_{\mu\nu}^{(\varphi)} + T_{\mu\nu}^{(M)} = T_{\mu\nu}$, giving, 
+\begin{equation}
+\begin{split}
+    G_{\mu\nu} &= \frac{1}{f(\varphi)}\left(\frac{1}{2}T_{\mu\nu} + \nabla_{\mu}\nabla_{\nu}f - g_{\mu\nu}\Box f\right)\\
+\end{split}
+\end{equation}
+Note the following expressions: 
+\begin{itemize}
+    \item $\nabla_{\mu}\nabla_{\nu}f = \partial_{\mu}\partial_{\nu}f - \Gamma^{\alpha}_{\mu\nu}\partial_{\alpha}f$, where $\Gamma^{\rho}_{\ \mu\nu}$ refers to (\ref{pert-christ}), 
+    \item $g_{\mu\nu}\Box f = \eta_{\mu\nu}\Box f + \eta_{\mu\nu}h^{\rho\sigma}\partial_{\rho}\partial_{\sigma}f + h_{\mu\nu}\Box f$, where on the RHS, $\Box = \eta^{\alpha\beta}\partial_{\alpha}\partial_{\beta}$,
+\end{itemize}
+Let's put it together, 
+\begin{equation}
+\begin{split}
+    G_{\mu\nu} &= \partial^{\sigma}\partial_{(\mu}h_{\nu)\sigma} - \frac{1}{2}\left(\Box h_{\mu\nu} + \partial_{\mu}\partial_{\nu}h + \eta_{\mu\nu}\partial_{\rho}\partial_{\sigma}h^{\rho\sigma} +\eta_{\mu\nu}\Box h \right)\\ 
+    &= \frac{1}{f(\varphi)}\left(\frac{1}{2}T_{\mu\nu} +\partial_{\mu}\partial_{\nu}f - \Gamma^{\alpha}_{\mu\nu}\partial_{\alpha}f - \eta_{\mu\nu}\Box f - \eta_{\mu\nu}h^{\rho\sigma}\partial_{\rho}\partial_{\sigma}f -h_{\mu\nu}\Box f\right),
+\end{split}
+\end{equation}
+which is ghastly to be honest. That Christoffel symbol term doesn't look so good. Let's substitute in the definition (\ref{pert-christ}),
+\begin{equation}\label{alt-ein-pert-tensor}
+    \begin{split}
+    G_{\mu\nu} &= \partial^{\sigma}\partial_{(\mu}h_{\nu)\sigma} - \frac{1}{2}\left(\Box h_{\mu\nu} + \partial_{\mu}\partial_{\nu}h + \eta_{\mu\nu}\partial_{\rho}\partial_{\sigma}h^{\rho\sigma} +\eta_{\mu\nu}\Box h \right)\\ 
+    &= \frac{1}{f(\varphi)}\left(\frac{1}{2}T_{\mu\nu} +\partial_{\mu}\partial_{\nu}f -  \partial_{(\mu}h_{\nu)\beta}\partial^{\beta}f + \frac{1}{2}h_{\mu\nu, \beta}\partial^{\beta}f - \eta_{\mu\nu}\Box f - \eta_{\mu\nu}h^{\rho\sigma}\partial_{\rho}\partial_{\sigma}f -h_{\mu\nu}\Box f\right).
+    \end{split}
+\end{equation}
+We have reduced all derived quantities in terms of the metric perturbations $h_{\mu\nu}$. Let's now decompose $G_{\mu\nu}$ in terms of the degrees of freedom expressed in (\ref{metric-dof}),
+\begin{equation}
+\begin{split}
+    G_{00} &= \frac{1}{f(\varphi)}\left[\frac{1}{2}T_{00}^I + (1 + 2\Phi+2\Psi)\nabla^2f - 4\Phi\partial_0^2f - 2(\partial_0\Phi)(\partial_0f) + \partial_0w^i\partial_if - w^i\partial_i\partial_0f + 2s^{kl}\partial_k\partial_lf\right]\\
+    G_{0i}&= \frac{1}{f(\varphi)}\left[\frac{1}{2}T_{0i}^I + \partial_0\partial_if + \left(\frac{1}{2}\partial_0w^i-\partial_i\Phi\right)\partial_0f - \left(\partial_0s_{ij} - \frac{1}{2}\partial_iw^j\right)\partial_jf +(\partial_0\Psi)\partial_if-w^i\Box f\right]\\
+    G_{ij} &=\frac{1}{f(\varphi)}\left[\frac{1}{2}T_{ij}^I + \partial_i\partial_jf + \partial_{(i}w_{j)} - 2\left(\partial_{(i}s_{j)k} - \delta_{k(j}\partial_{i)}\Psi\right)\partial_kf \right.\\ 
+    &\left.\ \ \ \ \ \ \ \ -\delta_{ij}\Box f - \delta_{ij}h^{\rho\sigma}\partial_{\rho}\partial_{\sigma}f - 2\left(s_{ij} + \Psi\delta_{ij}\right)\Box f\right\biggr],
+\end{split}
+\end{equation}
+where the LHS of the equation is equal to the corresponding terms in (\ref{einstein-tensor-pert-components}). Note, that when $f(\varphi)=(16\pi G)^{-1}$ we obtain the same perturbed equations for ordinary GR as before. Now, this is getting a bit hairy, but we are ready to fix a gauge. 
+
+
+We'll bring the equations back down here for a sec, 
+\begin{equation}
+\begin{split}
+    G_{00} &= 2\nabla^2\Psi + \partial_k\partial_ls^{kl}\\
+    G_{0j} &= -\frac{1}{2}\nabla^2w_j + \frac{1}{2}\partial_j\partial_kw^k + 2\partial_0\partial_j\Psi +\partial_0\partial_ks_j^k \\
+    G_{ij} &= (\delta_{ij}\nabla^2 - \partial_i\partial_j)(\Phi - \Psi) + \delta_{ij}\partial_0\partial_kw^k - \partial_0\partial_{(i}w_{j)}\\
+    &\ \ \ \ \ \ \ \ \ \ + 2\delta_{ij}\partial_0^2\Psi - \Box s_{ij} + 2\partial_k\partial_{(i}s_{j)}^{\ k} -\delta_{ij}\partial_k\partial_ls^{kl}.
+\end{split}
+\end{equation}
+We choose the \textbf{synchronous frame} ($\Phi=w^i=0$), as was the choice in ordinary GR, 
+\begin{equation}
+\begin{split}
+    G_{00} &= \frac{1}{f(\varphi)}\left[\frac{1}{2}T_{00} + (1 +2\Psi)\nabla^2f + 2s^{kl}\partial_k\partial_lf\right]= 2\nabla^2\Psi + \partial_k\partial_ls^{kl}\\
+    G_{0i}&= \frac{1}{f(\varphi)}\left[\frac{1}{2}T_{0i} + \partial_0\partial_if - \partial_0s_{ij}\partial_jf\right]= 2\partial_0\partial_j\Psi +\partial_0\partial_ks_j^k\\
+    G_{ij} &=\frac{1}{f(\varphi)}\Biggr[\frac{1}{2}T_{ij} + \partial_i\partial_jf - 2\left(\partial_{(i}s_{j)k} - \delta_{k(j}\partial_{i)}\Psi\right)\partial_kf-\delta_{ij}\Box f \\
+    &\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\delta_{ij}h^{\rho\sigma}\partial_{\rho}\partial_{\sigma}f - 2\left(s_{ij} + \Psi\delta_{ij}\right)\Box f\Biggr]\\
+    &= (\delta_{ij}\nabla^2 - \partial_i\partial_j)(\Phi - \Psi) + 2\delta_{ij}\partial_0^2\Psi - \Box s_{ij} + 2\partial_k\partial_{(i}s_{j)}^{\ k} -\delta_{ij}\partial_k\partial_ls^{kl}.
+\end{split}
+\end{equation}
+Metric in this gauge will be, 
+\begin{equation}
+    \d s^2= -dt^2 + (\delta_{ij} + h_{ij})\d x^i\d x^j
+\end{equation}
+
+
+
+
 \bibliographystyle{numeric}
 \bibliography{chapters/bibliographies/2-alternativeTheories}

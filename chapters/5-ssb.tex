@@ -1,0 +1,423 @@
+\section{Breaking discrete symmetries}
+Consider an theory of a one-dimensional scalar field, $\phi(x)$ equipped with a $\mathbb{Z}_{2}$ symmetric potential such that $V(\phi)$ is symmetric under the following transformation $\phi(x)\rightarrow -\phi(x)$. Explicitly this can be written as
+\begin{equation}
+    \begin{split}
+        \mathcal{L} = \frac{1}{2}\partial_{\mu}\phi\partial^{\mu}\phi - V(\phi); \ \ \ V(\phi) = -\frac{1}{2}\mu^2\phi^2 +\frac{1}{4}\lambda\phi^4
+    \end{split}
+\end{equation}
+This potential has two vacuum states, $v$, which can be found by differentiation with respect to $\phi$
+\begin{equation}
+    \left[\frac{\partial V}{\partial\phi}\right]_{\phi=v} = -\mu^2v + \lambda v^3 = 0
+\end{equation}
+from which we find, $v = \pm\mu/\sqrt{\lambda}$. Now let's look at perturbations of the potential about the positive vacuum state. 
+
+\begin{equation}
+    \begin{split}
+        V(v + \phi) &= -\frac{1}{2}\mu^2(v + \phi)^2 +\frac{1}{4}\lambda(v + \phi)^4\\
+        &=-\frac{1}{2}\mu^2(v^2 + 2v\phi + \phi^2) +\frac{1}{4}\lambda(v^4 + 4v^3\phi + 6v^2\phi^2 + v\phi^3 + \phi^4)\\
+        &= -\frac{\mu^4}{2\lambda} - \frac{\mu^3}{\sqrt{\lambda}}\phi -\frac{1}{2}\mu^2\phi^2 +\frac{\mu^4}{4\lambda} + \frac{\mu^3}{\sqrt{\lambda}}\phi + \frac{3\mu^2}{2}\phi^2 + \frac{\mu}{\sqrt{\lambda}}\phi^3 + \frac{\lambda}{4}\phi^4\\
+        &=-\frac{\mu^4}{4\lambda} +\mu^2\phi^2 + \sqrt{\lambda}\mu\phi^3 + \frac{\lambda}{4}\phi^4
+    \end{split}
+\end{equation}
+All that for what? Barring that irrelevant constant (doesn't apprear in EOM), we can see that that second term is describing a massive scalar with a mass, $m_{\phi} = \sqrt{2}\mu$, and a bunch of higher order terms describing interactions. So we started with a theory with two degenerate vacuum states, when we expanded about the vacuum, we found that it resulted in appearance of the massive scalar we know and love. This is the most basic example of spontaneous symmetry breaking. We considered a theory with a discrete symmetry, what about theories with continuous symmetries?
+
+\section{Spontaneously Broken Continuous Symmetries}
+Let's look at a simple Abelian example of the $U(1)$ Lagrangian. The Lagrangian is given by, 
+\begin{equation}
+    \begin{split}
+        \mathcal{L} = \partial_{\mu}\phi^*\partial^{\mu}\phi - V(\phi^*, \phi); \ \ \ V(\phi^*,\phi) = -\mu^2|\phi|^2 +\frac{\lambda}{2}|\phi|^4
+    \end{split}
+\end{equation}
+The potential is invariant under a global $U(1)$ transformation such that $\phi\rightarrow e^{i\theta}\phi$. Cool. To find the vacua of the theory, we differentiate 
+\begin{equation}
+    \begin{split}
+        \frac{\partial V}{\partial\phi^*} = -\mu^2\phi + \lambda|\phi|^2\phi
+    \end{split}
+\end{equation}
+Which shows that the condition for the minimum is complex numbers with square modulus, 
+\begin{equation}
+    |\phi|^2 = \frac{\mu^2}{\lambda} \equiv \frac{v^2}{2}, 
+\end{equation}
+were the factor of $\frac{1}{2}$ is just a convenient choice. This means that the vacua themselves occupy a circle, 
+\begin{equation}
+    \phi = \frac{v}{\sqrt{2}}e^{i\theta}, \ \ \theta\in[0, 2\pi).
+\end{equation}
+In general, a continuous set of minima is called a \textit{vacuum manifold}. As in the discrete case, the different vacua are all identical, and so we choose the one that forces the vacuum to be real, $\phi = \phi_0 = \frac{v}{\sqrt{2}}$ with real $v$. We choose to then expand around the this minimum, by using the following form of the scalar, 
+\begin{equation}
+    \phi(x) = \frac{1}{\sqrt{2}}(v + \varphi(x) + i\xi(x)), \ \ \varphi,\xi \in \mathbb{R}.
+\end{equation}
+Focus on expanding the potential about the vacuum of choice, 
+\begin{equation}
+\begin{split}
+    V(\phi^*,\phi) &= -\mu^2|\phi|^2 +\frac{\lambda}{2}|\phi|^4 \\
+    &=-\frac{1}{2}\mu^2[(v + \varphi)^2 + \xi^2] +\frac{1}{8}\lambda[(v + \varphi)^2 + \xi^2]^2\\
+    &=-\frac{1}{2}\mu^2v^2 -\mu^2v\varphi -\frac{1}{2}\mu^2(\varphi^2 + \xi^2) +\frac{1}{8}\lambda(v^2 + 2v\varphi + \varphi^2 + \xi^2)^2\\
+    &=-\frac{1}{2}\mu^2v^2 -\mu^2v\varphi -\frac{1}{2}\mu^2(\varphi^2 + \xi^2) +\frac{1}{8}\lambda(v^2 + 2v\varphi)^2 +\frac{1}{4}\lambda(v^2 + 2v\varphi)(\varphi^2 + \xi^2)
+    + \frac{1}{8}\lambda(\varphi^2 + \xi^2)^2\\
+    &=-\frac{1}{2}\mu^2v^2 -\mu^2v\varphi  +\frac{1}{8}\lambda(v^2 + 2v\varphi)^2 + \frac{1}{2}\lambda v\varphi(\varphi^2 + \xi^2)
+    + \frac{1}{8}\lambda(\varphi^2 + \xi^2)^2\\
+    &=-\frac{1}{2}\mu^2v^2 -\mu^2v\varphi  +\frac{1}{8}\lambda(v^2 + 2v\varphi)^2 + \frac{1}{2}\lambda v\varphi(\varphi^2 + \xi^2)
+    + \frac{1}{8}\lambda(\varphi^2 + \xi^2)^2\\
+    &=-\frac{1}{2}\mu^2v^2 -\mu^2v\varphi  +\frac{1}{8}\lambda v^4 + \mu^2v\varphi + \frac{1}{2}\lambda v^2\varphi^2 + \frac{1}{2}\lambda v\varphi(\varphi^2 + \xi^2)
+    + \frac{1}{8}\lambda(\varphi^2 + \xi^2)^2\\
+    &=-\frac{\mu^4}{2\lambda} + \mu^2\varphi^2 + \mathcal{L}_{\text{int}}
+\end{split}
+\end{equation}
+where $\mathcal{L}_{\text{int}}$ contains the interactions between $\varphi$ and $\xi$. As before, we end up with one massive scalar, $\varphi$ with mass $m_{\varphi} = \sqrt{2}\mu$ but the mass term for $\xi$ is not present in the final form of the perturbed Lagrangian. A degree of freedom whose mass term disappears in this way is called a \textit{Goldstone Boson}.
+
+\section{Scalar Mass Matrix}
+In general, we can consider an $n$-component real scalar field $\phi = (\phi_1, ..., \phi_n)^T$ with a Lagrangian, 
+\begin{equation}
+    \mathcal{L} = \frac{1}{2}\partial_{\mu}\phi^T\partial^{\mu}\phi - V(\phi)
+\end{equation}
+This particular kinetic term requires the symmetry transformation to be \textit{orthogonal}, which we will assume for simplicity. 
+
+The vacuum state $\phi = \phi_0$ can be found from the condition, 
+
+\begin{equation}
+    \left\frac{\partial V}{\partial\phi_i}\right|_{\phi=\phi_0} = 0 \ \ \ \text{for all } i 
+\end{equation}
+Taylor expanding around the vacuum using $\phi = \phi_0 + \varphi$, we have, 
+\begin{equation}
+    V(\phi) = V(\phi_0 + \varphi) = V(\phi_0) + \left\varphi_i\frac{\partial V}{\partial\phi_i}\right|_{\phi_0} + \left\frac{1}{2}\varphi_i\varphi_j\frac{\partial^2 V}{\partial\phi_i\partial\phi_j}\right|_{\phi_0} + ... 
+\end{equation}
+which can be written in the following way, 
+\begin{equation}
+    V(\phi) = V(\phi_0) + \frac{1}{2} m^2_{ij}\varphi_i\varphi_j + \mathcal{O}(\varphi^3).
+\end{equation}
+Where the linear order term vanishes due to the vacuum being a minimum of the potential. We have also defined the \textit{scalar mass matrix},
+\begin{equation}
+    m^2_{ij} \equiv \left\frac{\partial^2V}{\partial\phi_i\partial\phi_j}\right|_{\phi_0}
+\end{equation}
+The eigenvectors of this matrix determine the particle species, and their masses are the square roots the eigenvalues of $m^2_{ij}$.
+
+\section{Broken Generators and Goldstone's Theorem}
+Assume now that the theory is invariant under some symmetry group $G$, under which the field transforms as $\phi\rightarrow M\phi$, where $M\in \rho(G)$ where $\rho(G)$ is an appropriate representation of the group $G$. Consider an infinitesimal transformation, 
+\begin{equation}
+    \phi_i\rightarrow \phi_i + i\theta^aT^a_{ij}\phi_j.
+\end{equation}
+Similarly, we find that the vev $\phi_0$ transforms as $\phi_0\rightarrow \phi_0 + \delta \phi$, where $\delta\phi = i\theta^aT^a_{ij}\phi_{0j}$
+
+As a simple example, we choose $SO(3)$ with a vev of $\phi_0 = (0, 0, v)^T$. In this case, we have, 
+
+\begin{eqnarray}
+t^1\phi_0 &=& 
+\begin{pmatrix}
+0 & 0 & 0\\
+0 & 0 & -i\\
+0 & i & 0\\
+\end{pmatrix}\begin{pmatrix}
+    0\\
+    0\\
+    v
+\end{pmatrix} =\begin{pmatrix}
+    0\\
+    -iv\\
+    0
+\end{pmatrix}\\
+t^2\phi_0 &=& 
+\begin{pmatrix}
+0 & 0 & i\\
+0 & 0 & 0\\
+-i & 0 & 0\\
+\end{pmatrix}\begin{pmatrix}
+    0\\
+    0\\
+    v
+\end{pmatrix} =\begin{pmatrix}
+    iv\\
+    0\\
+    0
+\end{pmatrix}\\
+t^3\phi_0 &=& 
+\begin{pmatrix}
+0 & -i & 0\\
+i & 0 & 0\\
+0 & 0 & 0\\
+\end{pmatrix}\begin{pmatrix}
+    0\\
+    0\\
+    v
+\end{pmatrix} =\begin{pmatrix}
+    0\\
+    0\\
+    0
+\end{pmatrix}
+\end{eqnarray}
+
+We see that the generators $t^1$ and $t^2$ change the direction of the vev, $\phi_0$, but the generator $t^3$, does not. We say that $t^1$ and $t^2$ are broken whereas $t^3$ is an unbroken generator. In general, if $T$ is an unbroken generator, then $T\phi_0=0$. 
+
+In general, depending on the choice of the generators and the vev, $\phi_0$, is it possible that even though $T^a\phi_0\neq 0$ for all $T^a$, there might be some general linear combination $\hat{T} = c^aT^a$ for which $\hat{T}\phi_0=0$. Therefore, we define a $d\times d$ symmetry-breaking matrix: 
+\begin{equation}
+\begin{split}
+    S^{ab} &= -(T^a\phi_0)^TT^b\phi_0\\
+    &=-\phi_0^T(T^a)^TT^b\phi_0\\
+    &=\phi_0^TT^aT^b\phi_0\\
+    &=\phi_{0i}T^a_{\ ik}T^b_{\ jk}\phi_{0k}\\
+\end{split}
+\end{equation}
+This matrix is real and symmetric. Therefore, it's eigenvalues are real and non-negative. 
+In the $SO(3)$ example, we have, 
+\begin{equation}
+    S^{ab} = 
+\begin{pmatrix}
+0 & 0 & 0\\
+0 & v^2 & 0\\
+0 & 0 & v^2\\
+\end{pmatrix}
+\end{equation}
+If $\hat{T}\phi_0=0$ for some $\hat{T}=c^aT^a$, then,
+\begin{equation}
+    S^{ab}c^b = \phi_0^TT^ac^bT^b\phi_0 = \phi_0^TT^a\hat{T}\phi_0 = 0
+\end{equation}
+
+which means that $c^aT^a\phi_0=0$, therefore $\hat{T} = c^aT^a$ is an unbroken generator. Therefore, there is a \textit{one-to-one correspondence} between the \textbf{unbroken generators} and the \textbf{zero-eigenvalues}. The converse of this statement is also true, any eigenvector with a non-zero eigenvalue corresponds to a broken generator. 
+
+Overall, the matrix has $d$ orthonormal eigenvectors $c^a$ and corresponding eigenvalues $\lambda^A\geq 0$ where $A\in\{1,...,d\}$. Let us order them in such a way that any zero eigenvalues come first, such that $\lambda^A = 0$ for $A\leq d'$, where $d'$ is the number of zero eigenvalues. Correspondingly, $\lambda^A > 0$ for $d'<A\leq d$. Thus we define a new set of generators, 
+$\hat{T} \equiv (c^A)^aT^a$ and vectors $\hat{\phi}^A\equiv i\hat{T}^A\phi_0$. Then, 
+\begin{itemize}
+    \item $\hat{\phi}^A=0$ for $A\leq d'$, 
+    \item $\hat{\phi}^A\neq0$ for $d<A\leq d'$.  
+\end{itemize}
+This means that $\hat{T}^A$ for $A\leq d'$ are the unbroken generators. They generate a Lie group $H$ which is a subgroup of the original group $G$ and under which the vacuum state is symmetric. This is called the \textbf{residual symmetry group}. We say that the \textit{symmetry breaking pattern} is $G\rightarrow H$.
+\subsubsection{Unbroken Generator of $SO(3)$}
+In the example of $SO(3)$, we see that only one generator remains unbroken, $t^3$. It generates the $U(1)$ or $SO(2)$ subgroup of $SO(3)$. Thus the symmetry breaking pattern is written, $SO(3)\rightarrow U(1)$. This can be shown by performing an exponentiation of, 
+
+\begin{equation*}
+    t^3 =
+\begin{pmatrix}
+0 & -i & 0\\
+i & 0 & 0\\
+0 & 0 & 0\\
+\end{pmatrix}
+\end{equation*}
+We need to calculate the following matrix,
+\begin{equation}
+    \exp(i\theta t^3) = \mathbb{I} + i\theta t^3 + \frac{1}{2!}(i\theta)^2\left(t^3\right)^2 + ...
+\end{equation}
+\begin{eqnarray*}
+    t^3 &=&
+\begin{pmatrix}
+0 & -i & 0\\
+i & 0 & 0\\
+0 & 0 & 0\\
+\end{pmatrix}\\     
+(t^3)^2 &=&
+\begin{pmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 0\\
+\end{pmatrix}=I\\
+(t^3)^3 &=&
+\begin{pmatrix}
+0 & -i & 0\\
+i & 0 & 0\\
+0 & 0 & 0\\
+\end{pmatrix} = t^3\\
+\end{eqnarray*}
+So for odd powers, $n$ of $t^3$, $(t^3)^n = t^3$ and for even powers, we have $(t^3)^n = I$. We have, 
+\begin{eqnarray*}
+    \exp(i\theta t^3) &=& \begin{pmatrix}
+0 & 0 & 0\\
+0 & 0 & 0\\
+0 & 0 & 1\\
+\end{pmatrix} + \left(i\theta + \frac{1}{3!}(i\theta)^3 + ...\right) \begin{pmatrix}
+0 & -i & 0\\
+i & 0 & 0\\
+0 & 0 & 0\\
+\end{pmatrix} + \left(1 + \frac{1}{2!}(i\theta)^2 + ...\right)\begin{pmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 0\\
+\end{pmatrix}\\
+&=& \begin{pmatrix}
+0 & 0 & 0\\
+0 & 0 & 0\\
+0 & 0 & 1\\
+\end{pmatrix} + \left(\theta - \frac{1}{3!}\theta^3 + ...\right) \begin{pmatrix}
+0 & 1 & 0\\
+-1 & 0 & 0\\
+0 & 0 & 0\\
+\end{pmatrix} + \left(1 - \frac{1}{2!}\theta^2 + ...\right)\begin{pmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 0\\
+\end{pmatrix}\\
+&=& \begin{pmatrix}
+\cos\theta & \sin\theta & 0\\
+-\sin\theta & \cos\theta & 0\\
+0 & 0 & 1\\
+\end{pmatrix} 
+\end{eqnarray*}
+which is a rotation in $\mathbb{R}^3$ but about the $x$ and $y$ plane, the definition of an $SO(2)$ transformation. This confirms our initial impressions about the symmetry breaking pattern, the unbroken generator is indeed that of $U(1)$. 
+\subsection{Mass matrix for continuous symmetries}
+Back to the new set of generators $\hat{T}^A$, the transformation law can be written as, 
+\begin{equation}
+    \phi_i\rightarrow \phi_i + \delta\phi_i; \ \ \delta\phi_i = i\hat{\theta}^A\hat{T}^A_{\ ij}\phi_j; \ \ A\in\{1,..., d\}
+\end{equation}
+because this is a symmetry, the potential does not change under the transformation, 
+\begin{equation}
+    \delta V = \delta\phi_i\frac{\partial V}{\partial\phi_i} = i\hat{\theta}^a\hat{T}^A_{\ \ ij}\phi_j\frac{\partial V}{\partial \phi_i} = 0 
+\end{equation}
+Differentiating with respect to $\phi_k$ gives, 
+\begin{equation}
+    i\hat{\theta}^A\hat{T}^A_{\ \ ik}\frac{\partial V}{\partial\phi_i} + i\hat{\theta}^A\hat{T}^A_{\ \ ij}\phi_j\frac{\partial^2 V}{\partial \phi_k\partial\phi_i} = 0 
+\end{equation}
+
+Now, we evaluate this guy at $\phi = \phi_0$, using, 
+\begin{equation}
+    i\hat{\theta}^A\hat{T}^A_{\ \ ij}\phi_{0j}m^2_{ki} = \hat{\theta}^A m^2_{ki}\hat{\phi}^A_{i} = 0  \text{ for any coefficients } \hat{\theta}^A
+\end{equation}
+which implies that, 
+\begin{equation}
+    m^2_{ij}\hat{\phi}^A_j = 0 \text{ for all } A\in \{1,...,d\}.
+\end{equation}
+
+If $\hat{T}^A$ is unbroken, then $\hat{\phi}^A = 0$, and this equation is satisfied trivially. On the other hand, if $\hat{T}^A$ is broken, then $\hat{\phi}^A\neq 0$, and the result shows that $\hat{\phi}^A$ has to be an eigenvector of the mass matrix $m^2_{ij}$ with zero eigenvalue. In other words, it corresponds to a massless Goldstone particle. This can be summarised as \textbf{Goldstone's theorem}: \textit{Every broken generator gives rise to a massless Goldstone particle}. 
+
+\section{Higgs Mechanism}
+We previously considered that the broken symmetry is global, meaning that the symmetries are position-independent, and it was found that it leads to a massless Goldstone boson. If we consider a local symmetry, we find very different results. 
+\subsection{Abelian Higgs Model}
+For simplicity, let us first consider a theory with a complex scalar field and a local $U(1)$ symmetry, 
+\begin{equation}
+    \begin{split}
+        \mathcal{L} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu} + (D_{\mu}\phi)^*(D^{\mu}\phi) - V(\phi^*, \phi); \ \ \ V(\phi^*,\phi) = -\mu^2|\phi|^2 +\frac{\lambda}{2}|\phi|^4
+    \end{split}
+\end{equation}
+As usual, $F_{\mu\nu} = \partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}$ and $D_{\mu}=\partial_{\mu} + ieA_{\mu}$.
+
+The vacuum states of the theory are given by $A_{\mu}=0$, $|\phi| = \mu/\sqrt{\lambda}$ (or any gauge transformation is this state). Therefore, we expand in the similar way, as for the global case, $\phi = (v + \varphi + i\xi)/\sqrt{2}$ and we would end up with the same potential as the global example,
+
+\begin{equation}
+    V(v + \phi)=-\frac{\mu^4}{2\lambda} + \mu^2\varphi^2 + \frac{1}{2}\lambda v\varphi\left(\varphi^2 + \xi^2\right)
+    + \frac{1}{8}\lambda\left(\varphi^2 + \xi^2\right)^2
+\end{equation}
+
+Now, we consider how this perturbation changes the kinetic terms, 
+\begin{equation}
+    D_{\mu}\phi = \partial_{\mu}\phi + ieA_{\mu}\phi = \frac{1}{\sqrt{2}}\left(\partial_{\mu}\varphi + i\partial_{\mu}\xi + ievA_{\mu} +ieA_{\mu}\varphi - eA_{\mu}\xi \right)
+\end{equation}
+Therefore, the derivative term in the Lagrangian is nothing but, 
+\begin{equation}
+\begin{split}
+    (D_{\mu}\phi)^*D^{\mu}\phi &= \frac{1}{2}(\partial_{\mu}\varphi-eA_{\mu}\xi)^2 + \frac{1}{2}\left(\partial_{\mu}\xi + evA_{\mu} +eA_{\mu}\varphi\right)^2\\
+    &= \frac{1}{2}\partial_{\mu}\varphi\partial^{\mu}\varphi - e\left(\partial_{\mu}\varphi\right)A^{\mu}\xi + \frac{1}{2}e^2\xi^2A_{\mu}A^{\mu}\\
+    &+ \frac{1}{2}\partial_{\mu}\xi\partial^{\mu}\xi + evA^{\mu}\partial_{\mu}\xi + eA^{\mu}\varphi\partial_{\mu}\xi\\
+    &+ \frac{1}{2}e^2v^2A_{\mu}A^{\mu} + e^2vA_{\mu}A^{\mu}\varphi + \frac{1}{2}e^2\varphi^2A_{\mu}A^{\mu}
+\end{split}
+\end{equation}
+
+Up to quadratic order, the Lagrangian is just, 
+
+\begin{equation}
+    \begin{split}
+       \mathcal{L} &= -\frac{1}{4}(\partial_{\mu}A_{\nu} - \partial_{\nu}A_{\mu})(\partial^{\mu}A^{\nu} - \partial^{\nu}A^{\mu}) + \frac{1}{2}e^2v^2A_{\mu}A^{\mu}\\    
+       &+\frac{1}{2}\partial_{\mu}\varphi\partial^{\mu}\varphi + \frac{1}{2}\partial_{\mu}\xi\partial^{\mu}\xi + evA^{\mu}\left(\partial_{\mu}\xi\right) - \mu^2\varphi^2 + \mathcal{L}_{\text{int}}
+    \end{split}
+\end{equation}
+Which is where we bump into a problem because of the $evA^{\mu}\partial_{\mu}\xi$, the equations of motion for $A_{\mu}$ and $\xi$ do not decouple and therefore the particle spectrum cannot be immediately determined. To deal with the problem, we note that we are free to perform a gauge transformation. In particular, we can choose $\theta(x) = -\arg\phi(x) \approx -\xi/v$. This makes the field $\phi$ real and corresponds to a particular gauge choice called the \textit{unitary gauge}. In this gauge, $\xi=0$, so that Lagrangian becomes, 
+
+\begin{equation}
+    \begin{split}
+       \mathcal{L} &= -\frac{1}{4}(\partial_{\mu}A_{\nu} - \partial_{\nu}A_{\mu})(\partial^{\mu}A^{\nu} - \partial^{\nu}A^{\mu}) + \frac{1}{2}e^2v^2A_{\mu}A^{\mu}+\frac{1}{2}\partial_{\mu}\varphi\partial^{\mu}\varphi  - \mu^2\varphi^2 + \mathcal{L}_{\text{int}}
+    \end{split}
+\end{equation}
+This Lagrangian has only two fields now, $A_{\mu}$ and $\varphi$, and it is not gauge invariant, but it is physically equivalent to the original gauge-invariant Lagrangian. It has no mixing term between $A_{\mu}$ and $\varphi$, and therefore two fields describe two distinct particles. 
+
+The $\varphi$ terms in the Lagrangian are familiar and describe a massive real scalar field with a mass $m_{\varphi} = \sqrt{2}\mu$. This is known as the Higgs scalar. To analyse the gauge field part of the Lagrangian, the equation of motion is, 
+\begin{equation}
+\frac{\partial \mathcal{L}}{\partial A_{\rho}} - \partial_{\sigma}\left[\frac{\partial \mathcal{L}}{\partial (\partial_{\sigma}A_{\rho})}\right] = e^2v^2A^{\rho} - \partial_{\sigma}\left(-F^{\sigma\rho}\right) = 0.
+\end{equation}
+which gives, 
+\begin{equation}
+    \partial_{\mu}F^{\mu\nu} + e^2v^2A^{\nu} =0. 
+\end{equation}
+To interpret this equation, we differentiate once more, 
+
+\begin{equation}
+\partial_{\nu}\partial_{\mu}F^{\mu\nu} + e^2v^2\partial_{\nu}A^{\nu} = e^2v^2\partial_{\nu}A^{\nu} = 0.
+\end{equation}
+
+which implies that $\partial_{\mu}A^{\mu} = 0$. This looks like the Lorenz gauge condition, but remember that we had already fixed the unitary gauge. Therefore, here it is the actual physical equation of motion which follows from the equations of motion in the unitary gauge. It has the effect of removing one of the four degrees of freedom that a vector field would otherwise carry and therefore brings the number of degrees of freedom down to three. 
+
+Let us now write the equation of motion in terms of $A_{\mu}$, 
+
+\begin{equation} \partial_{\mu}\left(\partial^{\mu}A^{\nu} - \partial^{\nu}A^{\mu}\right) + e^2v^2A^{\nu} = \partial_{\mu}\partial^{\mu}A^{\nu} - \partial^{\nu}\partial_{\mu}A^{\mu} + e^2v^2A^{\nu} = 0.
+\end{equation}
+and since $\partial_{\mu}A^{\mu} = 0$ we are left with, 
+\begin{equation}
+    \Box A^{\mu} + e^2v^2A^{\mu} = 0. 
+\end{equation}
+which means that each component of the four-vector $A_{\mu}$ satisfies the massive Klein-Gordon equation with mass $m_{\gamma} = ev$. Therefore $A_{\mu}$ has become a massive vector particle. 
+
+In summary, the particle spectrum of the theory consists of a massive vector field $A_{\mu}$, which consists of three real components and has mass $m_{\gamma}$, and a single real scalar field, with mass $m_{\varphi} = \sqrt{2}\mu$, so the total number of real degrees of freedom $3 + 1 = 4$. There are no massless particles, neither a massless vector now a massless Goldstone scalar. This way of giving a mass to the vector through spontaneous symmetry breaking is called the Higgs mechanism. 
+
+In comparison, when the symmetry is not broken, the particle spectrum consists of a massless vector (photon), which consists of two real degrees of freedom, and a complex scalar, which also consists of two real degrees of freedom. The total number of degrees of freedom is therefore $2+2=4$. As we can see, the total number of degrees of freedom is therefore unchanged by the symmetry breaking, but one of the scalar degrees of freedom (more specifically, the Goldstone mode) is \textit{eaten} by the photon, and allows it to become massive. 
+
+\subsection{Non-Abelian Higgs}
+Let us now generalise the result of the previous sections to the non-Abelian case. Consider now the theory of an $n$-component real scalar field $\phi = (\phi_1,\dots,\phi_n)^T$ with some local gauge symmetry group $G$ and the Lagrangian, 
+\begin{equation}
+    \mathcal{L} = -\frac{1}{2}\text{Tr}F_{\mu\nu}F^{\mu\nu} + \frac{1}{2}(D_{\mu}\phi)_i^*(D^{\mu}\phi)^i - V(\phi),
+\end{equation}
+where $D_{\mu} = \partial_{\mu} + igA_{\mu}$. We assume that that scalar field has a non-zero vev $\phi = \phi_0\neq 0$ and that we have used the equations above to construct a set of new generators, $\hat{T}^A$ and the corresponding vectors $\hat{\phi}^A = i\hat{T}^A\phi_0$. We now write the gauge field $A_{\mu} = A_{\mu}^{A}\hat{T}^A$ and the scalar field $\phi = \phi_0 +\varphi(x)$. The covariant derivative now becomes, 
+\begin{equation}
+    (D_{\mu}\phi)_i = \partial_{\mu}\varphi_i + igA^A_{\mu}\hat{T}^A_{ij}\phi_{0j} + igA^A_{\mu}\hat{T}^A_{ij}\varphi_{j} = \partial_{\mu}\varphi_i + gA^A_{\mu}\hat{\phi}^A_{i} + igA^A_{\mu}\hat{T}^A_{ij}\varphi_{j} 
+\end{equation}
+and the quadratic part of the derivative term in the Lagrangian is 
+\begin{equation}
+    \frac{1}{2}(D_{\mu}\phi)_i(D^{\mu}\phi)_i = \frac{1}{2}(\partial_{\mu}\varphi)_i(\partial^{\mu}\varphi)_i + g(\partial_{\mu}\varphi)_iA^A_{\mu}\hat{\phi}^A_{i} + \frac{1}{2}A^A_{\mu}A^{\mu B}\hat{\phi}^A_{i}\hat{\phi}^B_{i} + (\text{higher order terms})
+\end{equation}
+
+
+
+
+\section{Electroweak Symmetry Breaking and the Higgs}
+Now let's see how the $SU(2)\times U(1)$ symmetry is broken and the electric charge emerges. We start with the Higgs field.
+
+\begin{equation}
+\begin{matrix}
+    \Phi = \begin{pmatrix}
+        \varphi^+\\
+        \varphi_0
+    \end{pmatrix} & &
+    \begin{matrix}
+        \text{scalar field $SU(2)$ doublet}\\
+        U(1)_Y: \ \ Y=1
+    \end{matrix}
+\end{matrix}
+\end{equation}
+Now the lowest energy state for $\Phi$ is:
+\begin{equation}
+    \Phi = \begin{pmatrix}
+        0\\
+        \frac{1}{\sqrt{2}}
+    \end{pmatrix} \ \ \ \textit{ vev: vacuum expectation value} 
+\end{equation}
+This breaks the symmetry
+
+\begin{equation}
+\begin{matrix}
+    \text{vacuum} & \Phi = \begin{pmatrix}
+        0\\ \frac{1}{\sqrt{2}}v
+    \end{pmatrix} & \text{is \textit{not} invariant under general $SU(2)\times U(1)$}
+\end{matrix}
+\end{equation}
+However, is part of $SU(2)\times U(1)$ preserved? What is the stabalizer group?
+
+\begin{equation}
+    \rho_{U(1)}\otimes\rho_{SU(2)}\Phi = e^{3i\theta}\begin{pmatrix}
+        a & -\overline{b}\\
+        b & \overline{a}
+    \end{pmatrix}\begin{pmatrix}
+        0\\ \frac{1}{\sqrt{2}}v
+    \end{pmatrix} = \begin{pmatrix}
+        0\\ \frac{1}{\sqrt{2}}v
+    \end{pmatrix} 
+\end{equation}
+ if $b=0$ and $a = e^{3i\theta}$. The unbroken subgroup is then, 
+ \begin{equation}
+     H = \left\{e^{i\theta}\in U(1),\ \ \begin{pmatrix}
+         e^{3i\theta}&0\\
+         0&e^{-3i\theta} \end{pmatrix}
+         \in SU(2) \right\}\simeq{}U(1)_{\text{EM}}
+ \end{equation}

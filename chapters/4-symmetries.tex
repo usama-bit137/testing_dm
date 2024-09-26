@@ -1,0 +1,993 @@
+\chapter{Symmetries are cool but breaking them is better}
+In this chapter we focus on the theory of behind \textit{spontaneous symmetry breaking} building up to the Higgs Mechanism. 
+\section{Groups and their representations}
+\subsection{Definition of a Group}
+We begin with a gentle primer group theory. 
+Definition: A group in mathematics is a set along with some composition law $(G,\cdot\ )$. Under the composition law, the elements of the group obey the following axioms: 
+\begin{enumerate}
+    \item (\textit{Completeness}) If $a\cdot b = c\in G$ if $a,b\in G$.
+    \item (\textit{Identity}) There exists a unique element $e\in G$ such that, for any element $g$, $g\cdot e = e\cdot g = g$.
+    \item (Inverse) For every element, $g$, there exists a multiplicative inverse $g^{-1}\cdot g = g\cdot g^{-1}=e$
+    \item (\textit{Associativity}) The group composition law is associative, if $a, b, c\in G$, then $a\cdot(b\cdot c) = (a\cdot b)\cdot c$
+\end{enumerate}
+For \textbf{abelian} (commutative) groups there is an additional axiom: 
+\begin{enumerate}
+    \setcounter{enumi}{4}
+    \item (\textit{Commutivity}) For any two elements $a,b\in G$ we have $a\cdot b = b\cdot a$. 
+\end{enumerate}
+
+A \textbf{representation} of $G$ is a mapping, $D$ of the elements of $G$ onto a set of linear operators with the following properties: 
+\begin{enumerate}
+    \item $D(e) = 1$, where $1$ is the identity operator in the space on which the linear operators act. 
+    \item $D(g_1)D(g2) = D(g_1g_2)$, in other words the group multiplication law is mapped onto the natural multiplication in the linear space on which linear operators act. 
+\end{enumerate}
+
+\subsection{Example- $Z_3$}
+A group is \textbf{finite} if it has a finite number of elements. Otherwise it is \textbf{infinite}. The number of elements in a finite group $G$ is called the order of $G$. Here is a finite group of order $3$ shown in (\ref{table:z3}),
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+       \hline
+         $\mathbb{Z}_3$& e & a & b \\
+       \hline
+       e & e & a & b \\
+       \hline
+       a & a & b & e \\
+       \hline
+       b & b & e & a\\
+       \hline
+    \end{tabular}
+    \label{table:z3}
+    \caption{The group multiplication table for $\mathbb{Z}_3$.}
+\end{table}
+
+
+This is the multiplication table for $\mathbb{Z}_3$, the \textit{cyclic group of order 3}. Each element of the group appears in each row and column only once. This is typical of group multiplication because the inverse of each element exists. We see that the cyclic group is Abelian. 
+
+The following is a representation for $\mathbb{Z}_3$, 
+
+\begin{equation}
+    D(e) = 1, \ \ \ D(a) = e^{2\pi i/3}, \ \ \ D(b) = e^{4\pi i/3}
+\end{equation}
+The dimension of the representation is the dimension of the space it acts on, for example, the above representation is a $1$-dimensional representation. 
+\subsection{The regular representation}
+Another representation of $\mathbb{Z}_3$ is: 
+\begin{eqnarray}\label{eqn:Z3 basis rep}
+    D(e) = \begin{pmatrix}
+        1 & 0 & 0\\
+        0 & 1 & 0\\
+        0 & 0 & 1
+    \end{pmatrix}, \ \ \ 
+    D(a) = \begin{pmatrix}
+        0 & 0 & 1\\
+        1 & 0 & 0\\
+        0 & 1 & 0
+    \end{pmatrix}, \ \ \
+    D(b) = \begin{pmatrix}
+        0 & 1 & 0\\
+        0 & 0 & 1\\
+        1 & 0 & 0
+    \end{pmatrix}
+\end{eqnarray}
+This representation was constructed directly from the multiplication table by the following trick. take the group elements themselves to form an orthonormal basis for a vector space, $\ket{e}$, $\ket{a}$ and $\ket{b}$. Now define, 
+\begin{equation}\label{eqn:regrepbasis}
+    D(g_1)\ket{g_2}=  \ket{g_1g_2},
+\end{equation}
+Which can be seen as a representation. It is called the \textit{regular representation}. Clearly, the dimension of the regular representation is the order of the group. The matrix elements are thus calculated from the following construction, 
+
+\begin{equation}
+\begin{split}
+    \ket{e_1}\equiv \ket{e}, \ \ \ket{e_2}\equiv \ket{a}, \ \ \ket{e_3}\equiv \ket{b}\\
+    [ D(g) ]_{ij} = \bra{e_i}D(g)\ket{e_j}
+\end{split}
+\end{equation}
+
+This works for any representation, not just the regular one. The basic idea is just the insertion of a complete set of intermediate states. The matrix corresponding to a product of operators is the matrix product of the matrices corresponding to the operators, 
+\begin{equation}
+\begin{split}
+    [D(g_1g_2)]_{ij} &=[D(g_1)D(g_2)]_{ij}\\
+    &= \bra{e_i}D(g_1)D(g_2)\ket{e_j}\\
+    &= \sum_{k}\bra{e_i}D(g_1)\ket{e_k}\bra{e_k}D(g_2)\ket{e_j}\\
+    &=\sum_{k}[D(g_1)]_{ik}[D(g_2)]_{kj}
+\end{split}
+\end{equation}
+Note that the construction of the regular representation is completely general for any finite group. For any finite group, we can define a vector space in which the basis vectors are labeled by the group elements. Then (\ref{eqn:regrepbasis}) defines the regular representation.
+
+\subsection{Homomorphisms}
+What can we do with group? We can define some kind of function to bend the group into different shapes, or to represent the group in a different form. The way we do this is using group homomorphisms which are a type of map that preserve relationships between elements. They are particularly of interest in the representation of a group. For example, let's define a map $\rho$, from the group elements to the real matrices of dimension $n$,
+\begin{equation}
+\begin{split}
+    \rho : G &\rightarrow GL(n, \mathbb{R}) \\
+    g  &\mapsto \rho(g) = A
+\end{split}
+\end{equation} 
+Suppose that under the map, there was some difference between the composition law in $G$ and in $\rho(G)$, we will denote the composition law in $\rho(G)$ by $\times$.
+Given that $a\cdot b = c$, under the homomorphism, we must have $\rho(a)\times \rho(b) = \rho(a\cdot b) = \rho(c)$. So we can see that the in order for the homomorphism to preserve the group product, we need $\rho(a)\times \rho(b) = \rho(a\cdot b)$ for all $a,b\in G$
+
+\subsection{Irreducible Representations}
+What makes the idea of group representations so powerful is the fact that they live in linear spaces. And the wonderful thing about linear spaces is we are free to choose to represent the states in more convenient way by making linear transformations. As long as the transformations are invertible, the new states are as good as the old ones. Such a transformation on the states produces a \textit{similarity transformation} on the linear space, so that we can always make a new representation of the form, 
+
+\begin{equation}
+    D(g)\rightarrow D'(g) = S^{-1}D(g)S
+\end{equation}
+
+Because of the form of the similarity transformation, the new set of operators has the same multiplication rules as the old ones, for example, if $g_1, g_2\in G$, then, 
+\begin{equation}
+\begin{split}
+    D'(g_1)D'(g_2) &= (S^{-1}D(g_1)S)(S^{-1}D(g_2)S) \\
+    &=S^{-1}D(g_1)(SS^{-1})D(g_2)S\\
+    &=S^{-1}D(g_1)D(g_2)S\\
+    &=S^{-1}D(g_1g_2)S = D'(g_1g_2)
+\end{split}
+\end{equation}
+which suffices as a representation. $D$ and $D'$ are said to be equivalent up to choice of basis, $D\sim{} D'$. 
+
+\textbf{Unitary} operators ($O$ such that $O^{\dagger} = O^{-1}$) are particularly important in Quantum Mechanics. A representation is is unitary if all the $D(g)$s are unitary. Both the representations we have discussed are unitary. It turns out that all representations of finite groups are equivalent to unitary representations. 
+
+A representation is \textit{reducible} if it has an \textit{invariant subspace} which means that the action of any $D(g)$ on any vector in the subspace is still in the subspace. In terms of a projection operator $P$ onto the subspace this condition can be written as, 
+
+\begin{eqnarray}
+    PD(g)P = D(g)P \ \text{ for all } g\in G
+\end{eqnarray}
+
+For examples, the regular representation of $\mathbb{Z}_3$ has an invariant subspace projected by,
+
+\begin{equation}
+    P = \frac{1}{3} \begin{pmatrix}
+        1 & 1 & 1\\
+        1 & 1 & 1\\
+        1 & 1 & 1
+    \end{pmatrix}
+\end{equation}
+because $D(g)P = P$ for all $g$. The restriction of the representation of the invariant subspace is itself a representation. In this case, it is the \textit{trivial representation} for which, $D(g)=1$ (the trivial representation $D(g)=1$, is always a representation - every group has one).
+
+\begin{itemize}
+    \item A representation is \textit{irreducible} if it is not reducible
+    \item A representation is \textit{completely reducible} is it is equivalent to a representation whose matrix has the following form
+
+    \begin{equation}
+        \begin{pmatrix}
+            \boxed{D_1(g)} &   & \dots & \\
+              & \boxed{D_2(g)} & \dots & \\
+            \vdots &  &\ddots& \vdots\\ 
+             & \dots & & \boxed{D_d(g)}
+        \end{pmatrix}
+    \end{equation}
+\end{itemize}
+
+where the $D_i(g)$ is an irreducible block. This is called \textit{block diagonal form}. 
+
+A representation in block diagonal form is said to be the \textit{direct sum} of the subrepresentations, $D_j(g)$, 
+\begin{equation}
+    D_1\oplus D_2\oplus...\oplus D_d
+\end{equation}
+
+In transforming a representation to block diagonal form, we are decomposing the original representation into a direct sum of its irreducible representations (\textit{irreps}). Another way of defining complete reducibility is to say that a completely reducible representation can be decomposed into a direct sum of irreps. 
+
+Consider the $\mathbb{Z}_3$ representation (\ref{eqn:Z3 basis rep}) with a similarity transformation, 
+\begin{equation}
+    S = \frac{1}{3}\begin{pmatrix}
+        1 & 1 & 1 \\
+        1 & \omega^2 & \omega\\
+        1 & \omega & \omega^2\\
+    \end{pmatrix}
+\end{equation}
+where $\omega = e^{2\pi i/3}$. Then, 
+\begin{eqnarray}\label{eqn:irrep-constructed}
+    D'(e) = \begin{pmatrix}
+        1 & 0 & 0\\
+        0 & 1 & 0\\
+        0 & 0 & 1
+    \end{pmatrix}, \ \ \ 
+    D'(a) = \begin{pmatrix}
+        1 & 0 & 0\\
+        0 & \omega & 0\\
+        0 & 0 & \omega^2
+    \end{pmatrix}, \ \ \
+    D'(b) = \begin{pmatrix}
+        1 & 0 & 0\\
+        0 & \omega^2 & 0\\
+        0 & 0 & \omega
+    \end{pmatrix}
+\end{eqnarray}
+which clearly shows that this representation is reduced. 
+\subsection{Example: $\mathbb{Z}_2$}
+Consider the cyclic group of order 2, $\mathbb{Z}_2$. 
+
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|}
+       \hline
+         $\mathbb{Z}_2$& e & a  \\
+       \hline
+       e & e & a \\
+       \hline
+       a & a & e \\
+       \hline
+    \end{tabular}
+    \label{table:z2}
+    \caption{The group multiplication table for $\mathbb{Z}_2$.}
+\end{table}
+
+Here are a few $\mathbb{Z}_2$ representations:
+\begin{enumerate}
+    \item $\rho_0(e) = 1$ and $\rho_0(a) = 1$ which is the trivial representation. 
+    \item $\rho_1(e) = 1$ and $\rho_1(a) = -1$
+    \item $\rho_2(e) = \begin{pmatrix}
+        1 & 0 \\
+        0 & 1
+    \end{pmatrix}$ and $\rho_2(a) = \begin{pmatrix}
+        -1 & 0 \\
+        0 & -1
+    \end{pmatrix}$
+    \item $\rho_4(e) = \begin{pmatrix}
+        1 & 0 \\
+        0 & -1
+    \end{pmatrix}$ and $\rho_4(a) = \begin{pmatrix}
+        1 & 0 \\
+        0 & -1
+    \end{pmatrix}$
+\end{enumerate}
+\begin{itemize}
+    \item Notice that $\rho_2$ is just a combination of $\rho_1$ on $\begin{pmatrix}x\\0\end{pmatrix}$ and $\rho_1$ acting on $\begin{pmatrix}0\\y\end{pmatrix}$
+    \item Also notice that $\rho_4$ is really a $\rho_0$ acting on $\begin{pmatrix}x\\0\end{pmatrix}$ and $\rho_1$ acting on $\begin{pmatrix}0\\y\end{pmatrix}$
+\end{itemize}
+Alternatively, consider the $U(1)$ representation, 
+\begin{equation}
+    \rho'(\theta) = \begin{pmatrix}
+        \cos n\theta &\sin n\theta & 0\\
+        -\sin n\theta & \cos n\theta & 0\\
+        0 & 0 & e^{i\theta}
+    \end{pmatrix}
+\end{equation}
+Now we have three decompositions, 
+\begin{enumerate}
+    \item $
+        \begin{pmatrix}
+        a \\ ia \\ 0
+    \end{pmatrix} \mapsto e^{in\theta}\begin{pmatrix}
+        a \\ ia \\ 0
+    \end{pmatrix}
+    $
+    \item $
+        \begin{pmatrix}
+        a \\ -ia \\ 0
+    \end{pmatrix} \mapsto e^{-in\theta}\begin{pmatrix}
+        a \\ -ia \\ 0
+    \end{pmatrix}
+    $
+    \item $
+        \begin{pmatrix}
+        0 \\ 0 \\ b
+    \end{pmatrix} \mapsto e^{i\theta}\begin{pmatrix}
+        0 \\ 0 \\ b
+    \end{pmatrix}
+    $
+
+A \textit{left-invariant $G$-module} (and representation) is reducible if there exists a proper, invariant subspace $W\subset V$ that is
+\begin{itemize}
+    \item $a\cdot w\in W$ for $a\in G$, $w\in W$ (invariant)
+    \item and $W\neq V$ and $W\neq 0$ (proper).
+\end{itemize}
+
+If $V$ is reducible, then $W\subset V$ forms a \textit{left-invariant $G$-module}.
+
+In terms of representation, matrices $\rho(a)$ is a representation is reducible, it can be put into triangular form. We can find a matrix $S$, such that 
+\begin{equation}
+    S^{-1}\rho(a)S = \begin{pmatrix}
+        \hat{\rho}(a) & A(a)\\
+        0 & B(a)
+    \end{pmatrix}
+\end{equation}
+where, $\hat{\rho}$, $A$ and $B$ are matrices. $W$ is spanned by vectors $\begin{pmatrix}w\\0\end{pmatrix}$, then $\hat{\rho}(a)$ is an \textit{induced representation} on $W$. 
+
+A \textit{decomposible} left G-module $V$ is one such that $V = W_1\oplus W_2$ where $W_1$ and $W_2$ are each proper, invariant subspaces. 
+
+We then have for the representation 
+\begin{equation}
+    \rho = \rho_1\oplus\rho_2
+\end{equation}
+where $\rho_i$ are the induced representations on $W_1$. There exists and $S$ such that 
+\begin{equation}
+    S^{-1}\rho(a)S = \begin{pmatrix}
+        \rho_1(a) & \\
+        & \rho_2(a)
+    \end{pmatrix}
+\end{equation}
+with $\begin{pmatrix} v_1 \\ 0\end{pmatrix}$ spanning $W_1$ and $\begin{pmatrix} 0 \\ v_2\end{pmatrix}$ spanning $W_2$
+
+Generally, we can write 
+\begin{equation}
+\begin{split}
+    V = W_1\oplus W_2\oplus&\dots\oplus W_n\\
+    \rho = \rho_1\oplus \rho_2\oplus&\dots\oplus \rho_n
+\end{split}
+\end{equation}
+In our $\mathbb{Z}_2$ example, $\rho_2 = \rho_1\oplus\rho_1$ and $\rho_4 = \rho_0\oplus\rho_1$, while the $U(1)$ rep can be built up as $\rho' = \rho_{(n)}\oplus\rho_{(-n)}\oplus\rho_{(1)}$
+
+An \textit{irreducible (simple) G-module} (or irredcible representation) is one which has no proper, invariant subspaces.
+\begin{itemize}
+    \item We can build general representations out of irreducible building blocks.
+    \item Each group has many (usually infinite) numbers of different irreps. 
+\end{itemize}
+\section{Schur's Lemma}
+Let $V$ and $W$ be irreducible $G$-modules and $f: V  \rightarrow W$ be a homomorphism, that is: 
+\begin{equation}
+    f(av) = af(v) \text{ for } a\in G, v\in V
+\end{equation}
+then either, 
+\begin{itemize}
+    \item $f$ is invertible, thus $V$ and $W$ define equivalent representations ($V \sim{} W$)
+    \item $f=0$
+\end{itemize}
+
+\subsection{Proof of Schur's Lemma}
+There exist two invariant subspaces under the map $f$, 
+\begin{itemize}
+    \item $\ker f = \{v\in V: \ f(v)=0\}$ (kernel). If $v\in \ker f$ then $f(av) = af(v)=0$ then $av \in \ker f$. 
+    \item im $f = \{w\in W: \exists \ v\in V : f(v) = W\}$ (image). If $w\in \text{im}f$ then $aw = af(v) = f(av)$ then $aw\in \text{im} f$. 
+\end{itemize} 
+This shows that $\ker f$ and im $f$ are both invariant subspaces. Since $V$ and $W$ are irreducible, either 
+\begin{itemize}
+    \item ($\ker f = 0$ or $\ker f=V$) and (im $f=0$ or im $f=W$) 
+\end{itemize}
+Thus we have two possibilities
+\begin{enumerate}
+    \item $\ker f=0,$ im $f=W$, thus $f$ is invertible and $f$ is an isomorphism. 
+    \item $\ker f=V,$ im $f=0$, this $f=0$ 
+\end{enumerate}
+\subsubsection{Corollary to Schur's Lemma}
+Let $V$ and $W$ be a finite-dimensional $G$-module and $f:V\rightarrow V$ be a homomorphism (endomorphism) then $f$ is proportional to the identity.
+
+\begin{equation}
+    f = \lambda\mathbb{I}\ \ \ (\lambda\in\mathbb{C})
+\end{equation}
+For the proof, we take $f$ to be a square matrix. Let $\lambda$ be some eigenvalue of $f$ and consider $f-\lambda\mathbb{I}$:
+\begin{enumerate}
+    \item $\det(f-\lambda\mathbb{I})=0$ so, it is not invertibl
+    \item $f-\lambda\mathbb{I}$ us a homomorphism therefore $f-\lambda\mathbb{I}=0$, hence by Schur's Lemma $f=\lambda\mathbb{I}$
+\end{enumerate}
+This corollary implies that \textit{all irreps of Abelian groups are one-dimensional}. To see this, note that given $a'\in G$ then since $G$ is Abelian, 
+\begin{equation}
+    a'(av) = a(a'v) \text{ for } a\in G
+\end{equation}
+So $a'$ itself is a homomorphism. Thus if $V$ is irreducible, $a = \lambda(a)\mathbb{I}$ for all $a\in G$ (this is a diagonal matrix). But this is manifestly reducible since $V$ is one-dimensional. Therefore, we can already classify the irreps of $U(1)$: 
+\begin{equation}
+    \rho_{(n)} = e^{in\theta}; \ n\in \mathbb{Z}
+\end{equation}
+where $n$ is the \textit{charge} of the $U(1)$ representation. 
+\section{Building Representations}
+\subsection{Dual and Conjugate Representation}
+if $\rho: G \rightarrow GL(n, \mathbb{C})$ is a representation, then dual, $\rho^*$, and conjugate, $\overline{\rho}$, representations are defined as, 
+\begin{eqnarray}
+    \rho^*(a) &=& \rho(a^-1)^T \text{ for } a\in G\\
+    \overline{\rho}(a) &=& \rho(a)_{\text{c.c}} \text{  for } a\in G
+\end{eqnarray}
+where c.c denotes the complex conjugate. They can be shown to be homomorphisms. By definition, 
+\begin{equation}
+    \dim\rho = \dim\rho^* = \dim\overline{\rho}
+\end{equation}
+In terms of the modules $\rho^*$ acts on the \textit{dual} vector space $V^*$ and $\overline{\rho}$ acts on the \textit{complex conjugate} vector space $\overline{V}$. We use the following notation: $v^i\in V$, $\omega_i\in V^*$ and $u^{\overline{i}}\in \overline{V}$. Then under these choices we the group action on each of these components are as follows: 
+\begin{equation}
+    v^i\mapsto \rho(a)^i_{\ j} v^j, \ \  \omega_j\mapsto \rho^*(a)^{\ j}_{i} \omega_j = \omega_{j}\rho(a^{-1})^{\ j}_{i}, \ \ u^{\overline{i}}\mapsto \overline{\rho}(a)^{\overline{i}}_{\ \overline{k}}u^{\overline{j}}
+\end{equation}
+If $\overline{\rho}\sim{} \rho$ is real the representation is \textbf{real}. We have seen that we can for \textit{direct sums} $\rho_{i}\oplus\rho_2$ representations via the module, $W = V_1\oplus V_2\ni (v_1, v_2)$. The group action on this element of the module shows we gave a representation, 
+\begin{equation}
+    g\cdot(v_1, v_2) = (gv_1, gv_2)
+\end{equation}
+or as a representation, 
+
+\begin{equation}
+    \rho(a) = \begin{pmatrix}
+        \rho_1(a) & 0 \\
+        0 & \rho_2(a)
+    \end{pmatrix}; \ \ w = \begin{pmatrix}
+     v_1 \\ v_2   
+    \end{pmatrix}
+\end{equation}
+\subsection{Tensor Product Representations}
+We can also define \textit{tensor product representation}
+
+Given the vector spaces $V$ and $W$ the tensor product vector space $V\oplus W$ is defined by 
+\begin{itemize}
+    \item $(v_1 + v_2)\otimes w = v_1\otimes w + v_2\otimes w$ (linear)
+    \item $v\otimes(w_1 + w_2) = v\otimes w_1 + v\otimes w_2$
+    \item $(\lambda v)\otimes w = v(\lambda\otimes w) = \lambda(v\otimes w)$ 
+\end{itemize}
+In terms of a basis, we can write: 
+\begin{equation}
+    v = v^ie_i\in V, \ \ w = w^af_a\in W 
+\end{equation}
+Then we have, 
+\begin{equation}
+    U = U^{ia}e_i\otimes f_a = v^iw^ae_i\otimes f_a\in V\otimes W
+\end{equation}
+where $U^{ia}$ are the elements of a $\dim V\times\dim W$ matrix. 
+
+Given two $G$-modules $V$ and $W$ then the tensor product $G$-module $V\otimes W$ is given by
+\begin{equation}
+    a(v\otimes w) = av\otimes aw
+\end{equation}
+In terms of a representation, 
+\begin{equation}
+    U^{ia}\mapsto U^{'ia} = \rho(a)^{ia}_{\ \ jb}U^{jb} = \rho(a)^i_{\ j}\rho(a)^a_{\ b} U^{jb}
+\end{equation}
+In other words if $d = \dim V\times \dim W$, then $\rho(a)^{ia}_{\ \ jb}$ is a $d\times d$ matrix acting on a $d$-dimensional \textit{vector} $U^{ia}$. It might seem strange to call an object with two indices a \textit{vector}, but we look at the pair $(ia)$ as labelling the $d$-components of the following: 
+
+\begin{equation}
+    U = \begin{pmatrix}
+        U^{11}\\
+        U^{12}\\
+        U^{21}\\
+        \vdots\\
+        U^{nn}
+    \end{pmatrix}
+\end{equation}
+\subsection{Unitary Representations}
+For physics, a key refinement of a complex representation is a \textit{unitary representation}. A unitary representation is a homomorphism $\rho: G\rightarrow U(d)$; that is to say, we expect symmetries in a quantum theory to be related as unitary representations. They require the inner product between states to be preserved. Suppose we have a Hilbert space $\mathcal{H}$ with some symmetry group $G$. This symmetry group maps physical states into physical states so we expect for each $a\in G$: 
+\begin{equation}
+\begin{split}
+    G:\mathcal{H}&\longrightarrow \mathcal{H},\\
+    \ket{\psi}&\mapsto \ket{\psi'} = S(a)\ket{\psi}.
+\end{split}
+\end{equation}
+Since this is a symmetry it should preserve the norm between the states is: 
+\begin{equation}
+    \begin{split}
+        \braket{\chi'|\psi'} &= \braket{S(a)\chi|S(a)\psi}\\
+        &=\bra{\chi}S(a)^{\dagger}S(a)\ket{\psi}\\
+        &=\braket{\chi|\psi}
+    \end{split}
+\end{equation}
+where $\ket{\chi},\ket{\psi}\in\mathcal{H}$, we require $S(a)^{\dagger}S(a) = \mathbb{I}$ for $S(a)$ to be a symmetry. This is the condition that the operators be \textit{unitary}. This actually gives a slightly more general definition. Let $U(\mathcal{H}) = \{\text{unitary operators on a Hilbert space } \mathcal{H}\}$. The point is that this allows $\mathcal{H}$ to be infinite-dimensional. Note that the unitary condition is actually a slightly strong condition. For physical states, we actually just require, 
+
+\begin{equation}
+    |\braket{\psi'|\chi'}|^2 = |\braket{\psi|\chi}|^2 
+\end{equation}
+for all states $\ket{\chi}, \ket{\psi}\in \mathcal{H}$. But there are two possibilities 
+
+\begin{enumerate}
+    \item Linear and unitary \begin{equation}
+    \begin{split}
+        S(a)\left[\alpha\ket{\psi} + \beta \ket{\chi}\right] &= \alpha S(a)\ket{\psi} + \beta S(a)\ket{\chi} \\
+    \braket{S(a)\chi|S(a)\psi}&=\braket{\chi|\psi}
+    \end{split}
+    \end{equation}
+    \item anti-linear and anti-unitary \begin{equation}
+    \begin{split}
+        S(a)\left[\alpha\ket{\psi} + \beta \ket{\chi}\right] &= \alpha^* S(a)\ket{\psi} + \beta^* S(a)\ket{\chi} \\
+    \braket{S(a)\chi|S(a)\psi}&=\braket{\chi|\psi}^*
+    \end{split}
+    \end{equation}
+\end{enumerate}
+case (b) requires the symmetry to include \textit{time-reversal}, so we can argue on physical grounds that we should ignore it and assume that the symmetry is a linear and unitary operator on states in Hilbert space.
+
+\textit{If a unitary representation is reducible then it is also decomposible. Hence all (finite-dimensional) unitary representations}
+\begin{equation}
+    \rho = \rho_1\oplus\rho_2\oplus\dots\rho_n
+\end{equation}
+This is easy to see since a reducible rep is written, 
+
+\begin{equation}
+    \rho(a) = \begin{pmatrix}
+        \hat{\rho}(a) & A(a)\\
+        0 &B(a)
+    \end{pmatrix}
+\end{equation}
+Then if we impose the unitary condition $\rho(a)^{\dagger}\rho(a) = \mathbb{I}$ implies that $A(a)=0$, 
+
+\begin{equation}
+    \begin{split}
+        \rho(a)^{\dagger}\rho(a) &= \begin{pmatrix}
+        \hat{\rho}(a)^{\dagger} & 0\\
+        A(a)^{\dagger} &B^{\dagger}(a)
+    \end{pmatrix} \begin{pmatrix}
+        \hat{\rho}(a) & A(a)\\
+        0 &B(a)
+    \end{pmatrix}\\
+    &=\begin{pmatrix}
+        \hat{\rho}(a)^{\dagger}\hat{\rho}(a) & \hat{\rho}(a)^{\dagger}A(a)\\
+        A(a)^{\dagger}\hat{\rho}(a) &A(a)^{\dagger}A(a) + B(a)^{\dagger}B(a)
+    \end{pmatrix} = \begin{pmatrix}
+        \mathbb{I} & 0\\
+        0 &\mathbb{I}
+    \end{pmatrix}
+    \end{split}
+\end{equation}
+This we require $\hat{\rho}(a)^{\dagger}A(a)=0$ which implies that $A(a)=0$. Thus we have the decomposition 
+\begin{equation}
+    \rho(a) = \begin{pmatrix}
+        \hat{\rho}(a) & 0\\
+        0 & \hat{\hat{\rho}}(a)
+    \end{pmatrix}
+\end{equation}
+Another useful property is Wigner's unitarian trick: 
+
+\textit{If G is a compact Lie group then every complex representation is equivalent to a unitary representation}. This means that for a compact Lie group, classifying the complex irrep classifies all the representations of physical interest. The proof involves considering $G$ as a manifold (which it is) and integrating. This requires a \textit{integral measure} (Haar measure) which only necessarily exists when $G$ is compact. 
+
+(\textit{Rough proof}): We start with a complex representation $\rho$. Choose some norm over the vector space  - for example, $\braket{v|v} = v^{\dagger}v$. Then construct a new norm: 
+\begin{equation}
+    \braket{v|w}_{\rho} = \int da\braket{\rho(a)v|\rho(a)w}
+\end{equation}
+where we integrate over the group (as a manifold). Then by construction, 
+
+\begin{equation}
+    \begin{split}
+        \braket{\rho(a)v|\rho(a)w}_{\rho} &= \int_{G} da\braket{\rho(a)\rho(b)v|\rho(a)\rho(b)w}\\
+        &=\int_{G} da\braket{\rho(ab)v|\rho(ab)w}\\
+        &=\int_{G} da\braket{\rho(a')v|\rho(a')w}=\braket{v|w}_{\rho}
+    \end{split}
+\end{equation}
+Therefore $\rho(a)$ is unitary with respect to the new norm, and by definition $\exists T$ such that $\braket{v|w}_{\rho} = \braket{Tv|Tw}_{\rho}$, so $T^{-1}\rho(a)T$ is a unitary representation with respect to $\braket{v|w}$. The other point is that we immediately note that $U(n)$ is compact. 
+
+Additionally, we note that that \textit{there are no faithful, finite-dimensional unitary representations of non-compact Lie groups}. The non-faithful condition is fine, consider $x\in\mathbb{R}$ under $+$, $\rho(x) = e^{i\alpha x}$ is unitary and non-faithful representation. For some more detail on this embedding, we impose an equivalence relation, $\sim{}$, on $\mathbb{R}$, such that $x\sim{} x + \frac{2\pi}{\alpha}$, this is topologically equivalent to $\mathbb{R}/\sim{} \simeq S^1$. The reason why this is a non-faithful representation is because $\rho(x)\sim{}\rho(x + 2\pi/\alpha)$ thus as map, $\rho$ is not a bijection. 
+
+\section{Representations of $SU(2)$}
+Let's find irreducible representations of $SU(2)$. By definition
+\begin{equation}
+    SU(2) = \left\{a = \begin{pmatrix}
+        x & -y^*\\
+        y & x^*
+    \end{pmatrix}: x^*x + y^*y = 1 \right\}
+\end{equation}
+Since this is compact, we know that every complex representation will be equivalent to a unitary representation. Also note that all reps will be equivalent to reps of $SL(2, \mathbb{C})$. 
+\subsubsection{trivial representation: the $\rho_1$ singlet}
+The module is one-dimensional $V\simeq \mathbb{C}$ and 
+
+\begin{equation}
+    \rho_1: SU(2)\rightarrow GL(1, \mathbb{C}) =\mathbb{C}
+\end{equation}
+$\rho_1(a) = 1$ for all $a\in SU(2)$.
+
+\subsubsection{defining representation: the $\rho_2$ doublet}
+The module is two-dimensional $V\simeq \mathbb{C}^2$ and 
+
+\begin{equation}
+    \rho_2: SU(2)\rightarrow GL(2, \mathbb{C})
+\end{equation}
+\begin{equation}
+    \rho_2 = \begin{pmatrix}
+        x & -y^*\\
+        y & x^*
+    \end{pmatrix}
+\end{equation}
+so $v^i\in V$, in components, 
+
+\begin{equation}
+    v^i\mapsto v^{'i} = \rho_2(a)^{i}_{\ j} v^j, \ \ i,j = 1,2
+\end{equation}
+
+
+\subsubsection{dual and complex representations: $\rho^*_{2}$ and $\overline{\rho}_2$}
+The dual representation is defined as
+\begin{equation}
+    \rho^*_2: SU(2)\rightarrow GL(2, \mathbb{C})
+\end{equation}
+
+Explicitly, the matrix acting on the dual space is, 
+\begin{equation}
+    \rho^*_2(a) = \rho_2(a^{-1})^T = \begin{pmatrix}
+        x^*&-y\\
+        y^*& x
+    \end{pmatrix}
+\end{equation}
+
+and we have the complex conjugate representation, 
+\begin{equation}
+    \overline{\rho}_2: SU(2)\rightarrow GL(2, \mathbb{C})
+\end{equation}
+
+\begin{equation}
+    \overline{\rho}_2(a) = \begin{pmatrix}
+        x^*&-y\\
+        y^*& x
+    \end{pmatrix}
+\end{equation}
+We immediately see that $\overline{\rho}_2\simeq \rho^*_2$. We also see that $T^{-1}\rho^*_2(a)T = T^{-1}\overline{\rho}_2(a)T = \rho_2: T =\begin{pmatrix}0&1\\-1&0\end{pmatrix}$. Hence all three representations are equivalent. 
+\subsubsection{Tensor product representation: $\rho_2\otimes\rho_2$}
+Consider the tensor product module: ($4$-dimensional), $W = V\otimes V$ with 
+\begin{equation}
+    v = \begin{pmatrix}
+        v^{11}\\
+        v^{12}\\
+        v^{21}\\
+        v^{22}
+    \end{pmatrix}\in W
+\end{equation}
+such that the action of the group representation is
+\begin{equation}
+    \begin{split}
+        v^{ij}&\mapsto[\rho_2\otimes\rho_2](a)^{ij}_{\ \ kl}v^{kl}\\
+         &= \rho_2(a)^i_{\ k}\ \rho_2(a)^j_{\ l}v^{kl}\\ 
+         &= (\rho(a)_2 \ v \ \rho_2(a)^T)^{ij}
+    \end{split}
+\end{equation}
+
+\begin{equation}
+    \rho_2(a)^i_{\ k}\ \rho_2(a)^j_{\ l}v^{kl}=\begin{pmatrix}
+         x^2 & -xy^*& -y^*x& y^{*2}\\             xy & xx^*& -y^*y& y^*x^*\\
+         yx & -yy^*& x^*x& -x^*y^*\\
+         y^2 & yx^*& x^*y& x^{*2}
+    \end{pmatrix}\begin{pmatrix}
+        v^{11}\\
+        v^{12}\\
+        v^{21}\\
+        v^{22}
+    \end{pmatrix}
+\end{equation}
+We can decompose into \textit{invariant subspaces}, if we denote a $d$-dimensional left-invariant $G$-module by $W_d$
+\begin{equation}
+    V\otimes V = W_1\oplus W_3
+\end{equation}
+\begin{equation}
+    \begin{split}
+        W_1 &= \{v^{ij}\in V\otimes V: v^{ij} + v^{ji} =0\} \text{ (anti-symmetric) }\\
+        W_3&=\{v^{ij}\in V\otimes V: v^{ij} - v^{ji} =0\} \text{ (symmetric) }
+    \end{split}
+\end{equation}
+then $v^{ij} = \lambda \begin{pmatrix} 0&1\\ -1&0\end{pmatrix}\in W_1$. Acting with $\rho_2\otimes\rho_2(a)$: 
+\begin{equation}
+    \begin{split}
+        v^{ij}&\mapsto \lambda\begin{pmatrix} x&-y^*\\ y&x^*\end{pmatrix}\begin{pmatrix} 0&1\\ -1&0\end{pmatrix}\begin{pmatrix} x&y\\ -y^*&x^*\end{pmatrix}\\
+        &=\lambda\begin{pmatrix} x&-y^*\\ y&x^*\end{pmatrix}\begin{pmatrix} -y^*&x*\\ -x&-y\end{pmatrix}\\
+        &= \lambda\begin{pmatrix}0&(x^*x+y^*y)\\-(x^*x+y^*y)&0\end{pmatrix} =v^{ij}
+    \end{split}
+\end{equation}
+Thus $W_1$ is a \textit{trivial} representation. Thus we can write
+\begin{equation}
+    \rho_2\otimes\rho_2\simeq{}\rho_1\oplus\rho_3
+\end{equation}
+For the $\rho_3$, we require $v^{12}=v^{21}$: 
+\begin{equation}
+    \begin{pmatrix}
+        v^{11}\\
+        v^{12}=v^{21}\\
+        v^{22}
+    \end{pmatrix} \mapsto\begin{pmatrix}
+        x^2 & -2xy^*& y^{*2}\\
+        xy & (x^*x + y^*y) & -x^*y\\
+        y^2& 2x^*y&x^{*2}
+    \end{pmatrix}\begin{pmatrix}
+        v^{11}\\
+        v^{12}=v^{21}\\
+        v^{22}
+    \end{pmatrix}
+\end{equation}
+This new representation is \textit{irreducible}. 
+\subsubsection{tensor product representation: $\rho_2\otimes\rho_2\otimes\rho_2$}
+Now we have an $8$-dimensional vector space:
+\begin{equation}
+    W = V\otimes V\otimes V \text{ with } v^{ijk}\in W
+\end{equation}
+and 
+\begin{eqnarray}
+    v^{ijk}\mapsto \rho_2\otimes\rho_2\otimes\rho_2(a)^{ijk}_{\ \ \ lmn}v^{lmn}
+\end{eqnarray}
+The invariant subspaces are 
+\begin{equation}
+    \begin{split}
+        W_2 &= \{v^{ijk}\in W: v^{ijk} + v^{jik} =0\} \text{ (anti-symmetric on $ij$, $2$-dimensional) }\\
+        W'_2&=\{v^{ijk}\in W: v^{ijk} - v^{ikj} =0\} \text{ (anti-symmetric on $jk$, $2$-dimensional) }\\
+        W_4 &=\{v^{ijk}\in W: \text{ total symmetric on } ijk\} \text{ ($4$-dimensional) }\\
+    \end{split}
+\end{equation}
+\begin{equation}
+\rho_2\otimes\rho_2\otimes\rho_2\simeq{}\rho_2\oplus\rho_2\oplus\boxed{\rho_4} 
+\end{equation}
+The representation in the box is a new $4$-dimensional representation (also an irrep).
+\subsubsection{$SU(2)$ irreps: $\rho_n$ }
+Extending this pattern, we have the irreps: 
+\begin{equation}
+    \rho_n: SU(2)\rightarrow GL(n, \mathbb{C})
+\end{equation}
+which can be realised by \textit{symmetric tensors}, 
+\begin{eqnarray}
+    V_{n-1}&\subset& \bigotimes^{n-1}_{i=1} V_i = W\\
+    &=&\{v^{i_1\dots i_{n-1}}\in W \text{ symmetric on }i_1\dots i_{n-1}\}
+\end{eqnarray}
+thus on action from the group, $v$ transforms as:
+\begin{equation}
+\begin{split}
+    v^{i_1\dots i_{n-1}}&\mapsto \hat{\rho}(a)^{i_1\dots i_{n-1}}_{\ \ \ \ \ \ \ \ \ j_1\dots j_{n-1}}v^{j_1\dots j_{n-1}}\\
+    &=\rho_2(a)^{i_1}_{\ \ j_1}\dots\rho_2(a)^{i_{n-1}}_{\ \ \ \ j_{n-1}}v^{j_1\dots j_{n-1}}
+\end{split}
+\end{equation}
+Looking at independent components, $v^{111\dots 11}, v^{111\dots 12}, v^{111\dots 22}, \dots, v^{222\dots 22}$, it is easy to see that since $(\rho_2^*\sim{}\overline{\rho}_2\sim{}\rho_2)$, then this property is inherited by higher dimensional irreps, 
+\begin{equation}
+    \rho_n^*\sim{}\overline{\rho}_n\sim{}\rho_n.
+\end{equation}
+If $n$ is odd, then we have a real representation. We recall that $SO(3)\simeq{}SU(2)/\mathbb{Z}_2$ (identifying $a\sim{}-a$). Thus since, $\rho_2(-a) = -\rho_2(a)\neq \rho_2(a)$ we have: 
+\begin{enumerate}
+    \item if $n$ even $\rho_n$ if \textit{not} a representation of $SO(3)$,
+    \item if $n$ is odd $\rho_n$ \textit{is} a representation of $SO(3)$
+\end{enumerate}
+Since $SO(3)$ is the rotation symmetry of the $n=3$ representation, then the $\rho_n$ representation corresponds to a state of spin, $s=\frac{1}{2}(n-1)$.
+
+\section{Young Tableu and $SU(n)$ irreps}
+We can generate the construction of $SU(2)$ irreps as symmetric tensors to general irreps of $SU(n)$ (or equally $SL(n, \mathbb{C})$). We start with the defining representation which is $n$-dimensional: 
+\begin{equation}
+    \rho_n: SU(n)\rightarrow GL(n, \mathbb{C})
+\end{equation}
+with the module $V\simeq{}\mathbb{C}^n$ with $v^i\in V, \ i = 1,\dots,n$. Then we have the \textit{tensor product reps},
+\begin{equation}
+    \rho_n\otimes\dots\otimes\rho_n: SU(n)\rightarrow GL(n^p,\mathbb{C})
+\end{equation}
+with the module $W = V\otimes\dots\otimes V$ with $v^{i_1\dots i_p}\in W$. We can decompose $W$ into irreps by \textit{symmetrising} and \textit{antisymmetrising} on indices. The combinatorics are encoded in \textit{Young tableu}. 
+
+Given an ordered partition $\lambda = (p_1, p_2,\dots,p_s)$ of positive integers $p_i\in\mathbb{N}$ satisfying
+\begin{equation}
+    p = p_1 + p_2 +\dots +p_n, \ \ \ p_i\in \mathbb{N}, \ \ \ p_1\geq p_2\geq \dots p_s
+\end{equation}
+For example for $p=4$ there are $5$ possibilities. To each possibility, we can attribute a \textit{Young tableu}
+
+\begin{equation}
+\begin{split}
+    \lambda = (4)\ \  
+    \ytableausetup{centertableaux}
+    \begin{ytableau}
+        \none & & & & & \none \\
+    \end{ytableau}
+    \ \ \lambda = (2,2)\ \  
+    \begin{ytableau}
+        \none &  &  & \none \\
+        \none &  &  & \none
+    \end{ytableau}
+    \ \ \lambda = (1,1,1,1)\ \  
+    \begin{ytableau}
+        \none &  & \none \\
+        \none &  & \none \\
+        \none &  & \none \\
+        \none &  & \none 
+    \end{ytableau}\\
+    \lambda = (3,1)\begin{ytableau}
+        \none &  &  &  & \none \\
+        \none &  &  \none
+    \end{ytableau}
+    \ \ \lambda = (2,1,1)\begin{ytableau}
+        \none &  &  &  \none \\
+        \none &  &  \none \\
+        \none &  &  \none
+    \end{ytableau}
+\end{split}
+\end{equation}
+
+The finite-dimensional \textit{irreducible representations} of $SU(n)$ are in \textit{one-to-one correspondence} with Young tableu with $s<n$. The tableu encodes the symmetry properties of the irrep as an invariant subspace of $W = \bigotimes^p_{i=1} V_i$ with the rules
+\begin{itemize}
+    \item antisymmetrize on columns (denoted by the operation $a$)
+    \item symmetrize on rows (denoted by the operation $s$).
+\end{itemize}
+
+For example: 
+\begin{itemize}
+    \item ($p=1$): $W=V\ni v^i$ \ytableausetup{centertableaux}\begin{ytableau}
+        \none & i & \none
+    \end{ytableau}$=v^i$ (defining representation has no sym or asym properties because there's only one index).
+    \item ($p=2$): $W = V\otimes V\ni v^{ij}$
+    \begin{equation}
+        \begin{split}
+        \ytableausetup{centertableaux}
+        \begin{ytableau}
+            \none & i & \none\\
+            \none & j & \none
+        \end{ytableau}: (av)^{ij} = \frac{1}{2}(v^{ij}-v^{ji})\text{ antisymmetric on $(ij)$}\\
+        \begin{ytableau}
+            \none & i & j & \none\\
+        \end{ytableau}: (sv)^{ij} = \frac{1}{2}(v^{ij}+v^{ji})\text{ symmetric on $(ij)$ }
+    \end{split}
+    \end{equation}
+     \item ($p=3$): $W = V\otimes V\otimes V\ni v^{ijk}$
+        $$ 
+        \ 
+        $$  
+        \ytableausetup{centertableaux}
+        \begin{ytableau}
+            \none & i & \none\\
+            \none & j & \none\\
+            \none & k & \none
+        \end{ytableau}:
+        
+        \begin{equation}
+            \begin{split}
+                (a\cdot v)^{ijk} = \frac{1}{6}(v^{ijk}-v^{ikj} + v^{jki} - v^{jik} + v^{kij} - v^{kji} )\text{ antisymmetric on } (ijk)
+            \end{split}
+        \end{equation}
+        $$ 
+        \ 
+        $$
+        \begin{ytableau}
+            \none & i & k & \none\\
+            \none & j & \none
+        \end{ytableau}: 
+        \begin{equation}
+        \begin{split}
+        (av)^{ij} = \frac{1}{2}(v^{ij}-v^{ji})\text{ antisymmetric on }(ij)\\
+        (s\cdot a\cdot v)^{ij} = \frac{1}{4}(v^{ij}+v^{ji})\text{ symmetric on } (ik) \\
+        \end{split}
+        \end{equation}
+
+        \ytableausetup{centertableaux}
+        \begin{ytableau}
+            \none & i & j & k &\none\\
+        \end{ytableau}:
+        
+        \begin{equation}
+            \begin{split}
+                (s\cdot v)^{ijk} = \frac{1}{6}(v^{ijk}+v^{ikj}+v^{jki}+ v^{jik} + v^{kij} + v^{kji} )\text{ symmetric on } (ijk)
+            \end{split}
+        \end{equation}
+
+        \item As a final example consider $W = V\otimes V\otimes V\otimes V\ni v^{ijkl}$
+        
+        \ytableausetup{centertableaux}
+        \begin{ytableau}
+            \none & i & k &\none\\
+            \none & j & l &\none\\
+        \end{ytableau}:
+        
+        \begin{equation}
+        \begin{split}
+        (a\cdot v)^{ijkl} &= \frac{1}{4}(v^{ijkl}-v^{jikl} - v^{ijlk} + v^{jilk}), \text{ antisymmetric on }(ij)(kl)\\
+        (s\cdot a\cdot v)^{ijkl} &= \frac{1}{4}(v^{ijkl} + v^{kjil} + v^{ilkj} + v^{klij}\\
+        &\ \ \ -v^{jikl} - v^{jkil} - v^{likj} - v^{lkij}\\
+        &\ \ \ -v^{ijlk} - v^{kjli} - v^{iljk} - v^{klji}\\
+        &\ \ \ +v^{jilk} + v^{jkli} + v^{lijk} + v^{lkji}), \text{ symmetric on } (ik)(jl)
+        \end{split}
+        \end{equation}
+    \end{itemize}
+
+Note that antisymmetrization on $n$ indices \begin{equation}
+    v^{[i_1\dots i_n]} = \lambda \varepsilon^{i_1\dots i_n}
+\end{equation}
+But, 
+\begin{equation}
+\begin{split}
+    v^{[i_1\dots i_n]}&\mapsto \rho(a)^{i_1}_{\ j_1}\dots \rho(a)^{i_n}_{\ j_n} \lambda \varepsilon^{j_1\dots j_n}\\
+    &=\left(\det\rho(a)\right)\lambda\varepsilon^{i_1\dots i_n} = v^{[i_1\dots i_n]}
+\end{split}
+\end{equation}
+where the final equality is obtained due to the fact that $SU(n)$ have $\det\rho=1$ hence $v^{[i_1\dots i_n]}$ is the trivial representation. These guys have no columns in the Young tableu. 
+\subsection{Hook length and dimensions of irreps}
+We would also like to know the dimension of each module. Let $x = (ij)$ be the $j^{\text{th}}$ box in the $i^{\text{th}}$ row of a Young tableu $[\lambda]$. Then
+
+\begin{equation}
+    \text{hook}(i,j) = \text{\# boxes to the right + \# number of boxes below $+1$}
+\end{equation}
+Or pictorially, 
+\begin{equation*}
+\ytableausetup{centertableaux}
+\begin{ytableau}
+    \none & & & & & & & & &\none\\
+    \none & & (ij) & \rightarrow & \rightarrow& \rightarrow & \rightarrow &  \none\\
+    \none & & \downarrow & & & &\none\\
+    \none & & \downarrow & & \none\\
+    \none & & \none
+\end{ytableau}
+\end{equation*}
+
+Let $W$ be the irreducible $SU(n)$ module corresponding to the Young tableau $[\lambda]$, then
+\begin{equation}
+    \dim W = \prod_{x = (ij)\in[\lambda]}\frac{n+j-i}{\text{hook}(ij)}
+\end{equation}
+
+\subsubsection{$SU(7)$ examples}
+\begin{itemize}
+    \item \ytableausetup{centertableaux}
+    $\dim\left(\begin{ytableau}
+    \none & & & &\none\\
+    \none & & \none
+    \end{ytableau}\right) = \frac{\begin{matrix}
+        7 & 8 & 9\\
+        6
+    \end{matrix}}{\begin{matrix}
+        4 & 2 & 1\\
+        1
+    \end{matrix}}= \frac{7 \times 8 \times 9\times 6}{4\times 2\times  1\times 1} = 378$
+    
+    $ $
+    
+    \item \ytableausetup{centertableaux}
+    $\dim\left(\begin{ytableau}
+    \none & & & &\none\\
+    \none & & & &\none\\
+    \none & &\none
+    \end{ytableau}\right) = \frac{\begin{matrix}
+        7 & 8 & 9\\
+        6 & 7 & 8\\
+        5
+    \end{matrix}}{\begin{matrix}
+        5 & 3 & 2\\
+        4 & 2 & 1\\
+        1
+    \end{matrix}}= 7^2\times 8\times 9 = 3528$
+\end{itemize}
+\subsection{Dual and Conjugate representations}
+We would also like a nice way to find \textit{dual} and \textit{conjugate} representations. Since $\rho^*_d\sim{}\overline{\rho}_d$ for the defining rep we have, $\rho^*\sim{}\overline{\rho}$ for all irreps (i.e dual and conjugate reps). 
+
+Dual (and equivalently conjugate) $SU(n)$ irreps correspond to Young Tableau that fit together as a rectangle with columns of length, $n$. For example for $SU(3)$,
+
+\ytableausetup{centertableaux}
+\begin{equation}
+\begin{ytableau}
+    \none & & & & &\none\\
+    \none & & / & / & / &\none\\
+    \none & / &/ & /& /&\none
+\end{ytableau}\longrightarrow \begin{ytableau}
+    \none & & & & &\none\\
+    \none & & \none
+\end{ytableau}\overset{(*)}{\iff}\begin{ytableau}
+    \none & & & & &\none\\
+    \none & & & &\none
+\end{ytableau}
+\end{equation}
+
+where the two diagrams on the right are conjugate to one another.
+
+For the defining representation of $SU(6)$, the conjugate rep is: 
+\begin{equation}
+    \rho^*_6: \left(\begin{ytableau}
+        \none & &\none 
+    \end{ytableau}\right)^* =  
+    \begin{ytableau}
+        \none & & \none\\
+        \none & & \none\\
+        \none & & \none\\
+        \none & & \none\\
+        \none & & \none
+    \end{ytableau}
+\end{equation}
+
+the dual is antisymemtric on $(n-1)$ indices. We can write $v^{i_1\dots i_{n-1}} = \varepsilon^{i_1\dots i_{n-1}}v_{i_n}$.
+
+\subsection{Tensor products of irreps}
+We can build higher dimensional irreps from smaller irreps,
+\begin{equation}
+\rho_n\otimes\rho_n^*:\ytableausetup{centertableaux}
+\begin{ytableau}
+    \none & & \none
+\end{ytableau}\otimes
+\begin{ytableau}
+    \none & & \none \\
+    \none & & \none \\
+    \none & \vdots & \none \\
+    \none & & \none \\
+    \none & & \none
+\end{ytableau} = 1\oplus \begin{ytableau}
+    \none & & &\none \\
+    \none & & \none \\
+    \none & \vdots & \none \\
+    \none & & \none \\
+    \none & & \none
+\end{ytableau}
+\end{equation}
+where 1 denotes the singlet. The dimension of this new representation can be found with the usual calculation of hook lengths, 
+
+\begin{equation}
+\begin{split}
+    \dim\left(\begin{ytableau}
+    \none & & &\none \\
+    \none & & \none \\
+    \none & \vdots & \none \\
+    \none & & \none \\
+    \none & & \none
+    \end{ytableau}\right) = \frac{\begin{pmatrix}
+        n & n+1 \\
+        n-1 \\
+        \vdots\\
+        2
+    \end{pmatrix}}{\begin{pmatrix}
+        n & 1 \\
+        n-2 \\
+        \vdots\\
+        1
+    \end{pmatrix}} = (n+1)(n-1) = n^2-1
+\end{split}
+\end{equation}
+This representation in particular is interesting because it has the same dimension as the group $SU(n)$. Such a representation always exists called the \textit{adjoint representation}. If we write adjoint as 
+\begin{equation}
+    v^{i_1\dots i_{d-1}j} = \varepsilon^{i_1\dots i_{d-1}i}a^j_{\ i}
+\end{equation}
+then if $a^{j}_{\ j} =0$ and 
+\begin{equation}
+    a^{j}_{\ i} \longrightarrow \left[\rho_{d}(a)\right]^{j}_{\ k} a^{k}_{\ l}\left[\rho_{d}(a)^{-1}\right]^{l}_{\ i} \ \ \ \ \text{ (\textit{adjoint transformation}) }
+\end{equation}
+
